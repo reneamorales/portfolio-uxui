@@ -1,0 +1,67 @@
+/* Estilo general de la sección */
+/*Project-Section*/
+#projects {
+    padding: 64px 0;
+    color: black;
+    z-index: 1;
+}
+
+.projects-container {
+    max-width: 1152px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+/* Título de la sección */
+.section-title {
+    color: #09092D;
+    font-size: 32px;
+    line-height: 51.8px;
+    font-weight: bold;
+    text-align: center;
+    justify-content: center;
+    margin-bottom: 32px;
+}
+
+/* Lista de proyectos */
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: 64px;
+    align-items: center;
+    /* Espacio entre las cards */
+}
+
+/*
+@media (max-width: 1152px) {}
+@media (max-width: 768px) {}
+*/
+
+@media (max-width: 1152px) {
+    .section-title{
+        font-size: 24px;
+        line-height: 38.8px;
+    }
+    .projects-container {
+        max-width: 959px;
+    }
+}
+
+@media (max-width: 768px) {
+    #projects {
+        margin: 0 16px;
+    }
+    .section-title{
+        font-size: 20px;
+        line-height: 32.4px;
+    }
+    .projects-container {
+        min-width: 358px;
+    }
+    .projects-list {
+        gap: 16px;
+    }
+}
+

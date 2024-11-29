@@ -1,0 +1,81 @@
+/*Principles section*/
+#principles {
+    padding: 32px 20px;
+    /*background-color: #f9f9f9;*/
+    /* Fondo claro para destacar la sección */
+}
+
+.principles-container {
+    max-width: 1152px;
+    margin: 0 auto;
+    /* Centra el contenedor */
+    /*text-align: center;*/
+    padding: 0 16px;
+}
+
+.title-section {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 32px;
+    color: #333;
+    /* Color oscuro para buena legibilidad */
+}
+
+.capsules-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que las cápsulas pasen a la siguiente fila */
+    justify-content:first flex-start;
+    /* Centra las cápsulas en el contenedor */
+    gap: 28px;
+    /* Espaciado entre cápsulas */
+}
+
+.capsule {
+    font-family: poppins, sans-serif;
+    font-weight: normal;
+    padding: 8px 12px;
+    background-color: #E9D8FF;
+    /* Fondo blanco */
+    border: none;
+    border-radius: 5px;
+    /* Forma de cápsula */
+    font-size: 18px;
+    color: #393781;
+}
+
+@media (max-width: 1152px) {
+    .section-title {
+        font-size: 24px;
+        line-height: 38.8px;
+        margin-bottom: 24px;
+    }
+    .principles-container {
+        max-width: 959px;
+        padding: 0 20px;
+    }
+    .capsules-container{
+        gap: 24px;
+    }
+    .capsule {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 20px;
+        line-height: 32.4px;
+        margin-bottom: 18px;
+    }
+    .principles-container {
+        min-width: 358px;
+        padding: 0 16px;
+    }
+    .capsules-container{
+        gap: 20px;
+    }
+    .capsule {
+        font-size: 14px;
+    }
+}

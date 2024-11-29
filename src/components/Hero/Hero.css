@@ -1,0 +1,273 @@
+/* SUB-CONTAINER DE HERO */
+.hero-section {
+    height: 85%;
+    width: 1152px;
+    background: #DBE6F6;
+
+    background-image: url('/src/img/calm-beach-cover-hero.avif');
+    background-size: cover;
+    background-position: center; /* Ajusta el enfoque de la imagen */
+
+
+    /* fallback for old browsers */
+    /*background: -webkit-linear-gradient(to left, #C5796D, #DBE6F6);*/
+    /* Chrome 10-25, Safari 5.1-6 */
+    /*background: linear-gradient(to left, #C5796D, #DBE6F6);*/
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0;
+    overflow: visible;  /* Asegúrate de que el contenido no se corte */
+}
+/*Reco. por GPT*/
+/*.animated-card {
+    position: absolute; /* o relative *//*
+    left: 50%;
+    bottom: 50%;
+    transform: translate(-50%, 50%); /* Centra horizontal y verticalmente */
+  /*}*/
+  
+.animated-card {
+    width: 45%;
+    height: auto;
+    left: 16px;/*antes 16px*/
+    bottom: 16px;
+    background-color: rgba(0, 0, 0, 0.5);
+    /* align-items: center;*/
+    /*centra los elmento de forma horizontal*/
+    justify-content: center;
+    position: absolute;
+    padding: 16px;
+    border-radius: 16px 16px 16px 0;
+    min-width: 300px;
+    max-height: 572px;
+    /*para aplicar el gap*/
+    display: flex;
+    /* O display: grid; */
+    flex-direction: column;
+    /* Para apilar los elementos verticalmente */
+    gap: 24px;
+    /* Aplica el espacio entre el h1 y el párrafo y boton*/
+
+    transform-origin: bottom left;
+    transform: scale(0);
+    animation: grow 1s ease-in-out forwards;
+    box-sizing: initial;
+}
+
+/* Animación para el crecimiento del contenedor */
+@keyframes grow {
+    to {
+        transform: scale(1);
+    }
+}
+
+/* Texto principal */
+.hero-title {
+    font-size: 48px;
+    font-weight: bold;
+    word-spacing: normal;
+    display: inline-block;
+    /* inline-block Asegura que el texto respete su distribución natural */
+    background-color: hsla(79, 98%, 66%, 1);
+    background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1799 1799' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"), radial-gradient(circle at 94% 95%, hsla(170, 88%, 68%, 1) 3%, transparent 76%), radial-gradient(circle at 89% 34%, hsla(263, 96%, 51%, 1) 1%, transparent 86%), radial-gradient(circle at 86% 50%, hsla(318, 80%, 65%, 1) 7%, transparent 76%), radial-gradient(circle at 89% 79%, hsla(248, 76%, 53%, 1) 7%, transparent 87%), radial-gradient(circle at 15% 44%, hsla(4, 74%, 80%, 1) 15%, transparent 81%), radial-gradient(circle at 99% 20%, hsla(75, 88%, 92%, 1) 1%, transparent 68%);
+    background-blend-mode: overlay, normal, normal, normal, normal, normal, normal;
+    /*background: linear-gradient(90deg, rgba(136, 131, 188, 1) 0%, rgba(186, 125, 183, 1) 25%, rgba(120, 208, 227, 1) 50%, rgba(120, 171, 247, 1) 75%, rgba(80, 96, 242, 1) 100%);*/
+    -webkit-background-clip: text;
+    /*Indica que no tiene compatibilidad*/
+    -webkit-text-fill-color: transparent;
+    overflow-wrap: break-word;
+    animation: fade-in 1s ease-in-out 1s forwards;
+    margin-right: 12px;
+}
+
+/* Animación para la aparición del texto */
+@keyframes fade-in {
+    to {
+        opacity: 1;
+    }
+}
+
+.typewriter-word, .hero-word{
+    margin-right: 12px;
+}
+/* Texto animado estilo máquina de escribir */
+.typewriter-effect {
+    font-size: 32px;
+    color: #00FFCC;
+    display: inline-block;
+    white-space: normal;
+    overflow: hidden;
+    opacity: 0;
+    animation: fade-in 0.5s ease-in-out 2s forwards;
+    /* Aparece después del h1 */
+    margin-bottom: 16px;
+}
+
+.typewriter-effect span {
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    opacity: 0;
+    animation: typing 1s steps(15, end) forwards;
+}
+
+.typewriter-effect span:nth-child(1) {
+    animation-delay: 2.5s;
+}
+
+.typewriter-effect span:nth-child(2) {
+    animation-delay: 3s;
+}
+
+.typewriter-effect span:nth-child(3) {
+    animation-delay: 3.5s;
+}
+
+.typewriter-effect span:nth-child(4) {
+    animation-delay: 4s;
+}
+
+.typewriter-effect span:nth-child(5) {
+    animation-delay: 4.5s;
+}
+
+.typewriter-effect span:nth-child(6) {
+    animation-delay: 5s;
+}
+
+.typewriter-effect span:nth-child(7) {
+    animation-delay: 5.5s;
+}
+
+.typewriter-effect span:nth-child(8) {
+    animation-delay: 6s;
+}
+
+.typewriter-effect span:nth-child(9) {
+    animation-delay: 6.5s;
+}
+
+.typewriter-effect span:nth-child(10) {
+    animation-delay: 7s;
+}
+
+/* Animación de escritura */
+@keyframes typing {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+        /* Efecto inicial hacia abajo */
+    }
+
+    50% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/*button-principal*/
+
+.btn {
+    transition: box-shadow 600ms ease-out;
+    /* Transición para el efecto de sombra */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra inicial suave */
+}
+
+.btn:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    /* Sombra más pronunciada */
+    transform: translateY(-2px);
+    /* Efecto de elevación */
+}
+
+/* Opcional: Estilo cuando se presiona */
+.btn:active {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+    /* Sombra menos intensa */
+    transform: translateY(0);
+    /* Vuelve a su posición original */
+}
+
+.btn-cv {
+    background-color: #00FF85;
+    text-decoration: none;
+    color: black;
+    width: 220px;
+    height: 60px;
+    padding: 12px;
+    font-size: 24px;
+    font-weight: medium;
+    /*no esta aplicando el peso no está disp.*/
+    line-height: 38.8px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    /* Alinea el texto verticalmente */
+    justify-content: center;
+    /* Opcional, centra el texto horizontalmente */
+    cursor: pointer;
+    /* Cambio de cursor a mano */
+}
+
+.btn-cv:hover {
+    background-color: #00FF7F;
+}
+
+
+@media (max-width: 1152px) {   
+    .hero-section{
+        width: 100%;
+        
+    }
+    .animated-card{
+        max-height: 572px;
+    }
+    .hero-title{
+        font-size: 42px;
+        margin-right: 8px;
+    }
+    .typewriter-effect{
+        font-size: 28px;
+        margin-bottom: 12px;
+    }
+    .btn-cv{
+        font-size: 20px;
+        line-height: 32.4px;
+    }
+    
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .animated-card{
+        max-height: 572px;
+        gap: 16px;
+        
+    }
+    .hero-title{
+        font-size: 36px;
+        margin-right: 4px;
+    }
+    .typewriter-effect{
+        font-size: 24px;
+        margin-bottom: 8px
+    }
+    .btn-cv{
+        font-size: 16px;
+        line-height: 32.4px;
+        padding: 8px;
+        border-radius: 3px;
+        width: 173px;
+        height: 49px;
+    }
+}

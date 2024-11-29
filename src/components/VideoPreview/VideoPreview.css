@@ -1,0 +1,44 @@
+figure {
+    margin: 0;
+    width: 50%;
+    /* Asegúrate de que no haya desbordamiento */
+    display: flex;
+    align-items: center;
+    /* Centra verticalmente el contenido */
+    justify-content: center;
+    /* Centra horizontalmente el contenido */
+    overflow: hidden;
+    /* Evita cualquier desbordamiento */
+    flex-direction: column;
+}
+
+/* Vista previa del proyecto */
+.project-video {
+    width: 100%;
+    /* Ajusta al ancho del contenedor figure */
+    height: auto;
+    /* Ajusta la altura automáticamente */
+    object-fit: cover;
+    /* Escala el video sin deformarlo, llenando el espacio */
+    display: block;
+}
+
+
+figcaption {
+    font-size: 0.875rem;
+    text-align: center;
+    color: #666;
+    margin-top: 8px;
+}
+
+@media (max-width: 1152px) {
+   figure {
+        width: 100%;
+        
+    }
+    .project-video{
+        height: 50%;
+    }
+}
+
+@media (max-width: 768px) {}
