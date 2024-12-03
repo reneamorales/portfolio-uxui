@@ -1,0 +1,256 @@
+footer {
+    display: flex;
+    flex-direction: column;
+    padding: 24px 107px;
+    gap: 64px;
+    background: -webkit-linear-gradient(180deg, #09092D, #000000);
+    background: linear-gradient(180deg, #09092D, #000000);
+    width: 100%;
+    justify-content: center;
+}
+
+.footer__logo {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.footer__logo a {
+
+    font-size: 96px;
+    /*font-size: 128px;
+    line-height: 207.1px;*/
+    font-weight: bold;
+    background: linear-gradient(90deg, #22FDAA 0%, #8C43FF 100%);
+    -webkit-background-clip: text;
+    /* Funciona para WebKit */
+    -webkit-text-fill-color: transparent;
+    /* Hace que el fondo sea visible */
+    color: transparent;
+    /* Asegura compatibilidad con otros navegadores */
+    display: inline-block;
+    /*ajusta el ancho a solo el espacio del texto*/
+
+}
+
+.footer__description {
+    height: auto;
+    width: 100%;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.footer__description-purpose {
+    width: 60%;
+    font-size: 76px;
+    line-height: 98px;
+    font-weight: 700;
+    color: #00FF7F;
+}
+
+.footer__description-goals {
+    width: 40%;
+    font-family: 'Poppins';
+    font-size: 20px;
+    font-size: auto;
+    color: #F5F5F5;
+}
+
+.footer__description-goals p {
+    margin-bottom: 32px;
+}
+
+.description .highlight {
+    display: block;
+    font-style: italic;
+}
+
+.footer__cta-button {
+    font-family: 'Orbitron';
+    font-size: 28px;
+    line-height: 45.3px;
+    padding: 12px 24px;
+    background-color: white;
+    border: 2.5px solid #00FF7F;
+    color: black;
+    border-radius: 5px;
+    width: 417px;
+    align-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* Asegura separación entre texto e ícono */
+    transition: background-color 0.3s ease-in;
+    /* Para animar el cambio de color */
+}
+
+/*ver bien la lógica de esta animación*/
+.footer__cta-button:hover {
+    background-color: #00FF7F;
+}
+
+.footer__cta-button svg {
+    width: 40px;
+    height: 40px;
+    /* Ajusta el tamaño del ícono */
+    stroke: currentColor;
+    /* Usa el color del texto del botón */
+    transition: transform 0.3s ease-in;
+    /* Agrega transición para animar el SVG */
+}
+
+.footer__cta-button:hover svg {
+    transform: translateX(9px);
+}
+
+.footer__social-media {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    height: 160px;
+    align-items: center;
+}
+
+.footer__social-media-link {
+    display: flex;
+    width: 228px;
+    height: 60px;
+    gap: 16px;
+}
+
+.footer__social-link {
+    display: inline-block;
+    /* Necesario para que el transform funcione bien */
+    transition: transform 200ms ease-in-out;
+    /* Animación al estado hover */
+}
+
+.footer__social-link:hover {
+    transform: translateY(-15px);
+}
+
+.footer__divider {
+    color: #f5f5f5;
+}
+
+.footer__copy {
+    font-family: 'Poppins';
+    color: #f2f2f2;
+    font-size: 16px;
+    line-height: 19.4px;
+    display: flex;
+    justify-content: center;
+}
+
+@media (max-width: 1152px) {
+    .footer {
+        padding: 32px;
+        gap: 32px;
+    }
+
+    .footer__logo a {
+        font-size: 86px;
+    }
+
+    .footer__description {
+        gap: 24px;
+    }
+
+    .footer__description-purpose {
+        width: 50%;
+        font-size: 54px;
+        line-height: 87.4px;
+    }
+
+    .footer__description-goals {
+        width: 50%;
+        max-width: 340px;
+        font-size: 16px;
+        line-height: 25.9px;
+    }
+
+    .footer__cta-button {
+        width: 100%;
+        max-width: 373px;
+        height: 57px;
+        padding: 12px 20px;
+        gap: 0px;
+        font-size: 20px;
+        line-height: 25.9px;
+    }
+
+    .footer__cta-button svg {
+        width: 33px;
+        height: 33px;
+    }
+
+    .footer__social-media {
+        max-width: 959px;
+        height: 100;
+    }
+
+    .footer__social-link img {
+        width: 40px;
+        height: 40px;
+    }
+
+    .footer__copy {
+        font-size: 12px;
+    }
+
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 32px 16px;
+    }
+
+    .footer__logo a {
+        font-size: 80px;
+    }
+
+    .footer__description {
+        gap: 32px 16px;
+        min-width: 358px;
+        max-width: 660px;
+        flex-direction: column;
+    }
+
+    .footer__description-purpose {
+        width: 100%;
+        font-size: 48px;
+        line-height: 77.7px;
+    }
+
+    .footer__description-goals {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .footer__description-goals p {
+        margin-bottom: 20px;
+    }
+
+    .footer__cta-button {
+        min-width: 358px;
+        font-size: 24px;
+        padding: 12px 8px;
+        gap: 16px;
+    }
+
+    .footer__cta-button svg {
+        width: 40px;
+    }
+
+    .footer__social-media {}
+
+    .footer__social-link {}
+
+    .footer__divider {}
+
+    .footer__copy {}
+}
