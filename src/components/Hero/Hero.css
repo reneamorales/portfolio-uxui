@@ -35,7 +35,9 @@
     height: auto;
     left: 16px;/*antes 16px*/
     bottom: 16px;
-    background-color: rgba(0, 0, 0, 0.5);
+    /*backdrop-filter: blur(15px);*/
+    background-color:  #0000009b;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1) ;
     /* align-items: center;*/
     /*centra los elmento de forma horizontal*/
     justify-content: center;
@@ -96,7 +98,7 @@
 }
 /* Texto animado estilo máquina de escribir */
 .typewriter-effect {
-    font-size: 32px;
+    font-size: 24px;
     color: #00FFCC;
     display: inline-block;
     white-space: normal;
@@ -237,7 +239,7 @@
         margin-right: 8px;
     }
     .typewriter-effect{
-        font-size: 28px;
+        font-size: 20px;
         margin-bottom: 12px;
     }
     .btn-cv{
@@ -259,7 +261,7 @@
         margin-right: 4px;
     }
     .typewriter-effect{
-        font-size: 24px;
+        font-size: 16px;
         margin-bottom: 8px
     }
     .btn-cv{
