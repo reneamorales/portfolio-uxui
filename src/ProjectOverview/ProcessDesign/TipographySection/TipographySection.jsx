@@ -7,9 +7,9 @@ import { ItemParagraph } from './ItemFontContent';
 export const TipographySection = () => {
     return (
         <div
-            className='tipography__section'>
-            <p className='tipography__section-title'>{ItemParagraph.title}</p>
-            <p className='tipography__section-description'>{ItemParagraph.description}</p>
+            className='design__process-container'>
+            <p className='design__process-title'>{ItemParagraph.title}</p>
+            <p className='design__process-description'>{ItemParagraph.description}</p>
             <div className='tipography__section-inner'>
                 {ItemFontContent.map((font, index) => (
                     <ItemFont
