@@ -202,11 +202,12 @@
 
 .btn-cv {
     background-color: #00FF85;
-    text-decoration: none;
+    border: none;
     color: black;
     width: 220px;
     height: 60px;
     padding: 12px;
+    font-family: var(--font-primary);
     font-size: 24px;
     font-weight: medium;
     /*no esta aplicando el peso no está disp.*/
@@ -252,6 +253,7 @@
 /* Media query para pantallas pequeñas */
 @media (max-width: 768px) {
     .animated-card{
+        width: 85%;
         max-height: 572px;
         gap: 16px;
         
