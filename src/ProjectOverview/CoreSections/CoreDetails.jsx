@@ -1,19 +1,17 @@
+
 import React from "react";
 import "./core-sections.css";
-import { CoreSections } from "./CoreSections";
-import { CoreContent } from "./CoreContent";
+import {CoreSections}  from "./CoreSections";
 
-export const CoreDetails = () => {
+export const CoreDetails = ({ content }) => {
+  const contentArray = Object.values(content);
+
   return (
     <div className="project-details">
-      {Object.values(CoreContent).map((content, index) => (
+      {contentArray.map((section, index) => (
         <CoreSections
           key={index}
-          title={content.title}
-          subtitle={content.subtitle}
-          description={content.description}
-          className={content.className}
-          imageSrc={content.imageSrc}
+          {...section} // Esto pasa todas las claves del objeto `section` como props
         />
       ))}
     </div>
