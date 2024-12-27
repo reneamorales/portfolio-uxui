@@ -1,56 +1,176 @@
-.project-details {
+/* Core sections */
+.section {
     width: 100%;
-    /*background-color: #f2f5f5;*/
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
-.section {
-    width: 959px;
-    padding: 0px 64px;
-    background-color: rgb(255, 255, 255);
-
+.section:first-child {
+    margin-top: 16px;
 }
 
 .section__title {
-    font-size: 32px;
-    line-height: 51.8px;
-    padding: 16px 32px;
+    font-size: 24px;
+    line-height: 28.8px;
+    padding: 12px 16px;
     text-align: center;
-}
-
-.section-subtitle {
-    font-family: var(--font-terciary);
-    font-size: 32px;
-    line-height: 38.8px;
-    font-weight: 600;
-    padding: 16px 32px;
 }
 
 .section__description {
     font-family: 'Poppins';
-    padding: 16px 32px;
-    font-size: 20px;
-    line-height: 32.4px;
-}
-
-.section:first-child {
-    margin: 64px 0;
+    font-size: 14px;
+    line-height: 22.7px;
+    padding: 12px 16px;
 }
 
 .section__description strong {
     font-weight: bold;
     color: #00891E;
 }
-u{
-    text-decoration:underline;
+
+u {
+    text-decoration: underline;
 }
 
-.project-information-arquitecture img {
-    max-width: 100%;
+/*Container de ContentDetails*/
+.project-details {
+    width: 100%;
+    max-width: 736px;
+    margin: 0 auto;
+    /*background-color: #d23cc5;*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*Zoom Feature*/
+.zoom-container {
+    position: relative;
+    width: 100%;
+    /*height: 500px;*/
+    height: 537px;
+    overflow: hidden;
+    border: 1px solid #ccc;
+}
+
+/* Add this new class if you need to overlay a PNG on top */
+
+.zoom-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e5e5f7;
+    opacity: 0.2;
+    background-image: linear-gradient(#c9cbe5 1px, transparent 1px), linear-gradient(to right, #c9cbe5 1px, #e5e5f7 1px);
+    background-size: 20px 20px;
+    z-index: -1;
+
+}
+
+.zoom-container:hover {
+    border-color: #007bff;
+}
+
+/* Para el cursor cuando se está desplazando */
+.scrollable-container:active {
+    cursor: grabbing;
+}
+
+
+.scrollable {
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+}
+
+.zoomable-image {
+    width: 200%;
+    /*100%*/
+    /* Cambia dinámicamente con el zoom */
     height: auto;
-    display: block;
-    background-size: cover;
-    background-position: center; /* Ajusta el enfoque de la imagen */
+    aspect-ratio: auto;
+
+}
+
+.zoom-container .zoomable-image {
+    animation: none !important;
+    view-timeline-name: unset;
+    view-timeline-axis: unset;
+    animation-timeline: unset;
+    animation-name: unset;
+    animation-range: unset;
+    animation-fill-mode: unset;
+}
+
+.controls {
+    position: absolute;
+    bottom: 16px;
+    right: 16px;
+    display: flex;
+    gap: 8px;
+}
+
+.controls button {
+    width: 40px;
+    height: 40px;
+    padding: 12px;
+    background: #323232;
+    border: none;
+    color: #f8f8f8;
+    border-radius: 8px;
+    font-size: 16px;
+    line-height: 16px;
+    cursor: pointer;
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+    .project-details {
+        max-width: 958px;
+    }
+
+    .section__title,
+    .section-subtitle {
+        font-size: 28px;
+        line-height: 45.2px;
+        padding: 24px 16px;
+    }
+
+    .section__description {
+        font-size: 16px;
+        line-height: 25.9px;
+        padding: 24px 16px;
+    }
+
+    .section:first-child {
+        margin-top: 24px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .project-details {
+        max-width: 958px;
+    }
+
+    .section__title {
+        font-size: 36px;
+        line-height: 58.2px;
+        padding: 16px 32px;
+    }
+
+    .section-subtitle {
+        font-size: 32px;
+        line-height: 51.8px;
+        padding: 16px 32px;
+    }
+
+    .section__description {
+        font-size: 20px;
+        line-height: 32.4px;
+        padding: 16px 32px;
+    }
+
+    .section:first-child {
+        margin-top: 32px;
+    }
 }
