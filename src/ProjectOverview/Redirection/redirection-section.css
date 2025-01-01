@@ -1,0 +1,391 @@
+.redirection__container {
+    position: relative;
+    width: 100%;
+    height: auto;
+    margin-top: 64px;
+}
+
+.redirection__content {
+    background-color: #c084fc;
+    position: absolute;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: 8px;
+    padding: 16px;
+}
+
+.redirection__image {
+    width: 100%;
+    height: 100dvh;
+    aspect-ratio: auto;
+    transition: animation 1000s ease-in-out;
+}
+
+.redirection__content img {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: auto;
+    view-timeline-name: --image;
+    view-timeline-axis: block;
+
+    animation-timeline: --image;
+    animation-name: showScale;
+    animation-range: entry 10% cover 30%;
+    /*Ajuste de rango de animación*/
+    animation-fill-mode: both;
+    /*anima hacia los dos sentidos*/
+}
+
+/*La animacioón NO es SOPORTADA por Mozilla y safari*/
+
+@keyframes showScale {
+
+    from {
+        opacity: 0;
+        scale: 40%
+    }
+
+    to {
+        scale: 100%;
+        /*140*/
+    }
+}
+@property --x-0 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 37%
+}
+
+@property --c-0 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(291, 76%, 91%, 1)
+}
+
+@property --y-0 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 99%
+}
+
+@property --s-start-0 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 15%
+}
+
+@property --s-end-0 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 72%
+}
+
+@property --s-start-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 4%
+}
+
+@property --s-end-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 56%
+}
+
+@property --c-1 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(224, 99%, 60%, 1)
+}
+
+@property --y-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 78%
+}
+
+@property --x-1 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 41%
+}
+
+@property --x-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 49%
+}
+
+@property --c-2 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(183, 52%, 85%, 1)
+}
+
+@property --s-start-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 2%
+}
+
+@property --s-end-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 81%
+}
+
+@property --y-2 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 27%
+}
+
+@property --c-3 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(207, 75%, 75%, 1)
+}
+
+@property --y-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 43%
+}
+
+@property --x-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 59%
+}
+
+@property --s-start-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 7%
+}
+
+@property --s-end-3 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 70%
+}
+
+@property --y-4 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 8%
+}
+
+@property --s-start-4 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%
+}
+
+@property --s-end-4 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 62%
+}
+
+@property --x-4 {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 87%
+}
+
+@property --c-4 {
+    syntax: '<color>';
+    inherits: false;
+    initial-value: hsla(183, 73%, 64%, 1)
+}
+
+/* Centrar y superponer cta__prototype-container */
+.cta__prototype-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: auto-fit 1fr;
+    grid-template-rows: auto;
+    row-gap: 32px;
+   
+ --x-0: 37%;
+ --c-0: hsla(291, 76%, 91%, 1);
+ --y-0: 99%;
+ --c-1: hsla(224, 99%, 60%, 1);
+ --y-1: 78%;
+ --x-1: 41%;
+ --x-2: 49%;
+ --c-2: hsla(183, 52%, 85%, 1);
+ --y-2: 27%;
+ --c-3: hsla(207, 75%, 75%, 1);
+ --y-3: 43%;
+ --x-3: 59%;
+ --y-4: 8%;
+ --x-4: 87%;
+ --c-4: hsla(183, 73%, 64%, 1);
+ background-color: hsla(223, 89%, 87%, 1);
+ background-image: radial-gradient(circle at var(--x-0) var(--y-0), var(--c-0) var(--s-start-0), transparent var(--s-end-0)), radial-gradient(circle at var(--x-1) var(--y-1), var(--c-1) var(--s-start-1), transparent var(--s-end-1)), radial-gradient(circle at var(--x-2) var(--y-2), var(--c-2) var(--s-start-2), transparent var(--s-end-2)), radial-gradient(circle at var(--x-3) var(--y-3), var(--c-3) var(--s-start-3), transparent var(--s-end-3)), radial-gradient(circle at var(--x-4) var(--y-4), var(--c-4) var(--s-start-4), transparent var(--s-end-4));
+
+
+    padding: 32px;
+    border-radius: 12px;
+    z-index: 2;
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+
+    view-timeline-name: --container;
+    view-timeline-axis: block;
+    animation-timeline: --container;
+    animation-name: showContainer;
+    animation-range: entry 70% cover 40%;
+    /*animation-fill-mode: both;*/
+}
+
+/*está afectando loe elementos del Grid, ahora NO por el cambio de NOMBRE*/
+@keyframes showContainer {
+    from {
+        opacity: 0;
+        scale: 0.8;
+    }
+
+    to {
+        opacity: 1;
+        scale: 1;
+        box-shadow: 0 0 20px #000000;
+    }
+}
+
+
+.cta__prototype-paragraph {
+    font-family: var(--font-secondary), sans-serif;
+    width: 95%;
+    padding: 8px 16px;
+
+    font-size: 28px;
+    line-height: 45.3px;
+
+    font-weight: 500;
+    margin: 0 auto;
+}
+
+/*......................*/
+
+.cta__prototype-button {
+    display: flex;
+    align-items: center;
+    gap: 00;
+    margin: 0 auto;
+    position: relative;
+    /* Necesario para manejar las pseudo-clases individuales */
+    transparence: 1;
+    font-size: 28px;
+    line-height: 45.3px;
+}
+
+.cta__prototype-link,
+.cta__prototype-arrow {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #c084fc;
+    border-radius: 50px;
+    font-family: var(--font-secondary), sans-serif;
+    text-decoration: none;
+    overflow: hidden;
+    /* Oculta lo que exceda */
+    z-index: 1;
+    color: black;
+    background: white;
+    /* Fondo inicial */
+    transition: all 0.5s ease;
+    /* Transiciones suaves para fondo, color, etc. */
+}
+
+.cta__prototype-link {
+    width: 320px;
+    font-size: 40px;
+    line-height: 64.7px;
+    text-align: center;
+    padding: 12px 24px;
+}
+
+.cta__prototype-arrow {
+    width: 89px;
+    height: 89px;
+    padding: 12px;
+    border-radius: 50%;
+    /* Círculo */
+    transition-delay: 0.5s;
+    /* Delay para que la animación de la flecha inicie después */
+
+}
+
+.cta__prototype-arrow .icon {
+    width: 40px;
+    aspect-ratio: auto;
+}
+
+/* Gradiente y animación individual */
+.cta__prototype-link::before,
+.cta__prototype-arrow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    /* Respeta las formas (rectángulo/círculo) */
+    background: linear-gradient(to right, #a5b4fc, #c084fc);
+    /* Gradiente inicial */
+    transform: scaleX(0);
+    /* Inicialmente invisible */
+    transform-origin: left;
+    /* La animación inicia desde la izquierda */
+    transition: transform 0.5s ease-in-out;
+    z-index: -1;
+}
+
+.cta__prototype-button:hover .cta__prototype-link::before,
+.cta__prototype-button:hover .cta__prototype-arrow::before {
+    transform: scaleX(1);
+    /* Gradiente se expande */
+    background: black;
+    /* Fondo negro al hacer hover */
+}
+
+/* Hover: Cambiar fondo y texto */
+.cta__prototype-button:hover .cta__prototype-link,
+.cta__prototype-button:hover .cta__prototype-arrow {
+    background: black;
+    color: white;
+    border-color: black;
+}
+
+/* Hover: Cambiar el color de la flecha */
+.cta__prototype-button:hover .cta__prototype-arrow {
+    color: #FF7A00;
+    /* Flecha en naranja */
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+
+    .cta__prototype-paragraph,
+    .cta__prototype-button a {
+        font-size: 32px;
+        line-height: 51.8px;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .cta__prototype-paragraph,
+    .cta__prototype-button a {
+        font-size: 36px;
+        line-height: 58.2px;
+    }
+}
+
+
