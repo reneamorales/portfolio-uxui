@@ -1,39 +1,41 @@
-import IconArrow from '../../components/Footer/IconArrow';
-import redirectionImage from '../../img/redirection-split.png';
+import React, { useRef } from 'react';
+import PopUp from './PopUp';
+import redirectionImageDefault from "../../img/redirection-default-fit.png";
+import redirectionImageDesktop from "../../img/redirection-desktop.png";
+import redirectionImageTablet from "../../img/redirection-tablet.png";
 
-import './redirection-section.css';
+import "./redirection-section.css";
 
 export const RedirectionSection = () => {
+    const targetRef = useRef(null); // Crear la referencia para la sección objetivo
+
     return (
-        <div className="redirection__container">
+        <div ref={targetRef} className="redirection__container target-section">
             <div className="redirection__content">
-                <img
-                    src={redirectionImage}
-                    alt="Redirection section illustration"
-                    loading="lazy"
-                    className="redirection__image"
-                    onError={(e) => {
-                        e.target.onerror = null;
-                        e.target.src = 'fallback-image-path.png';
-                    }}
-                />
-                <div className='cta__prototype-container'>
-                    <h3 className='cta__prototype-paragraph'>¿Listo para explorar el prototipo? ¡Yo también estoy emocionado!</h3>
-                    <div className="cta__prototype-button">
-                        <a
-                            className="cta__prototype-link"
-                            href="https://www.figma.com/proto/prototype-link"
-                            target="_blank"
-                            rel="noreferrer"
-                        >
-                            Ir al prototipo
-                        </a>
-                        <div className="cta__prototype-arrow">
-                            <IconArrow />
-                        </div>
-                    </div>
-                </div>
+                <picture>
+                    
+                    <source srcset={redirectionImageDefault} media="(max-width: 767px)" />
+                    <source
+                        srcset={redirectionImageTablet}
+                        media="(min-width: 768px) and (max-width: 1024px)"
+                    />
+                    <source srcset={redirectionImageDesktop} media="(min-width: 1025px)" />
+                    <img
+                        src={redirectionImageDesktop}
+                        alt="Redirection section illustration"
+                        loading="lazy"
+                        className="redirection__image"
+                        onError={(e) => {
+                            e.target.onerror = null;
+                            e.target.src = "fallback-image-path.png";
+                        }}
+                    />
+
+                </picture>
+                <PopUp targetRef={targetRef} /> {/* Pasar la referencia como prop */}
             </div>
         </div>
     );
-};
+}
+
+
