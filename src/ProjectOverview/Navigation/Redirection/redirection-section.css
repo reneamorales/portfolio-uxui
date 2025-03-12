@@ -1,0 +1,284 @@
+.redirection__container {
+
+    width: 100%;
+    height: auto;
+    margin-top: 64px;
+}
+
+.redirection__content {
+    width: 100%;
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    row-gap: 8px;
+    padding: 32px 16px;
+}
+
+.redirection__image {
+    width: 100%;
+    height: 100dvh;
+    aspect-ratio: auto;
+    transition: animation 1000s ease-in-out;
+}
+
+.redirection__content img {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: auto;
+    view-timeline-name: --image;
+    view-timeline-axis: block;
+
+    animation-timeline: --image;
+    animation-name: showScale;
+    animation-range: entry 10% cover 25%;
+    /*Ajuste de rango de animación*/
+    animation-fill-mode: both;
+    /*anima hacia los dos sentidos*/
+
+    filter: drop-shadow(0 0 25px rgba(255, 166, 0, 0.8));
+}
+
+/*La animacioón NO es SOPORTADA por Mozilla y safari*/
+
+@keyframes showScale {
+
+    from {
+        opacity: 0;
+        scale: 40%
+    }
+
+    to {
+        scale: 100%;
+        /*140*/
+    }
+}
+
+/* Centrar y superponer cta__prototype-container */
+.cta__prototype-container {
+    /*position: absolute;*/
+    position: fixed;
+    /* Posiciona el pop-up en el viewport */
+    top: 50%;
+    /* Centra verticalmente */
+    left: 50%;
+    /* Centra horizontalmente */
+    transform: translate(-50%, -50%);
+    /* Ajusta la posición al centro exacto */
+
+    width: 90vw;
+    /* El ancho será un 80% del viewport */
+    max-width: 800px;
+    /* Ancho máximo de 600px */
+    min-width: 358px;
+    /* Ancho mínimo de 320px */
+
+    height: auto;
+    /* Altura ajustable según contenido */
+    aspect-ratio: 3/4;
+    /* Mantiene proporción de 16:9 */
+    max-height: 90vh;
+    /* Altura máxima del 90% del viewport */
+
+    display: flex;
+    /* Flexbox para alinear contenido */
+    flex-direction: column;
+    /* Alinear elementos verticalmente */
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+
+    padding: 24px 12px;
+    border-radius: 8px;
+    z-index: 1000;
+
+    opacity: 0;
+    scale: 0.8;
+    pointer-events: none;
+    transition: all 0.5s ease-in-out;
+    background-image: url(../../../img/Mesh-gradient-card-popUp-redirection.png);
+    overflow: hidden;
+}
+
+.cta__prototype-container.active {
+    opacity: 1;
+    scale: 1;
+    pointer-events: auto;
+    box-shadow: 0 0 20px #000000;
+}
+
+.redirection__container svg {
+    width: 24px;
+}
+
+.cta__prototype-paragraph {
+    font-family: var(--font-secondary), sans-serif;
+    color: #343434;
+    font-size: 28px;
+    line-height: 45.3px;
+    font-weight: 500;
+}
+
+.cta__prototype-button {
+    width: 320px;
+    height: 73px;
+    display: flex;
+    align-items: center;
+    gap: 0;
+    margin: 0 auto;
+    font-size: 28px;
+    line-height: 1.5;
+}
+
+/* Estilo para el link y el contenedor de la flecha */
+.cta__prototype-link,
+.cta__prototype-arrow {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #c084fc;
+    border-radius: 50px;
+    font-family: var(--font-secondary), sans-serif;
+    text-decoration: none;
+    overflow: hidden;
+    /* Oculta lo que exceda */
+    z-index: 1;
+    color: black;
+    background: white;
+    /* Fondo inicial */
+    transition: all 0.5s ease;
+    /* Transiciones suaves para fondo, color, etc. */
+}
+
+.cta__prototype-link {
+    flex: 1;
+    /* Ocupa todo el espacio disponible */
+    min-width: 214px;
+    font-size: 28px;
+    line-height: 45.3px;
+    text-align: center;
+    padding: 12px;
+    /*cambio de padding a los lados antes 24px*/
+}
+
+.cta__prototype-arrow {
+    width: 73.26px;
+    height: 73.26px;
+    padding: 12px;
+    /*cambio de padding a los lados antes 24px*/
+    aspect-ratio: 1/1;
+    transition-delay: 5;
+    /* Delay para que la animación de la flecha inicie después */
+}
+
+.cta__prototype-arrow .icon {
+    width: 40px;
+    height: auto;
+    aspect-ratio: auto;
+    /* Mantiene la proporción del ícono */
+}
+
+/* Gradiente y animación individual */
+.cta__prototype-link::before,
+.cta__prototype-arrow::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    /* Respeta las formas (rectángulo/círculo) */
+    background: linear-gradient(to right, #a5b4fc, #c084fc);
+    /* Gradiente inicial */
+    transform: scaleX(0);
+    /* Inicialmente invisible */
+    transform-origin: left;
+    /* La animación inicia desde la izquierda */
+    transition: transform 0.5s ease-in-out;
+    z-index: -1;
+}
+
+.cta__prototype-button:hover .cta__prototype-link::before,
+.cta__prototype-button:hover .cta__prototype-arrow::before {
+    transform: scaleX(1);
+    /* Gradiente se expande */
+    background: black;
+    /* Fondo negro al hacer hover */
+}
+
+/* Hover: Cambiar fondo y texto */
+.cta__prototype-button:hover .cta__prototype-link,
+.cta__prototype-button:hover .cta__prototype-arrow {
+    background: black;
+    color: white;
+    border-color: black;
+}
+
+/* Hover: Cambiar el color de la flecha */
+.cta__prototype-button:hover .cta__prototype-arrow {
+    color: #FF7A00;
+}
+
+@media (min-width: 769px) and (max-width: 1023px) {
+    .cta__prototype-container {
+        aspect-ratio: 16 / 9;
+        border-radius: 12px;
+        padding: 24px;
+    }
+
+    .cta__prototype-paragraph {
+        width: 564px;
+    }
+
+    .cta__prototype-paragraph {
+        font-size: 32px;
+        line-height: 51.8px;
+    }
+
+    .cta__prototype-button {
+        width: 344px;
+        height: 75px;
+    }
+
+    .cta__prototype-link {
+        height: 100%;
+        font-size: 36px;
+        line-height: 58.2px;
+    }
+
+    .cta__prototype-arrow {
+        height: 100%;
+        width: 75px;
+    }
+}
+
+@media (min-width: 1024px) {
+
+    .cta__prototype-container {
+        max-width: 956px;
+        aspect-ratio: 16 / 9;
+        border-radius: 16px;
+        padding: 32px 48px;
+        animation-range: entry 10% cover 20%
+    }
+
+    .cta__prototype-paragraph {
+        font-size: 36px;
+        line-height: 58.2px;
+    }
+
+    .cta__prototype-button {
+        width: 409px;
+        height: 89px;
+    }
+
+    .cta__prototype-link {
+        height: 100%;
+        font-size: 40px;
+        line-height: 64.7px;
+    }
+
+    .cta__prototype-arrow {
+        height: 100%;
+        width: 89px;
+    }
+}

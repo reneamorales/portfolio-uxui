@@ -1,0 +1,135 @@
+.tipography__section-inner {
+    background: #F3F5F5;
+    padding: 46px 0;
+    border-radius: 8px;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    gap: 32px;
+    height: 100%;
+
+}
+
+.item__font {
+    background: #ffffff;
+    max-width: 358px;
+    width: 100%;
+    display: grid;
+    gap: 14px;
+    padding: 12px;
+    margin: 0 auto;
+    border: 1px solid #cdcdcd;
+    border-radius: 8px;
+}
+
+.item__font-font-type {
+    font-size: 14px;
+    line-height: 22.7px;
+    font-weight: 600;
+}
+
+.item__font-font-name {
+    font-size: 24px;
+    line-height: 38.8px;
+    font-weight: 800;
+    color: #07081C;
+}
+
+.item__font-font-detail {
+    font-size: 12px;
+    line-height: 19.4px;
+    font-weight: 500;
+}
+
+.item__font-references {
+    display: grid;
+    gap: 12px;
+}
+
+strong {
+    font-style: italic;
+}
+
+
+/*Media queries*/
+
+@media (min-width: 769px) and (max-width: 1023px) {
+
+    .tipography__section-inner {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        padding: 64px 32px;
+        gap: 24px;
+        border-radius: 12px;
+    }
+
+    .item__font {
+        max-width: 400px;
+        padding: 16px;
+        gap: 16px;
+    }
+
+    .item__font-font-type {
+        font-size: 16px;
+        line-height: 25.9px;
+    }
+
+    .item__font-font-name {
+        font-size: 28px;
+        line-height: 45.3px;
+    }
+
+    .item__font-font-detail {
+        font-size: 14px;
+        line-height: 22.7px;
+    }
+
+    .item__font-references {
+        display: grid;
+        gap: 14px;
+    }
+
+}
+
+@media (min-width: 1024px) {
+
+    .tipography__section-inner {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        padding: 72px 64px;
+        gap: 32px;
+        border-radius: 16px;
+    }
+
+    .item__font {
+        max-width: 400px;
+        padding: 16px;
+        gap: 18px;
+    }
+
+    .item__font-font-type {
+        font-size: 18px;
+        line-height: 29.1px;
+    }
+
+    .item__font-font-name {
+        font-size: 32px;
+        line-height: 51.8px;
+    }
+
+    .item__font-font-detail {
+        font-size: 16px;
+        line-height: 25.9px;
+    }
+
+    .item__font-references {
+        display: grid;
+        gap: 16px;
+    }
+}
+
+
+@media (min-width: 1512px) {
+    .tipography__section {
+        background-color: aqua;
+        max-width: 1200px;
+    }
+}
