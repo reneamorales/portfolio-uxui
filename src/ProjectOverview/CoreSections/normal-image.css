@@ -1,0 +1,10 @@
+.normal-image-container img {
+    width: 100%;
+    height: auto;
+    object-fit: contain; /* Evita que la imagen se recorte */
+  }
+  
+  .responsive-image {
+    width: 100%;
+    height: auto;
+  }
