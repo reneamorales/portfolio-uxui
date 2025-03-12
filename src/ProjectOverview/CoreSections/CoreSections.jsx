@@ -1,87 +1,133 @@
-import React, { useState, useRef } from "react";
-import "./core-sections.css"; // Asegúrate de crear estilos específicos para esta funcionalidad
+import React, { useState, useRef, useEffect } from "react";
+import "./core-sections.css";
+import gsap from 'gsap';
+import SitemapSection  from "./SiteMapSection";
+import NormalImage from "./NormalImage";
 
 export const CoreSections = ({
   className,
   title,
   subtitle,
   description,
-  imageSrc,
-  iframeSrc,
+  isSitemap,
+  imageSrc
 }) => {
-  // Estado para el zoom
-  const [zoom, setZoom] = useState(1);
-  // Referencia para el contenedor scrollable
-  const scrollableRef = useRef(null);
-  // Estado para el arrastre
-  const [isDragging, setIsDragging] = useState(false);
-  // Posición inicial del arrastre
-  const dragStart = useRef({ x: 0, y: 0 });
 
-  // Función para aumentar el zoom
-  const zoomIn = () => setZoom((prevZoom) => Math.min(prevZoom + 0.2, 3)); // Zoom máximo 3x
+  useEffect(() => {
+    const sections = document.querySelectorAll(".section__content");
+    if (!sections.length) return; // Guard clause
 
-  // Función para disminuir el zoom
-  const zoomOut = () => setZoom((prevZoom) => Math.max(prevZoom - 0.2, 1)); // Zoom mínimo 1x
-
-  // Manejador del evento de presionar el mouse
-  const handleMouseDown = (e) => {
-    setIsDragging(true);
-    dragStart.current = {
-      x: e.clientX - scrollableRef.current.scrollLeft,
-      y: e.clientY - scrollableRef.current.scrollTop,
+    const observerOptions = {
+      root: null,
+      rootMargin: '-50% 0px -50% 0px',
+      threshold: 0
     };
-  };
 
-  // Manejador del evento de mover el mouse
-  const handleMouseMove = (e) => {
-    if (!isDragging) return;
-    const { x, y } = dragStart.current;
-    scrollableRef.current.scrollLeft = e.clientX - x;
-    scrollableRef.current.scrollTop = e.clientY - y;
-  };
+    // Initialize sections with opacity 0
+    gsap.set(sections, { opacity: 0 });
 
-  // Manejador del evento de soltar el mouse
-  const handleMouseUp = () => setIsDragging(false);
+    const animateSection = (element, observer) => {
+      if (!element || element.classList.contains("animated")) return;
+
+      element.classList.add("animated"); // Marcar la sección como animada
+
+      // Animate section content
+      gsap.to(element, {
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out"
+      });
+
+      // Animate text
+      const titleElement = element.querySelector(".section__title");
+      if (titleElement) {
+        const words = titleElement.textContent.split(" ");
+        titleElement.innerHTML = '';
+
+        words.forEach(word => {
+          if (!word.trim()) return;
+          const span = document.createElement("span");
+          span.textContent = word + " ";
+          span.style.display = "inline-block";
+          titleElement.appendChild(span);
+        });
+
+        gsap.from(titleElement.querySelectorAll("span"), {
+          duration: 1,
+          opacity: 0,
+          scale: 0.5,
+          y: 50,
+          rotateX: 180,
+          stagger: 0.2,
+          ease: "expo.out",
+        });
+      }
+
+      const paragraphs = element.querySelectorAll(".section__description");
+      if (paragraphs.length) {
+        gsap.fromTo(paragraphs, 
+          {
+            opacity: 0,
+            y: 30,
+            scale: 0.95
+          },
+          {
+            duration: 1.2,
+            opacity: 1,
+            y: 0,
+            scale: 1,
+            stagger: 0.15,
+            ease: "back.out(1.2)",
+            delay: 0.5,
+            overwrite: "auto"
+          }
+        );
+      }
+
+      observer.unobserve(element); // Dejar de observar esta sección
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          animateSection(entry.target, observer);
+        }
+      });
+    }, observerOptions);
+
+    sections.forEach(section => observer.observe(section));
+
+    return () => observer.disconnect();
+}, []);
+
+
+
 
   return (
     <section className={`section ${className || ""}`}>
-      {title && <h2 className="section__title">{title}</h2>}
-      {subtitle && <h3 className="design__process-title section__subtitle">{subtitle}</h3>}
-      {description && <p className="section__description">{description}</p>}
-
-      {/* Renderizar imagen con zoom y navegación */}
-      {imageSrc && (
-        <div className="zoom-container">
-          <div
-            className="scrollable"
-            ref={scrollableRef}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
-            onMouseLeave={handleMouseUp}
-            style={{
-              cursor: isDragging ? "grabbing" : "grab",
-              overflow: "hidden",
-            }}
-          >
-            <img
-              src={imageSrc}
-              alt={title}
-              className="zoomable-image"
-              style={{
-                transform: `scale(${zoom})`,
-                transformOrigin: "center",
-              }}
-            />
-          </div>
-          <div className="controls">
-            <button onClick={zoomIn}>+</button>
-            <button onClick={zoomOut}>-</button>
-          </div>
+      <div className="section__content">
+        <div className="section__text-content">
+          {title && <h2 className="section__title">{title}</h2>}
+          {subtitle && (
+            <h3 className="design__process-title section__subtitle">
+              {subtitle}
+            </h3>
+          )}
+          {description && (
+            <p className="section__description">{description}</p>
+          )}
         </div>
-      )}
+  
+       {/* Renderiza según el tipo de imagen */}
+       {isSitemap ? (
+  <SitemapSection imageSrc={imageSrc} title={title} />
+) : 
+  imageSrc && <NormalImage imageSrc={imageSrc} title={title} />
+}
 
+      </div>
     </section>
   );
-};
+}
+
+export default CoreSections;
