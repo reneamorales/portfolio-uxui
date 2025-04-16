@@ -1,5 +1,6 @@
 
 export const ItemParagraph ={
+    title: "Paleta de Colores",
     description: (
         <>
         <p>
