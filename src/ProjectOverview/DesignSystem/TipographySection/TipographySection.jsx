@@ -1,5 +1,6 @@
 import React from 'react'
 import './TipographySection.css'
+import PropTypes from 'prop-types'
 import { ItemFont } from './ItemFont'
 import { ItemFontContent } from './ItemFontContent'
 import { ItemParagraph } from './ItemFontContent';
@@ -8,7 +9,7 @@ export const TipographySection = () => {
     return (
         <div
             className='design__process-container'>
-            <p className='design__process-title'>{ItemParagraph.title}</p>
+            <h2 className='design__process-title'>{ItemParagraph.title}</h2>
             <p className='design__process-description'>{ItemParagraph.description}</p>
             <div className='tipography__section-inner'>
                 {ItemFontContent.map((font, index) => (
@@ -23,5 +24,12 @@ export const TipographySection = () => {
             </div>
         </div>
     )
+    
 }
 
+TipographySection.propTypes = {
+        paragraph: PropTypes.shape({
+            title: PropTypes.node.isRequired,
+            description: PropTypes.node.isRequired
+        })
+    }
