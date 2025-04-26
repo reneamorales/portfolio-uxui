@@ -1,63 +1,75 @@
-/* SUB-CONTAINER DE HERO */
+:root {
+    --animated-card-margin: clamp(1rem, 2vw, 2rem);
+
+    --color-font-typing: #00FFCC;
+
+    --fs-sm: clamp(0.62rem, 0.29vi + 0.55rem, 0.83rem);
+    --fs-base: clamp(1rem, 0.69vi + 0.84rem, 1.5rem);
+    --fs-md: clamp(1.62rem, 1.53vi + 1.27rem, 2.72rem);
+    --fs-lg: clamp(2.62rem, 3.23vi + 1.9rem, 4.95rem);
+    /*--fs-xl: clamp(4.24rem, 6.58vi + 2.76rem, 8.98rem);
+    --fs-xxl: clamp(6.85rem, 13.12vi + 3.92rem, 16.31rem);
+    --fs-xxxl: clamp(11.09rem, 25.7vi + 5.34rem, 29.63rem);*/
+}
+
+
+
+html {
+    /*font-size: 62.5%;*/
+    /* 1rem = 10px */
+    font-size: 16px;
+}
+
+/* SUB-CONTAINER HERO */
 .hero-section {
-    height: 85%;
-    width: 1152px;
+    height: calc(100vh - var(--navbar-height-mobile));
+    width: 100%;
+    max-width: 1152px;
+    margin: 0 auto;
+    /* Centrado */
     background: #DBE6F6;
-
-    background-image: url('/src/img/calm-beach-cover-hero.avif');
+    background-image: url('/src/img/parizad-shojaei-zdAPoZtQeSE-unsplash.jpg');
     background-size: cover;
-    background-position: center; /* Ajusta el enfoque de la imagen */
-
-
-    /* fallback for old browsers */
-    /*background: -webkit-linear-gradient(to left, #C5796D, #DBE6F6);*/
-    /* Chrome 10-25, Safari 5.1-6 */
-    /*background: linear-gradient(to left, #C5796D, #DBE6F6);*/
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
+    background-position: center;
+    /* Ajusta el enfoque de la imagen */
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     flex-shrink: 0;
-    overflow: visible;  /* Asegúrate de que el contenido no se corte */
+    overflow: visible;
+    /* Asegúrate de que el contenido no se corte */
 }
-/*Reco. por GPT*/
-/*.animated-card {
-    position: absolute; /* o relative *//*
-    left: 50%;
-    bottom: 50%;
-    transform: translate(-50%, 50%); /* Centra horizontal y verticalmente */
-  /*}*/
-  
+
 .animated-card {
-    width: 45%;
-    height: auto;
-    left: 16px;/*antes 16px*/
-    bottom: 16px;
-    /*backdrop-filter: blur(15px);*/
-    background-color:  #0000009b;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1) ;
-    /* align-items: center;*/
-    /*centra los elmento de forma horizontal*/
-    justify-content: center;
     position: absolute;
-    padding: 16px;
-    border-radius: 16px 16px 16px 0;
-    min-width: 300px;
-    max-height: 572px;
-    /*para aplicar el gap*/
+    left: var(--animated-card-margin);
+    bottom: var(--animated-card-margin);
+
     display: flex;
-    /* O display: grid; */
     flex-direction: column;
-    /* Para apilar los elementos verticalmente */
-    gap: 24px;
-    /* Aplica el espacio entre el h1 y el párrafo y boton*/
+    gap: clamp(1rem, 2.5vh, 2rem); /* espacio fluido entre h1 y el bloque de párrafo+botón */
+    justify-content: center;
+
+    width: clamp(21rem, 90%, 44rem); /* valor mínimo = móvil, medio = 90% viewport (fluido), máx = desktop */
+    max-width: 708px;
+    height: clamp(18rem, 60vh, 30rem);/*antes tenia la medida ideal en 50vh*/
+    aspect-ratio: 3 / 2;
+
+    padding: clamp(1.4rem, 2vh, 2rem)  clamp(1rem, 2vw, 1.8rem); /*16px*/
+    box-sizing: border-box;
+
+    background-color: #0000005d;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    border-radius: 12px 12px 12px 0;
 
     transform-origin: bottom left;
     transform: scale(0);
     animation: grow 1s ease-in-out forwards;
-    box-sizing: initial;
+
+    overflow: visible;
 }
 
 /* Animación para el crecimiento del contenedor */
@@ -69,100 +81,69 @@
 
 /* Texto principal */
 .hero-title {
-    font-size: 48px;
-    font-weight: bold;
+    font-size: clamp(1.8rem, 3vw, 3.5rem);
+    line-height: clamp(2rem, 3.5vw, 4rem);
     word-spacing: normal;
     display: inline-block;
     /* inline-block Asegura que el texto respete su distribución natural */
-    background-color: hsla(79, 98%, 66%, 1);
     background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1799 1799' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"), radial-gradient(circle at 94% 95%, hsla(170, 88%, 68%, 1) 3%, transparent 76%), radial-gradient(circle at 89% 34%, hsla(263, 96%, 51%, 1) 1%, transparent 86%), radial-gradient(circle at 86% 50%, hsla(318, 80%, 65%, 1) 7%, transparent 76%), radial-gradient(circle at 89% 79%, hsla(248, 76%, 53%, 1) 7%, transparent 87%), radial-gradient(circle at 15% 44%, hsla(4, 74%, 80%, 1) 15%, transparent 81%), radial-gradient(circle at 99% 20%, hsla(75, 88%, 92%, 1) 1%, transparent 68%);
     background-blend-mode: overlay, normal, normal, normal, normal, normal, normal;
     /*background: linear-gradient(90deg, rgba(136, 131, 188, 1) 0%, rgba(186, 125, 183, 1) 25%, rgba(120, 208, 227, 1) 50%, rgba(120, 171, 247, 1) 75%, rgba(80, 96, 242, 1) 100%);*/
     -webkit-background-clip: text;
     /*Indica que no tiene compatibilidad*/
     -webkit-text-fill-color: transparent;
+    opacity: 0;
     overflow-wrap: break-word;
-    animation: fade-in 1s ease-in-out 1s forwards;
-    margin-right: 12px;
+    animation: fade-in-title 1s ease-in-out 0.5s forwards;
 }
 
 /* Animación para la aparición del texto */
-@keyframes fade-in {
+@keyframes fade-in-title {
     to {
         opacity: 1;
     }
 }
 
-.typewriter-word, .hero-word{
-    margin-right: 12px;
-}
-/* Texto animado estilo máquina de escribir */
+/* Texto secundario con efecto máquina de escribir */
 .typewriter-effect {
-    font-size: 24px;
-    color: #00FFCC;
+    font-size: var(--fs-base);/**/
+    font-size: clamp(1rem, 0.69vi + 0.84rem, 1.5rem);
+    color: var(--color-font-typing);
     display: inline-block;
     white-space: normal;
     overflow: hidden;
     opacity: 0;
-    animation: fade-in 0.5s ease-in-out 2s forwards;
-    /* Aparece después del h1 */
-    margin-bottom: 16px;
+    animation: global-fade-in 1s ease-out 1.5s forwards;
+    margin-bottom: clamp(0.5rem, 2.5vh, 1rem);
 }
 
+@keyframes global-fade-in {
+    0% {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animación individual por palabra */
 .typewriter-effect span {
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
     opacity: 0;
-    animation: typing 1s steps(15, end) forwards;
+    animation: typing 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
 }
 
-.typewriter-effect span:nth-child(1) {
-    animation-delay: 2.5s;
-}
-
-.typewriter-effect span:nth-child(2) {
-    animation-delay: 3s;
-}
-
-.typewriter-effect span:nth-child(3) {
-    animation-delay: 3.5s;
-}
-
-.typewriter-effect span:nth-child(4) {
-    animation-delay: 4s;
-}
-
-.typewriter-effect span:nth-child(5) {
-    animation-delay: 4.5s;
-}
-
-.typewriter-effect span:nth-child(6) {
-    animation-delay: 5s;
-}
-
-.typewriter-effect span:nth-child(7) {
-    animation-delay: 5.5s;
-}
-
-.typewriter-effect span:nth-child(8) {
-    animation-delay: 6s;
-}
-
-.typewriter-effect span:nth-child(9) {
-    animation-delay: 6.5s;
-}
-
-.typewriter-effect span:nth-child(10) {
-    animation-delay: 7s;
-}
-
-/* Animación de escritura */
+/* Animación de entrada por palabra */
 @keyframes typing {
     0% {
         opacity: 0;
         transform: translateY(20px);
-        /* Efecto inicial hacia abajo */
+        /* Efecto inicial desde abajo */
     }
 
     50% {
@@ -176,7 +157,25 @@
     }
 }
 
-/*button-principal*/
+/* Espaciado entre palabras */
+.typewriter-effect span {
+    margin-right: 12px;
+}
+
+/* Oculta texto para accesibilidad desde teclado*/
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/*button-principal, tiene estilado que le comparte al btn del navbar*/
 
 .btn {
     transition: box-shadow 600ms ease-out;
@@ -201,77 +200,54 @@
 }
 
 .btn-cv {
-    background-color: #00FF85;
+    background-color: var(--color-button-primary-default);;
     border: none;
     color: black;
-    width: 220px;
-    height: 60px;
-    padding: 12px;
+    
+    padding: clamp(0.25rem, 2vh, 0.8rem) clamp(1rem, 3vh, 1.2rem);
+
     font-family: var(--font-primary);
-    font-size: 24px;
-    font-weight: medium;
+    font-size: var(--fs-base);
+    font-weight: 500;
     /*no esta aplicando el peso no está disp.*/
-    line-height: 38.8px;
-    border-radius: 5px;
+    line-height: 25.9px;
+    border-radius: 3px;
     display: flex;
     align-items: center;
     /* Alinea el texto verticalmente */
     justify-content: center;
     /* Opcional, centra el texto horizontalmente */
+    box-sizing: border-box;
     cursor: pointer;
     /* Cambio de cursor a mano */
+    transition: background-color 0.3s ease-in-out;
 }
 
 .btn-cv:hover {
-    background-color: #00FF7F;
-}
-
-
-@media (max-width: 1152px) {   
-    .hero-section{
-        width: 100%;
-        
-    }
-    .animated-card{
-        max-height: 572px;
-    }
-    .hero-title{
-        font-size: 42px;
-        margin-right: 8px;
-    }
-    .typewriter-effect{
-        font-size: 20px;
-        margin-bottom: 12px;
-    }
-    .btn-cv{
-        font-size: 20px;
-        line-height: 32.4px;
-    }
-    
+    background-color: var(--color-button-primary-hover);
 }
 
 /* Media query para pantallas pequeñas */
-@media (max-width: 768px) {
-    .animated-card{
-        width: 85%;
-        max-height: 572px;
-        gap: 16px;
-        
+@media (min-width: 768px) {
+    .animated-card {
+        border-radius: 16px 16px 16px 0;
     }
-    .hero-title{
-        font-size: 36px;
-        margin-right: 4px;
+}
+
+@media (min-width: 1152px) {
+    .hero-section {
+        max-width: none;
     }
-    .typewriter-effect{
-        font-size: 16px;
-        margin-bottom: 8px
+}
+
+
+@media (min-width: 1400px) {
+    .hero-section {
+        max-width: none;
+        height: calc(100vh - var(--navbar-height-desktop));
     }
-    .btn-cv{
-        font-size: 16px;
-        line-height: 32.4px;
-        padding: 8px;
-        border-radius: 3px;
-        width: 173px;
-        height: 49px;
+
+    .animated-card {
+        border-radius: 20px 20px 20px 0;
     }
 }
