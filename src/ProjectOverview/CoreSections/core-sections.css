@@ -25,10 +25,16 @@ body {
     min-height: 100%;
 }
 
+html {
+    /*font-size: 62.5%;*/
+    /* 1rem = 10px */
+    font-size: 16px;
+}
+
 /*Gral Container*/
 .project-details {
-    width: 100%;
-    max-width: 736px;
+    width: 100vw;
+    max-width: clamp(736px, 100%, 2000px);
     position: relative;
     display: flex;
     flex-direction: column;
@@ -42,7 +48,6 @@ body {
     min-height: calc(100vh - var(--navbar-height-mobile));
     display: flex;
     flex-direction: column;
-    padding: 24px 16px;
     box-sizing: border-box;
     position: relative;
     /* Added */
@@ -55,14 +60,17 @@ body {
 .section__content {
     position: sticky;
     top: var(--navbar-height-mobile);
+    height: auto;
     width: 100%;
+    max-width: clamp(576px, 70vw, 1100px);
+    /*controla el  crec. , 80 de pref. queda muy amplio en desktop*/
+    margin-inline: auto;
+    padding: clamp(24px, 2.5vw + 1rem, 48px) clamp(16px, 2vw + 0.5rem, 64px);
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     gap: 24px;
-    /* Added space between elements */
     align-items: flex-start;
-    /* Changed from center */
-    height: auto;
 }
 
 .section:first-child {
