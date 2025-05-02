@@ -48,7 +48,7 @@ export const ItemContent = [
     {
         title: "Gradients Colors",
          colors: [
-            { hex: "#74EBD5 → #9FACE6", direction: "to left right", textClass: "txt-dark" },
+            { hex: "#74EBD5 → #9FACE6", direction: "to right", textClass: "txt-dark" },
             { hex: "#8EC5FC → #E0C3FC", direction: "to top right", textClass: "txt-dark" },
             { hex: "#74EBD5 → #F7CE68", direction: "to top right", textClass: "txt-dark" }
         ]
