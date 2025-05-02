@@ -1,6 +1,8 @@
 import React from "react";
+import SiteMap from "../../img/cranbelo/SiteMap-Cranbelo.png";
+import userflowImageDefault from "../../img/cranbelo/Userflow-mobile.png";
 
-export const CoreContent = {
+export const initialSection = {
   intro: {
     title: "Intro del Proyecto",
     description:
@@ -136,7 +138,49 @@ export const CoreContent = {
   },
   ia: {
     subtitle: "Arquitectura de la Información",
-    imageSrc:"resources/img/AI - Cranbelo 3.png",
+    imageSrc: SiteMap,
     className: "project-information-arquitecture",
+    isSitemap:true
   },
 };
+
+export const designSolutionsContent = {
+  solutions:{
+  title: "Soluciones de Diseño",
+  subtitle: "Flujo de Usuario",
+  imageSrc: userflowImageDefault,
+  description: (
+      <>
+          <p>
+              Este flujo representa la navegación web enfocada en la acción principal del usuario: la adquisición de un curso. A través de este flujo, se ilustran las opciones disponibles en cada paso, desde la exploración y selección del curso hasta la confirmación de la compra. Cada decisión lleva al usuario a distintas secciones clave, optimizando la experiencia de navegación y facilitando el acceso a la información y al proceso de pago.
+          </p>
+      </>
+  ),
+  className: "userflow",
+  isSitemap:false
+  }
+};
+
+
+export const finalSection = {
+  challenges: {
+    title: "Desafios y Aprendizajes",
+    description: (
+      <><p>Durante este proyecto, uno de los principales desafíos fue llevar a cabo un rediseño integral del producto con recursos limitados, comenzando únicamente con algunos conceptos básicos adquiridos de fuentes gratuitas. Me propuse mejorar la usabilidad y consistencia visual del sitio, experimentando en paralelo con la herramienta Figma, de la cual tenía poca experiencia. También me enfrenté al reto de lograr accesibilidad y optimización para diferentes dispositivos, aplicando principios de jerarquía visual, armonía y responsividad para adaptarlo tanto a escritorio como a móvil. Otro desafío fue crear un diseño atractivo y accesible, con el objetivo de lograr una experiencia de usuario que se diferenciara de la competencia.</p>
+      <br/>
+      <p>Estos desafíos impulsaron mi aprendizaje y crecimiento profesional. Ahora tengo una base sólida en componentización, estándares de accesibilidad (WCAG), arquitectura de la información y animaciones avanzadas. También mejoré mis habilidades en copywriting, vectorización y diseño UI, con un enfoque en la consistencia y la conversión.</p></>
+    ),
+    className: "desafios-y-aprendizajes left-section"
+  },
+  reflection: {
+    title: "Reflección Personal",
+    description: (
+      <>
+      <p>
+      Tengo un gran cariño por este proyecto; es el segundo que emprendí desde mediados de 2023 y ha sido una inversión de muchas horas y dedicación. En el pasado, exploré la programación, pero, a medida que avanzaba, descubrí el diseño UX/UI y quedó claro que era donde quería profundizar. Este proyecto me dio la oportunidad de aplicar y perfeccionar lo aprendido, además de experimentar un crecimiento profesional significativo en un área que me apasiona. Con él, no solo confirmé mi deseo de desarrollarme en diseño UX/UI, sino que también siento que estoy un paso más cerca de cumplir el sueño de poder vivir de esta profesión
+      </p></>
+    ),
+    className: "desafios-y-aprendizajes right-section"
+  }
+};
+
