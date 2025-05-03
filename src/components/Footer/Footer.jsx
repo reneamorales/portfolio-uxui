@@ -25,57 +25,72 @@ export const Footer = () => {
               <span class="highlight">¡Hagamos que tu proyecto destaque!</span>
             </p>
 
-            <button className="footer__cta-button">
-              Comencemos hablar <IconArrow />
-            </button>
+            <a
+              href="https://wa.me/5492805014610?text=Hola%2C+estoy+interesado+en+conocer+m%C3%A1s+sobre+tu+servicio"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="footer__cta-button"
+              style={{
+                position: "relative",
+                overflow: "hidden",
+                display: "inline-flex", // usa flex en vez de block
+                alignItems: "center",
+                justifyContent: "center",
+                gap: "0.5rem", // espacio entre texto e ícono
+                textDecoration: "none",
+              }}
+            >
+              <span style={{ position: "relative", zIndex: 2 }}>
+                Comencemos a hablar
+              </span>
+              <IconArrow style={{ position: "relative", zIndex: 2 }} />
+            </a>
           </div>
         </div>
         <div className="footer__contact">
-          
-            {/* Redes sociales */}
-            <div className="footer__social-media">
-              <div className="footer__social-media-link">
-                <a
-                  href="https://www.instagram.com/renexusdesign/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="footer__social-link footer__social-link--instagram"
-                >
-                  <img src="/resources/icons/instagram.svg" alt="Instagram" />
-                </a>
-                <a
-                  href="https://www.instagram.com/renexusdesign/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="footer__social-link footer__social-link--instagram"
-                >
-                  <img src="/resources/icons/linkedin.svg" alt="Instagram" />
-                </a>
-                <a
-                  href="https://www.instagram.com/renexusdesign/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="footer__social-link footer__social-link--instagram"
-                >
-                  <img src="/resources/icons/youtube.svg" alt="Instagram" />
-                </a>
-                <a
-                  href="https://www.instagram.com/renexusdesign/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="Instagram"
-                  className="footer__social-link footer__social-link--instagram"
-                >
-                  <img src="/resources/icons/behance.svg" alt="Instagram" />
-                </a>
-              </div>
-</div>
-              {/* Línea divisoria */}
-              <hr className="footer__divider" />
-            
+          {/* Redes sociales */}
+          <div className="footer__social-media">
+            <div className="footer__social-media-link">
+              <a
+                href="https://www.instagram.com/renexusdesign/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="footer__social-link footer__social-link--instagram"
+              >
+                <img src="/resources/icons/instagram.svg" alt="Instagram" />
+              </a>
+              <a
+                href="https://www.instagram.com/renexusdesign/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="footer__social-link footer__social-link--instagram"
+              >
+                <img src="/resources/icons/linkedin.svg" alt="Instagram" />
+              </a>
+              <a
+                href="https://www.instagram.com/renexusdesign/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="footer__social-link footer__social-link--instagram"
+              >
+                <img src="/resources/icons/youtube.svg" alt="Instagram" />
+              </a>
+              <a
+                href="https://www.instagram.com/renexusdesign/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="footer__social-link footer__social-link--instagram"
+              >
+                <img src="/resources/icons/behance.svg" alt="Instagram" />
+              </a>
+            </div>
+          </div>
+          {/* Línea divisoria */}
+          <hr className="footer__divider" />
 
           <p className="footer__copy">
             {"\u00A9"} rene.ux 2024 | Todos los derechos reservados
