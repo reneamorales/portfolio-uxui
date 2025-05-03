@@ -1,0 +1,176 @@
+:root {
+  /* Gap para el grid */
+  --gap-grid-sm: clamp(16px, 2vw, 24px);
+  --gap-grid-md: clamp(24px, 2.5vw, 32px);
+  --gap-grid-lg: clamp(32px, 3vw, 48px);
+
+  /* Padding general para el grid */
+  --padding-grid-block: clamp(24px, 2.5vw + 1rem, 48px);
+  --padding-grid-inline: clamp(16px, 2vw + 0.5rem, 64px);
+
+  /* Padding interno de los ítems en pantallas grandes */
+  --padding-item-inline-md: clamp(16px, 2vw + 0.5rem, 64px);
+}
+/*Reset*/
+html,
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    min-height: 100%;
+}
+
+html{
+  font-size: 16px;
+}
+
+/* Estilo para el contenedor general */
+
+.grid-container {
+  width: 100vw;
+  /*background-color: bisque;*/
+  max-width: clamp(736px, 100%, 2000px);
+  margin: 0 auto;
+  /* Centra el contenedor */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.design__process.active {
+  opacity: 1;
+  /* Se vuelve visible */
+  transform: translateY(0);
+  /* Vuelve a su posición original */
+}
+
+strong {
+  font-weight: 500;
+}
+
+.grid-item {
+  max-width: clamp(576px, 70vw, 1100px);
+  padding: clamp(24px, 2.5vw + 1rem, 48px) 0;
+  /*ver bien el padding vertical*/
+}
+
+/* Estilo para el grid */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--gap-grid-sm);
+  padding: var(--padding-grid-block) var(--padding-grid-inline);
+  /*inicialmente tenía 46px 16px;*/
+  background-color: #f3f5f5;
+  border-radius: 16px;
+  background-size: cover;
+  margin: 0 auto;
+}
+
+.grid__item {
+  font-family: var(--font-secondary);
+  margin-bottom: 8px;
+}
+
+.grid__item-img {
+  width: 100%;
+  aspect-ratio: auto;
+  margin-bottom: 12px;
+  object-fit: cover;
+}
+
+.picture-card.picture-full {
+  width: 100%;
+}
+
+figure {
+  /*width: 100% !important;*/
+  /*este elemento debe ser ajustado mediante envío específico de props*/
+  aspect-ratio: auto;
+  object-fit: cover;
+}
+
+.grid__item-subtitle {
+  font-size: 14px;
+  line-height: 22.6px;
+  font-weight: bold;
+  margin-bottom: 8px;
+  padding: 0 8px;
+}
+
+
+.grid__item-description {
+  font-size: 12px;
+  line-height: 16.2px;
+  font-style: italic;
+  padding: 0 8px;
+}
+
+ul {
+  padding-left: 1.625em;
+  /* Ajusta el espacio general del bloque */
+}
+
+li {
+  padding-left: 0.375em;
+  /* Ajusta el contenido del texto en relación al punto */
+}
+
+img {
+  view-timeline-name: --image;
+  view-timeline-axis: block;
+
+  animation-timeline: --image;
+  animation-name: show;
+  animation-range: entry 25% cover 30%;
+  /*Ajuste de rango de animación*/
+  animation-fill-mode: both;
+  /*anima hacia los dos sentidos*/
+}
+
+/*La animacioón NO es SOPORTADA por Mozilla y safari*/
+@keyframes show {
+  from {
+    opacity: 0;
+    scale: 25%
+  }
+
+  to {
+    opacity: 1;
+    scale: 100%;
+  }
+}
+
+@media (min-width: 769px) {
+  .grid-item {
+    padding-inline: clamp(16px, 2vw + 0.5rem, 64px);
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    /*padding: 64px 32px;*/
+    gap: var(--gap-grid-md)
+  }
+
+}
+
+@media (min-width: 1024px) {
+  .grid {
+    /*padding: 72px 64px;*/
+    gap: var(--gap-grid-lg);
+  }
+
+  /*
+  .grid-title {
+      font-size: 28px;
+      line-height: 45.3px;
+      padding: 12px 16px;
+  }*/
+  /*
+
+  .grid-description {
+      font-size: 16px;
+      line-height: 25.9px;
+      padding: 24px 16px;
+  }*/
+}
