@@ -70,18 +70,6 @@ strong {
   margin: 0 auto;
 }
 
-.grid__item {
-  font-family: var(--font-secondary);
-  margin-bottom: 8px;
-}
-
-.grid__item-img {
-  width: 100%;
-  aspect-ratio: auto;
-  margin-bottom: 12px;
-  object-fit: cover;
-}
-
 .picture-card.picture-full {
   width: 100%;
 }
@@ -91,35 +79,6 @@ figure {
   /*este elemento debe ser ajustado mediante envío específico de props*/
   aspect-ratio: auto;
   object-fit: cover;
-}
-
-.grid__item-subtitle {
-  font-size: 14px;
-  line-height: 22.6px;
-  font-weight: bold;
-
-  color: var(--color-txt-subtititle-list);
-
-  margin-bottom: var(--margin-bottom-subtitle);
-  padding-inline: 8px;
-}
-
-
-.grid__item-description {
-  font-size: 12px;
-  line-height: 16.2px;
-  font-style: italic;
-  padding-inline: 8px;
-}
-
-ul {
-  padding-left: 1.625em;
-  /* Ajusta el espacio general del bloque */
-}
-
-li {
-  padding-left: 0.375em;
-  /* Ajusta el contenido del texto en relación al punto */
 }
 
 img {
