@@ -10,17 +10,20 @@
 
   /* Padding interno de los ítems en pantallas grandes */
   --padding-item-inline-md: clamp(16px, 2vw + 0.5rem, 64px);
+
+  --margin-bottom-subtitle: clamp(4px, 1vh, 12px);
 }
+
 /*Reset*/
 html,
 body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    min-height: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  min-height: 100%;
 }
 
-html{
+html {
   font-size: 16px;
 }
 
@@ -94,8 +97,11 @@ figure {
   font-size: 14px;
   line-height: 22.6px;
   font-weight: bold;
-  margin-bottom: 8px;
-  padding: 0 8px;
+
+  color: var(--color-txt-subtititle-list);
+
+  margin-bottom: var(--margin-bottom-subtitle);
+  padding-inline: 8px;
 }
 
 
@@ -103,7 +109,7 @@ figure {
   font-size: 12px;
   line-height: 16.2px;
   font-style: italic;
-  padding: 0 8px;
+  padding-inline: 8px;
 }
 
 ul {
