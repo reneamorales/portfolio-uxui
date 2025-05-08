@@ -12,7 +12,6 @@
     grid-template-rows: auto;
     gap: 0;
     width: 100%;
-    max-width: 760px;
     margin: 0 auto;
 }
 
@@ -63,7 +62,7 @@
     color: white;
 }
 
-@media (min-width: 769px) and (max-width: 1023px) {
+@media (min-width: 769px) {
     .color__palette-inner {
         padding: 64px 32px;
         gap: 32px;
@@ -71,7 +70,6 @@
     }
 
     .color__palette-colors {
-        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
         gap: 24px;
     }
 
@@ -94,8 +92,14 @@
         border-radius: 16px;
     }
 
+    .color__palette-item-group {
+        max-width: none;
+        /* Elimina la restricción de ancho máximo */
+    }
+
     .color__palette-colors {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+        grid-template-columns: repeat(5, 1fr);
+        /* Genera 5 columnas */
         gap: 32px;
     }
 
