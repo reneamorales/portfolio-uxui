@@ -26,8 +26,7 @@
 
     --margin-bottom-subtitle: clamp(4px, 1vh, 12px);
 
-    --color-border-item: #cdcdcd;
-
+    /*el color de borde fue movido a root de estilado globak*/
     --background-color-content-items: #f5f3f3;
 }
 
