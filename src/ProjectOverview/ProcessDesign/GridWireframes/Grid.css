@@ -4,13 +4,6 @@
   --gap-grid-md: clamp(24px, 2.5vw, 32px);
   --gap-grid-lg: clamp(32px, 3vw, 48px);
 
-  /* Padding general para el grid */
-  --padding-grid-block: clamp(24px, 2.5vw + 1rem, 48px);
-  --padding-grid-inline: clamp(16px, 2vw + 0.5rem, 64px);
-
-  /* Padding interno de los ítems en pantallas grandes */
-  --padding-item-inline-md: clamp(16px, 2vw + 0.5rem, 64px);
-
   --margin-bottom-subtitle: clamp(4px, 1vh, 12px);
 }
 
@@ -53,7 +46,7 @@ strong {
 
 .grid-item {
   max-width: clamp(576px, 70vw, 1100px);
-  padding: clamp(24px, 2.5vw + 1rem, 48px) 0;
+  padding: var(--padding-item-block) 0;
   /*ver bien el padding vertical*/
 }
 
@@ -91,6 +84,7 @@ img {
   /*Ajuste de rango de animación*/
   animation-fill-mode: both;
   /*anima hacia los dos sentidos*/
+  aspect-ratio: auto;
 }
 
 /*La animacioón NO es SOPORTADA por Mozilla y safari*/
@@ -108,13 +102,14 @@ img {
 
 @media (min-width: 769px) {
   .grid-item {
-    padding-inline: clamp(16px, 2vw + 0.5rem, 64px);
+    padding-inline: var(--padding-item-inline);
   }
 
   .grid {
     grid-template-columns: repeat(2, 1fr);
     /*padding: 64px 32px;*/
-    gap: var(--gap-grid-md)
+    gap: var(--gap-grid-md);
+    background-color: rgb(196, 255, 141);
   }
 
 }
@@ -125,17 +120,4 @@ img {
     gap: var(--gap-grid-lg);
   }
 
-  /*
-  .grid-title {
-      font-size: 28px;
-      line-height: 45.3px;
-      padding: 12px 16px;
-  }*/
-  /*
-
-  .grid-description {
-      font-size: 16px;
-      line-height: 25.9px;
-      padding: 24px 16px;
-  }*/
 }
