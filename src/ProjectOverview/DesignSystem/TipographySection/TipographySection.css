@@ -1,25 +1,42 @@
+:root {
+    --padding-item-block: clamp(24px, 2.5vw + 1rem, 48px);
+    --padding-item-inline: clamp(16px, 2vw + 0.5rem, 64px);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 .tipography__section-inner {
-    background: #F3F5F5;
-    padding: 46px 0;
+    margin: 0 auto;
+    background: linear-gradient(90deg, #d1fbe9 0%, #e0dee4 100%);
     border-radius: 8px;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: auto;
+     grid-template-columns: 1fr;
     gap: 32px;
-    height: 100%;
-
+    width: 100%;
+    /* Ocupar todo el ancho disponible */
+    max-width: 100%;
+    /* No exceder el ancho del contenedor */
+    box-sizing: border-box;
+    /* Incluir padding/border en el cálculo del ancho */
+    padding: var(--padding-grid-block) var(--padding-grid-inline);
 }
 
 .item__font {
-    background: #ffffff;
-    max-width: 358px;
+    background: white;
     width: 100%;
-    display: grid;
-    gap: 14px;
-    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding: var(--padding-grid-block) var(--padding-item-inline);
     margin: 0 auto;
-    border: 1px solid #cdcdcd;
+    border: 1px solid var(--color-border-item);
     border-radius: 8px;
+    aspect-ratio: 1.618 / 1;
 }
 
 .item__font-font-type {
@@ -53,18 +70,14 @@ strong {
 
 /*Media queries*/
 
-@media (min-width: 769px) and (max-width: 1023px) {
+@media (min-width: 769px) {
 
     .tipography__section-inner {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        padding: 64px 32px;
         gap: 24px;
         border-radius: 12px;
     }
 
     .item__font {
-        max-width: 400px;
-        padding: 16px;
         gap: 16px;
     }
 
@@ -93,15 +106,13 @@ strong {
 @media (min-width: 1024px) {
 
     .tipography__section-inner {
-        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-        padding: 72px 64px;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        /* Desktop: 2 columnas */
         gap: 32px;
         border-radius: 16px;
     }
 
     .item__font {
-        max-width: 400px;
-        padding: 16px;
         gap: 18px;
     }
 
