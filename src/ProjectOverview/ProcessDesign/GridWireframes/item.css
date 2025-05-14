@@ -24,7 +24,7 @@
 }
 
 .card--with-content {
-  padding-bottom: 8px;
+  padding-bottom: clamp(8px, 2vh, 16px);
 }
 
 .card--image-only {
