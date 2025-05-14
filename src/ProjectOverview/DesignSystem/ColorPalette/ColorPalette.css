@@ -16,10 +16,6 @@
 
     --padding-items-colors: clamp(8px, 0.65vw + 1px, 24px);
 
-    /* Padding general para el grid */
-    --padding-grid-block: clamp(24px, 2.5vw + 1rem, 48px);
-    --padding-grid-inline: clamp(16px, 2vw + 0.5rem, 64px);
-
     --gap-vertical-mobile: 32px;
     --gap-vertical-tablet: 48px;
     --gap-vertical-desktop: 64px;
@@ -59,7 +55,7 @@ html {
     text-align: start;
     margin-bottom: var(--margin-bottom-subtitle);
     text-transform: uppercase;
-    color: #686868;
+    color: var(--color-items-subtitle);
 }
 
 .color__palette-colors {
