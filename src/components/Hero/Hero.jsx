@@ -1,36 +1,63 @@
-import React from "react";
+/* TipographySection.css */
+import { useEffect } from "react";
 import { DownloadCv } from "./DownloadCv";
-import './Hero.css';
+import "./Hero.css";
 
 export const Hero = () => {
+  useEffect(() => {
+    const spans = document.querySelectorAll(".typewriter-effect span");
+    spans.forEach((span, i) => {
+      span.style.animationDelay = `${2 + i * 0.4}s`;
+    });
+  }, []);
 
-    return (
-        <div className="hero-section">
-            <div className="animated-card">
-                <h1 className="hero-title">
-                    <span className="hero-word">¡Hola</span>
-                    <span className="hero-word">Soy</span>
-                    <span className="hero-word">René</span>
-                    <span className="hero-word">UX UI</span>
-                    <span className="hero-word">Designer!</span>
-                </h1>
-                <div className="container-description-btn">
-                    <p className="typewriter-effect">
-                        <span className="typewriter-word">Descubre</span>
-                        <span className="typewriter-word">cómo</span>
-                        <span className="typewriter-word">la</span>
-                        <span className="typewriter-word">tecnología</span>
-                        <span className="typewriter-word">transforma</span>
-                        <span className="typewriter-word">el</span>
-                        <span className="typewriter-word">mundo,</span>
-                        <span className="typewriter-word">palabra</span>
-                        <span className="typewriter-word">por</span>
-                        <span className="typewriter-word">palabra.</span>
-                    </p>
-                    <DownloadCv />
-                </div>
-
-            </div>
+  return (
+    <div className="hero-section">
+      <span className="span-bg">Imagen no definitiva</span>
+      <div className="animated-card">
+        <h1 className="hero-title">¡Hola! Soy René, UX/UI Designer!</h1>
+        <div className="container-description-btn">
+          <p className="typewriter-effect">
+            {[
+              "Diseño",
+              "experiencias",
+              "digitales",
+              "que",
+              "conectan",
+              "con",
+              "las",
+              "personas.",
+              "Me",
+              "enfoco",
+              "en",
+              "proyectos",
+              "web,",
+              "prototipos",
+              "interactivos",
+              "y",
+              "soluciones",
+              "que",
+              "exploran",
+              "el",
+              "futuro",
+              "de",
+              "la",
+              "tecnología.",
+            ].map((word, index) => (
+              <span key={index} className="typewriter-word">
+                {word}
+              </span>
+            ))}
+          </p>
+          {/* Texto visible para lectores de pantalla y motores de búsqueda */}
+          <p className="sr-only">
+            Diseño experiencias digitales que conectan con las personas. Me
+            enfoco en proyectos web, prototipos interactivos y soluciones que
+            exploran el futuro de la tecnología.
+          </p>
+          <DownloadCv />
         </div>
-    );
+      </div>
+    </div>
+  );
 };
