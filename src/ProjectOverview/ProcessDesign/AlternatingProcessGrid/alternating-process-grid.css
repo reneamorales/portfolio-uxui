@@ -1,59 +1,105 @@
 .second__grid-container {
     width: 100%;
-    max-width: 956px;
+    max-width: clamp(576px, 70vw, 1100px);
     margin: 0 auto;
-    padding: 32px 0;
+    padding: var(--padding-grid-block) 0;
 }
 
 .second__grid-inner {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(358px, 1fr));
-    gap: 8px;
-    padding: 46px 16px;
-    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 8px;
+    padding: var(--padding-item-block) var(--padding-item-inline);
+    margin: 0 auto;
+    flex-wrap: nowrap;
+    /* Se apilan verticalmente, así que no se necesita wrap */
 }
 
-.second__grid-inner img {
+.second__grid-inner figure,
+img {
     width: 100%;
     aspect-ratio: auto;
-    margin-bottom: 12px;
+    object-fit: cover;
+    border-top-left-radius: inherit;
+    border-top-right-radius: inherit;
+
+}
+
+/*quitar esta declaración afecta al elemento de imagenesd del grid, desbordandolo*/
+
+
+.video-container {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+}
+
+.video-container iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
     object-fit: cover;
 }
 
-@media (min-width: 769px) and (max-width: 1023px) {
-    .second__grid-inner{
-      padding: 64px 32px;
-          gap: 24px;
+@media (min-width: 769px) {
+    .second__grid-container {
+        padding-inline: var(--padding-item-inline);
     }
+
     .second__grid-inner {
-        grid-template-columns: 1fr 1fr;
-    }
-
-    .second__grid-inner.reverse img {
-        order: 2;
-    }
-
-    .second__grid-inner.reverse .second__grid-descriptions {
-        order: 1;
+        gap: 24px;
     }
 
 }
+
 @media (min-width: 1024px) {
-    .second__grid-inner{
-      padding: 72px 64px;
-          gap: 32px;
-    }
-
     .second__grid-inner {
-        grid-template-columns: 1fr 1fr;
+        flex-direction: row;
+        flex-wrap: wrap;
+        /* para que hagan wrap si no hay suficiente espacio */
+        gap: 0px;
+        align-items: stretch;
+        justify-content: center;
     }
 
-    .second__grid-inner.reverse img {
-        order: 2;
+    .second__grid-inner.reverse {
+        flex-direction: row-reverse;
     }
 
-    .second__grid-inner.reverse .second__grid-descriptions {
-        order: 1;
+    .second__grid-inner>* {
+        flex: 1 1 340px;
+        min-width: 340px;
+        max-width: 812px;
+
+    }
+
+    .second__grid-descriptions {
+        font-size: 16px;
+        line-height: 25.9px;
+        max-width: 812px;
+        aspect-ratio: 1/1;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        /* o center si querés centrar también horizontalmente */
+        padding: 2rem;
+    }
+
+    .video-container {
+        .video-container {
+            max-width: 812px;
+            aspect-ratio: 1 / 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+
+    .video-container iframe {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* asegura que el video llene el contenedor */
     }
 }
