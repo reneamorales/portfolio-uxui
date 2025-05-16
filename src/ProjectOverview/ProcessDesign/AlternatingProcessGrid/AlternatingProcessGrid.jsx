@@ -1,47 +1,54 @@
-import React, { Suspense, memo } from 'react'
-import PropTypes from 'prop-types'
-import './alternating-process-grid.css'
+import React from "react";
+import { Suspense, memo } from "react";
+import PropTypes from "prop-types";
+import "./alternating-process-grid.css";
+import VideoPreview from "../../../components/VideoPreview/VideoPreview";
+import ImageSliderAuto from "./ImageSliderAuto.jsx";
 
-const AlternatingProcessGrid = memo(({ content }) => {
-    if (!content) return null;
+export const AlternatingProcessGrid = memo(({ content }) => {
+  if (!content) return null;
 
-    return (
-        <div className='second__grid-container'>
-            <p className='design__process-title'>{content?.title}</p>
-            <Suspense fallback={<div>Loading...</div>}>
-                {content?.item?.map((item, indexItem) => (
-                    <div
-                        key={`grid-item-${indexItem}`}
-                        className={`second__grid-inner ${indexItem % 2 === 1 ? 'reverse' : ''}`}
-                    >
-                        <img
-                            src={item.imageSrc}
-                            alt={`Component ${indexItem + 1}`}
-                            loading="lazy"
-                        />
-                        <div className='design__process-description second__grid-descriptions'>
-                            {item.description}
-                        </div>
-                    </div>
-                ))}
-            </Suspense>
-
-        </div>
-    )
-})
+  return (
+    <div className="second__grid-container">
+      <p className="design__process-title">{content?.title}</p>
+      <Suspense fallback={<div>Loading...</div>}>
+        {content?.item?.map((item, indexItem) => (
+          <div
+            key={`grid-item-${indexItem}`}
+            className={`second__grid-inner ${
+              indexItem % 2 === 1 ? "reverse" : ""
+            }`}
+          >
+            {/* Renderiza video si hay videoSrc, si no, imagen */}
+            {item.videoSrc ? (
+              <div className="video-container">
+                {/* TODO: Reemplazar por componente de video definitivo */}
+                <p>Reproductor aquí</p>
+              </div>
+            ) : (
+              <ImageSliderAuto images={item.images} />
+            )}
+            <div className="design__process-description second__grid-descriptions">
+              {item.description}
+            </div>
+          </div>
+        ))}
+      </Suspense>
+    </div>
+  );
+});
 
 AlternatingProcessGrid.propTypes = {
-    content: PropTypes.shape({
-        title: PropTypes.string,
-        item: PropTypes.arrayOf(
-            PropTypes.shape({
-                imageSrc: PropTypes.string.isRequired,
-                description: PropTypes.string.isRequired
-            })
-        )
-    })
-}
+  content: PropTypes.shape({
+    title: PropTypes.string,
+    item: PropTypes.arrayOf(
+      PropTypes.shape({
+        videoSrc: PropTypes.string,
+        images: PropTypes.arrayOf(PropTypes.string), // <- agregá esto
+        description: PropTypes.node.isRequired,
+      })
+    ),
+  }),
+};
 
-AlternatingProcessGrid.displayName = 'AlternatingProcessGrid'
-
-export default AlternatingProcessGrid
+AlternatingProcessGrid.displayName = "AlternatingProcessGrid";
