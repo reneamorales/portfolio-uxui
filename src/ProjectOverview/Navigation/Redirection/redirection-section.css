@@ -15,7 +15,7 @@
     grid-template-columns: 1fr;
     grid-template-rows: auto;
     row-gap: 8px;
-    padding: 32px 16px;
+    padding: var(--padding-item-block) 0;
 }
 
 .redirection__image {
@@ -221,10 +221,15 @@
     color: #FF7A00;
 }
 
-@media (min-width: 769px) and (max-width: 1023px) {
-    .redirection__container{
+@media (min-width: 769px) {
+    .redirection__content {
+        padding-inline: var(--padding-item-inline);
+    }
+
+    .redirection__container {
         margin-block: 42px;
     }
+
     .cta__prototype-container {
         aspect-ratio: 16 / 9;
         border-radius: 12px;
@@ -266,7 +271,8 @@
         padding: 32px 48px;
         animation-range: entry 10% cover 20%
     }
-    .redirection__container{
+
+    .redirection__container {
         margin-block: 64px;
     }
 
