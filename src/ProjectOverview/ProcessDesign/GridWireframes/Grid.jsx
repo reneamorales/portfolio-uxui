@@ -59,17 +59,17 @@ export const Grid = ({ content }) => {
       <div className="grid-item">
         <h2 className="design__process-title">{content.title}</h2>
 
-        <div className="design__process-description">
+        { content.descriptionTop && <div className="design__process-description">
           {content.descriptionTop}
-        </div>
+        </div>}
 
         <div className={`grid ${isVideoOnly ? "full-width-video" : ""}`}>
           {content.item?.map((item, index) => renderContentItem(item, index))}
         </div>
 
-        <div className="design__process-description">
+        { content.descriptionBottom && <div className="design__process-description">
           {content.descriptionBottom}
-        </div>
+        </div>}
       </div>
     </div>
   );
