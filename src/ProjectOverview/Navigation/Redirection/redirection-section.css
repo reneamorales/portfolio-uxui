@@ -1,12 +1,15 @@
 .redirection__container {
-
+    max-width: clamp(736px, 100%, 2000px);
     width: 100%;
     height: auto;
-    margin-top: 64px;
+    margin-block: 32px;
 }
 
 .redirection__content {
+    margin: 0 auto;
+    max-width: clamp(576px, 70vw, 1100px);
     width: 100%;
+    height: 100%;
     position: relative;
     display: grid;
     grid-template-columns: 1fr;
@@ -219,6 +222,9 @@
 }
 
 @media (min-width: 769px) and (max-width: 1023px) {
+    .redirection__container{
+        margin-block: 42px;
+    }
     .cta__prototype-container {
         aspect-ratio: 16 / 9;
         border-radius: 12px;
@@ -259,6 +265,9 @@
         border-radius: 16px;
         padding: 32px 48px;
         animation-range: entry 10% cover 20%
+    }
+    .redirection__container{
+        margin-block: 64px;
     }
 
     .cta__prototype-paragraph {
