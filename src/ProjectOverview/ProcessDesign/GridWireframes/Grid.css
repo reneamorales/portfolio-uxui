@@ -47,7 +47,6 @@ strong {
 .grid-item {
   max-width: clamp(576px, 70vw, 1100px);
   padding: var(--padding-item-block) 0;
-  /*ver bien el padding vertical*/
 }
 
 /* Estilo para el grid */
@@ -63,15 +62,9 @@ strong {
   margin: 0 auto;
 }
 
-.picture-card.picture-full {
-  width: 100%;
-}
-
-figure {
-  /*width: 100% !important;*/
-  /*este elemento debe ser ajustado mediante envío específico de props*/
-  aspect-ratio: auto;
-  object-fit: cover;
+.grid.full-width-video {
+  grid-template-columns: 1fr;
+  /* solo una columna */
 }
 
 img {
@@ -109,7 +102,6 @@ img {
     grid-template-columns: repeat(2, 1fr);
     /*padding: 64px 32px;*/
     gap: var(--gap-grid-md);
-    background-color: rgb(196, 255, 141);
   }
 
 }
