@@ -1,67 +1,113 @@
-/* Estilo general de la sección */
-/*Project-Section*/
+:root {
+    /* Dimensiones */
+    --gap-projects-list-sm: 24px;
+    --gap-projects-list-md: 32px;
+    --gap-projects-list-lg: 64px;
+
+    /* Colores */
+    --color-border-project-card: #09092D;
+
+}
+
+/* ───────────────────────────────
+   Container proyectos
+─────────────────────────────── */
 #projects {
-    padding: 64px 0;
-    color: black;
+    /* Box model */
+    max-width: clamp(736px, 100%, 2000px);
+    width: 100%;
+    padding: var(--padding-grid-block) 0;
+
+    /* Posicionamiento */
     z-index: 1;
+    position: relative;
 }
 
 .projects-container {
-    max-width: 1152px;
-    margin: 0 auto;
+    /* Layout */
     display: flex;
     flex-direction: column;
     align-items: stretch;
+    max-width: clamp(576px, 85vw, 1200px);
+
+    /* Box model */
+    width: 100%;
+    padding: var(--padding-item-block) var(--padding-item-inline);
+    margin: 0 auto;
 }
 
-/* Título de la sección */
-.section-title {
-    color: #09092D;
-    font-size: 32px;
-    line-height: 51.8px;
-    font-weight: bold;
-    text-align: center;
-    justify-content: center;
-    margin-bottom: 32px;
-}
-
-/* Lista de proyectos */
+/* ───────────────────────────────
+   Listado de proyectos
+─────────────────────────────── */
 .projects-list {
+    /* Layout */
     display: flex;
     flex-direction: column;
-    gap: 64px;
     align-items: center;
-    /* Espacio entre las cards */
+    gap: var(--gap-projects-list-sm);
+
+    /* Box model */
+    width: 100%;
+    padding-top: 42px;
+    /* Espacio inicial */
+    min-height: 200vh;
+    /* Asegura espacio para scroll */
+
+    /* Posicionamiento */
+    position: relative;
 }
 
-/*
-@media (max-width: 1152px) {}
-@media (max-width: 768px) {}
-*/
-
-@media (max-width: 1152px) {
-    .section-title{
-        font-size: 24px;
-        line-height: 38.8px;
-    }
-    .projects-container {
-        max-width: 959px;
-    }
+/* ───────────────────────────────
+   Apilamiento de tarjetas
+─────────────────────────────── */
+.projects-list .project-card:nth-child(1) {
+    z-index: 1;
+    top: 84px;
 }
 
-@media (max-width: 768px) {
+.projects-list .project-card:nth-child(2) {
+    z-index: 2;
+    top: 104px;
+}
+
+.projects-list .project-card:nth-child(3) {
+    z-index: 3;
+    top: 124px;
+}
+
+.projects-list .project-card:nth-child(4) {
+    z-index: 4;
+    top: 144px;
+}
+
+
+/* ───────────────────────────────
+   Activación de tarjeta
+─────────────────────────────── */
+.project-card.active {
+    /* Visual */
+    border-color: var(--color-border-project-card);
+
+    /* Efectos */
+    transform: translateY(-20px);
+
+    /* Posicionamiento */
+    z-index: 10;
+
+}
+
+@media (min-width: 768px) {
     #projects {
-        margin: 0 16px;
+        padding-inline: var(--padding-grid-inline);
     }
-    .section-title{
-        font-size: 20px;
-        line-height: 32.4px;
-    }
-    .projects-container {
-        min-width: 358px;
-    }
+
     .projects-list {
-        gap: 16px;
+        gap: var(--gap-projects-list-md);
     }
 }
 
+@media (min-width: 1152px) {
+    .projects-list {
+        gap: var(--gap-projects-list-lg);
+    }
+}
