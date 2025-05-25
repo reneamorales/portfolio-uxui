@@ -104,10 +104,44 @@
     .projects-list {
         gap: var(--gap-projects-list-md);
     }
+
+    .projects-list .project-card:nth-child(1) {
+        top: 84px;
+    }
+
+    .projects-list .project-card:nth-child(2) {
+        top: 114px;
+        /* +30 */
+    }
+
+    .projects-list .project-card:nth-child(3) {
+        top: 144px;
+    }
+
+    .projects-list .project-card:nth-child(4) {
+        top: 174px;
+    }
 }
 
 @media (min-width: 1152px) {
     .projects-list {
         gap: var(--gap-projects-list-lg);
+    }
+
+    .projects-list .project-card:nth-child(1) {
+        top: 84px;
+    }
+
+    .projects-list .project-card:nth-child(2) {
+        top: 124px;
+        /* +40 */
+    }
+
+    .projects-list .project-card:nth-child(3) {
+        top: 164px;
+    }
+
+    .projects-list .project-card:nth-child(4) {
+        top: 204px;
     }
 }
