@@ -1,6 +1,5 @@
 :root {
     /* Dimensiones */
-    --card-max-width: 713px;
     --card-border-radius: 8px;
     --card-padding-sm: 20px 16px;
     --card-padding-md: 24px 20px;
@@ -52,7 +51,7 @@
     overflow: hidden;
 
     /* Visual */
-    background: transparent;
+    background: #ffffff;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     /* Efectos */
@@ -64,6 +63,9 @@
     position: sticky;
     top: var(--navbar-height, 84px);
     z-index: 1;
+
+    /* Animaciones */
+    transition: all 0.3s ease;
 }
 
 .project-card.active {
