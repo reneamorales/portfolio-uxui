@@ -1,81 +1,163 @@
-/*Principles section*/
-#principles {
-    padding: 32px 20px;
-    /*background-color: #f9f9f9;*/
-    /* Fondo claro para destacar la sección */
+:root {
+    /* Dimensions */
+    --gap-principles-list-sm: 20px;
+    --gap-principles-list-md: 28px;
+    --gap-principles-list-lg: 32px;
+
+    --capsule-padding-base: 12px 16px;
+    --capsule-padding-md: 14px 20px;
+    --capsule-padding-lg: 16px 24px;
+
+    /* Typography */
+    --capsule-font-size-base: 14px;
+    --capsule-font-size-md: 16px;
+    --capsule-font-size-lg: 18px;
+
+    /* Colors */
+    --color-bg-capsule: #E9D8FF;
+    --color-text-capsule: #393781;
+    --color-bg-capsule-hover: #dcc2ff;
+
+    /* Shadows */
+    --shadow-capsule-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
+
+    /* Layout */
+    --principles-max-width: clamp(736px, 100%, 2000px);
+    --container-max-width: clamp(576px, 85vw, 1200px);
+    --capsules-min-width: 268px;
 }
 
+/* ───────────────────────────────
+   Principles section
+─────────────────────────────── */
+.principles-section {
+    /* Layout */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    /* Box model */
+    box-sizing: border-box;
+    max-width: var(--principles-max-width);
+    width: 100%;
+    padding: var(--padding-item-block) 0;
+}
+
+/* ───────────────────────────────
+   Principles container
+─────────────────────────────── */
 .principles-container {
-    max-width: 1152px;
-    margin: 0 auto;
-    /* Centra el contenedor */
-    /*text-align: center;*/
-    padding: 0 16px;
-}
+    /* Layout */
+    display: flex;
+    flex-direction: column;
 
-.title-section {
-    font-size: 28px;
-    font-weight: bold;
-    margin-bottom: 32px;
-    color: #333;
-    /* Color oscuro para buena legibilidad */
+    /* Box model */
+    max-width: var(--container-max-width);
+    width: 100%;
+    height: auto;
+    padding: var(--padding-item-block) var(--padding-item-inline);
+    margin: 0 auto;
 }
 
 .capsules-container {
+    /* Layout */
     display: flex;
     flex-wrap: wrap;
     /* Permite que las cápsulas pasen a la siguiente fila */
-    justify-content:first flex-start;
-    /* Centra las cápsulas en el contenedor */
-    gap: 28px;
-    /* Espaciado entre cápsulas */
+    justify-content: start;
+    gap: var(--gap-principles-list-sm);
+
+    /* Box model */
+    min-width: var(--capsules-min-width);
+    padding: 12px;
 }
 
 .capsule {
-    font-family: poppins, sans-serif;
-    font-weight: normal;
-    padding: 8px 12px;
-    background-color: #E9D8FF;
-    /* Fondo blanco */
+    /* Box model */
+    padding: var(--capsule-padding-base);
     border: none;
     border-radius: 5px;
-    /* Forma de cápsula */
-    font-size: 18px;
-    color: #393781;
+
+    /*Visual */
+    background-color: var(--color-bg-capsule);
+    color: var(--color-text-capsule);
+
+    /* Typography */
+    font-family: var(--font-secondary);
+    font-size: var(--capsule-font-size-base);
+    font-weight: normal;
+
+    /* Efects */
+    transform-origin: left top;
+    /* Cambiado para mejor efecto de despegue */
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    /* Transición más suave */
+    backface-visibility: hidden;
+    perspective: 1000px;
+    /* Estado inicial para la animación */
+    opacity: 0;
+    transform: translateY(15px) rotate(-8deg) scale(0.9);
 }
 
-@media (max-width: 1152px) {
-    .section-title {
-        font-size: 24px;
-        line-height: 38.8px;
-        margin-bottom: 24px;
+/* ───────────────────────────────
+   Class for animation effect
+─────────────────────────────── */
+.animate-peel {
+    animation: peelEffect 0.6s ease-out forwards;
+}
+
+@keyframes peelEffect {
+    0% {
+        opacity: 0;
+        transform: translateY(15px) rotate(-8deg) scale(0.9);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
     }
+
+    50% {
+        opacity: 1;
+        transform: translateY(-8px) rotate(4deg) scale(1.1);
+        box-shadow: 0 12px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    100% {
+        opacity: 1;
+        transform: translateY(0) rotate(0) scale(1);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+    }
+}
+
+/* Capsule hover effect  */
+.capsule:hover {
+    transform: translateY(-5px) rotate(2deg) scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+    background-color: #dcc2ff;
+    /* Cambio sutil de color al hover */
+}
+
+@media (min-width: 768px) {
     .principles-container {
-        max-width: 959px;
-        padding: 0 20px;
+        padding-inline: var(--padding-item-inline);
     }
-    .capsules-container{
-        gap: 24px;
+
+    .capsules-container {
+        padding: 16px;
+        gap: var(--gap-principles-list-md);
     }
+
     .capsule {
+        padding: 14px 20px;
         font-size: 16px;
     }
 }
 
-@media (max-width: 768px) {
-    .section-title {
-        font-size: 20px;
-        line-height: 32.4px;
-        margin-bottom: 18px;
+@media (min-width: 1152px) {
+    .capsules-container {
+        padding: 24px;
+        gap: var(--gap-principles-list-lg);
     }
-    .principles-container {
-        min-width: 358px;
-        padding: 0 16px;
-    }
-    .capsules-container{
-        gap: 20px;
-    }
+
     .capsule {
-        font-size: 14px;
+        padding: 16px 24px;
+        font-size: 18px;
     }
 }
