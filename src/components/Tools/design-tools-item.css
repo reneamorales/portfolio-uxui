@@ -1,0 +1,99 @@
+.tools {
+    text-align: center;
+    /*Centra el contenido */
+    max-width: 120px;
+    /* Tamaño del contenedor de cada herramienta */
+    display: flex;
+    flex-direction: column;
+    /* Apila los elementos (logo y texto) */
+    align-items: center;
+    gap: 16px;
+    /* Separación entre el logo y el contenedor de texto */
+}
+
+.tool-logo {
+    width: 120px;
+    /* Ajusta el tamaño del logo */
+    height: 120px;
+    /* Mantiene la proporción */
+    /* filter: grayscale(100%);*/
+    /* Opcional: Aplica escala de grises */
+    transition: filter 0.3s ease, transform 0.3s ease;
+    /* Animación al hover */
+    border-radius: 16px;
+}
+
+.tool-logo:hover {
+    filter: grayscale(0);
+    /* Quita el efecto de escala de grises al hover */
+    transform: scale(1.1);
+    /* Aumenta ligeramente el tamaño al hover */
+}
+
+/* Contenedor de texto */
+.tool-text {
+    display: flex;
+    flex-direction: column;
+    /* Buena separación entre líneas */
+    text-align: center;
+    /* Centra los textos */
+    gap: 0px;
+    /* Sin espacio adicional entre tool-name y tool-category */
+}
+
+.tool-name,
+.tool-category {
+    font-family: poppins;
+    font-weight: 400;
+    font-size: 24px;
+    margin: 0;
+}
+
+.tool-category {
+    color: #535353;
+}
+
+@media (min-width: 768px) {
+    .tools {
+        width: 85px;
+        height: auto;
+    }
+
+    .tools img {
+        width: 100%;
+        height: auto;
+    }
+
+    .tool-text .tool-name {
+        font-size: 16px;
+        line-height: 25.9px;
+    }
+
+    .tool-text .tool-category {
+        font-size: 14px;
+        line-height: 22.7px;
+    }
+}
+
+@media (min-width: 1152px) {
+    .tools {
+        width: 110px;
+        height: auto;
+    }
+
+    .tools img {
+        width: 110px;
+        height: auto;
+    }
+
+    .tool-text .tool-name {
+        font-size: 20px;
+        line-height: 32.4px;
+    }
+
+    .tool-text .tool-category {
+        font-size: 18px;
+        line-height: 29.1px;
+    }
+
+}
