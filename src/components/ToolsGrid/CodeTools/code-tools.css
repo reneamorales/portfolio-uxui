@@ -1,0 +1,66 @@
+:root {
+    /* Colores */
+    --color-bg-grid-code: #434743;/*383838 #323832*/
+    --color-text-tool-name-code: #d8d8d8;
+    --grid-pattern-code: radial-gradient(circle, rgba(169, 255, 152, 0.3) 10%, transparent 10%) 0 0 / 18px 18px;
+}
+
+.items-grid-code {
+    background-color: var(--color-bg-grid-code);
+}
+
+.items-grid-code::before {
+    background: var(--grid-pattern-code);
+}
+
+.code-tool-container {
+    align-items: center;
+}
+
+
+.code-tool-logo {
+    /* Effects */
+    filter: grayscale(100%) opacity(0.6);
+    animation: scaleIn 0.6s ease-out forwards;
+}
+
+.code-tool-container .tool-name {
+    color: var(--color-text-tool-name-code);
+    text-align: center;
+
+    /* Animation */
+    opacity: 1;
+    transform: translateY(0);
+    transition: all 0.3s ease-out;
+    pointer-events: none;
+}
+
+/* Para dispositivos que soportan hover */
+@media (hover: hover) {
+    .code-tool-container .tool-name {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    .code-tool-container:hover .tool-name {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .code-tool-logo:hover {
+        filter: grayscale(0%) opacity(1);
+        transform: scale(1.1);
+    }
+}
+
+@keyframes scaleIn {
+    0% {
+        transform: scale(0.85);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
