@@ -1,0 +1,55 @@
+:root {
+    /* Colores */
+    --color-bg-grid-design: #f8f8f8;
+    --color-txt-tool-name-design: #333333;
+    --color-txt-tool-category-design: #666666;
+
+    --border-radius-logo-sm: 8px;
+    --border-radius-logo-md: 12px;
+    --border-radius-logo-lg: 16px;
+
+    --grid-pattern-design: radial-gradient(circle, rgba(69, 33, 128, 0.3) 10%, transparent 10%) 0 0 / 18px 18px;
+}
+
+.items-grid-design {
+    background-color: var(--color-bg-grid-design);
+}
+
+.items-grid-design::before {
+    background: var(--grid-pattern-design);
+}
+
+.design-tool-container {
+    align-items: start;
+}
+
+.design-tool-container img {
+    aspect-ratio: 1 / 1;
+    border-radius: var(--border-radius-logo-sm);
+}
+
+.design-tool-container .tool-name {
+    color: var(--color-txt-tool-name-design);
+}
+
+.design-tool-container .tool-category {
+    color: var(--color-txt-tool-category-design);
+    font-weight: 500;
+}
+
+
+@media (min-width: 768px) {
+    
+    .design-tool-container img {
+    border-radius: var(--border-radius-logo-md);
+}
+
+}
+
+@media (min-width: 1152px) {
+
+    .design-tool-container img {
+    border-radius: var(--border-radius-logo-lg);
+}
+
+}
