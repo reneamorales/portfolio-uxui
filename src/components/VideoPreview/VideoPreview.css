@@ -25,6 +25,7 @@ figure {
 
 
 figcaption {
+    font-family: var(--font-secondary);
     font-size: 0.875rem;
     text-align: center;
     color: #666;
