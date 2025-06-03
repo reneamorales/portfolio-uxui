@@ -1,9 +1,9 @@
 :root {
     /* Dimensiones */
-    --card-border-radius: 8px;
     --card-padding-sm: 20px 16px;
     --card-padding-md: 24px 20px;
     --card-padding-lg: 32px 24px;
+
     --card-gap-sm: 8px;
     --card-gap-md: 12px;
     --card-gap-lg: 16px;
@@ -12,10 +12,22 @@
     --gap-container-btn-tablet: 16px;
     --gap-container-btn-desktop: 24px;
 
+    --border-radius-video-sm: 5px;
+    --border-radius-video-md: 8px;
+    --border-radius-video-lg: 12px;
+
+    --card-border-radius-card-sm: 12px;
+    --card-border-radius-card-md: 16px;
+    --card-border-radius-card-lg: 20px;
+
     /* Animaciones */
     --transition-duration: 300ms;
 
     /* Colores */
+
+    --bg-color-card-default: linear-gradient(to top, #f3e7e9 0%, #e3eeff 100%);
+    --bg-color-card-active: linear-gradient(to top, #f0dfe2 0%, #d4e4ff 100%);
+
     --color-txt-paragraph: #535353;
     --color-bg-see-web: #b983ff;
     --color-border-see-web: #7B00FF;
@@ -47,11 +59,11 @@
     margin: 0;
     box-sizing: border-box;
     border: 1px solid #e0e0e0;
-    border-radius: var(--card-border-radius);
+    border-radius: var(--card-border-radius-card-sm);
     overflow: hidden;
 
     /* Visual */
-    background: #ffffff;
+    background: var(--bg-color-card-default);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 
     /* Efectos */
@@ -70,7 +82,7 @@
 
 .project-card.active {
     /* Visual */
-    background: linear-gradient(to top, #f3e7e9 0%, #e3eeff 100%);
+    background: var(--bg-color-card-active);
 
     /* Efectos */
     transform: translateZ(1px);
@@ -94,7 +106,7 @@
 
 .project-content h3 {
     /* Typography */
-    font-family: var(--font-terciary);
+    font-family: var(--font-secondary);
     font-size: 18px;
     line-height: 29.1px;
     font-weight: 700;
@@ -105,13 +117,17 @@
 
 .project-content p {
     /* Typography */
-    font-family: var(--font-secondary);
+    font-family: var(--font-tertiary);
     font-size: 14px;
     line-height: 22.7px;
     color: var(--color-txt-paragraph);
 
     /* Spacing */
     margin-bottom: 12px;
+}
+
+.project-card video {
+    border-radius: var(--border-radius-video-sm);
 }
 
 /* ───────────────────────────────
@@ -193,6 +209,7 @@
     .project-card {
         gap: var(--card-gap-md);
         padding: var(--card-padding-md);
+        border-radius: var(--card-border-radius-card-md);
     }
 
     .project-content {
@@ -225,6 +242,10 @@
     #prototype-link {
         width: 50%;
     }
+
+    .project-card video {
+        border-radius: var(--border-radius-video-md);
+    }
 }
 
 @media (min-width: 1152px) {
@@ -232,6 +253,7 @@
         flex-direction: row;
         gap: var(--card-gap-lg);
         padding: var(--card-padding-lg);
+        border-radius: var(--card-border-radius-card-lg);
     }
 
     .project-content {
@@ -258,5 +280,9 @@
 
     .project-link {
         border-radius: 8px;
+    }
+
+    .project-card video {
+        border-radius: var(--border-radius-video-lg);
     }
 }
