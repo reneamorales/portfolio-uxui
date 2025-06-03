@@ -86,7 +86,7 @@
 ─────────────────────────────── */
 .project-card.active {
     /* Visual */
-    border-color: var(--color-border-project-card);
+    box-shadow: 0 10px 24px rgba(180, 200, 255, 0.4), 0 6px 10px rgba(0, 0, 0, 0.15);
 
     /* Efectos */
     transform: translateY(-20px);
