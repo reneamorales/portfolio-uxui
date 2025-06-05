@@ -1,5 +1,6 @@
 import React from "react";
-import './Navbar.css';
+import './navbar-links.css';
+import Cta from "./Cta";
 
 export const NavLinks = ({ isActive, closeMenu }) => {
   return (
@@ -19,16 +20,7 @@ export const NavLinks = ({ isActive, closeMenu }) => {
           Habilidades
         </a>
       </li>
-      <li>
-        <a className="link" href="#contact" onClick={closeMenu}>
-          Contacto
-        </a>
-      </li>
-      <div className="cta">
-        <a href="#hire-me" className="oculto btn btn-contact" onClick={closeMenu}>
-          Contactar
-        </a>
-      </div>
+     <Cta closeMenu={closeMenu} />
     </ul>
   );
 };
