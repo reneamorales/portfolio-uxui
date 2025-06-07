@@ -1,28 +1,58 @@
-/* Navbar container */
+:root {
+    /* Backgrounds */
+    --navbar-bg-transparent: rgba(255 255 255 / 0);
+    --navbar-bg-glass: rgba(255 255 255 / .8);
+}
+
 .navbar {
-    width: 100%;
-    position: sticky;
-    top: 0;
+    /* Layout */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 12px 107px;
-    /*24px*/
-    background-color: rgb(255, 255, 255);
-    color: black;
+
+    /* Box model */
     box-sizing: border-box;
+    width: 100%;
+    height: var(--navbar-height-sm);
+    padding: var(--navbar-padding-sm);
+
+    color: var(--nav-link-color);
+
+    /* Position */
+    position: fixed;
+    top: 0;
+    left: 0;
     z-index: 1000;
-    transition: background-color 0.3s ease;
+
+    overflow: visible;
+
+    transition: background-color var(--transition-default), color var(--transition-default);
 }
 
 .navbar.transparent {
-    background-color: rgba(255, 255, 255, .9);
+    background-color: var(--navbar-bg-transparent);
+    color: var(--nav-link-color);
 }
 
+.navbar:not(.transparent) {
+    background-color: var(--navbar-bg-glass);
+    color: var(--nav-link-inverse-color);
+}
+
+.navbar{
+    background-color: inherit;
+}
+
+.nav-links li a,
+.cta__button {
+    color: inherit;
+    transition: all var(--transition-default);
+}
 .logo a {
-    font-size: 36px;
-    font-weight: bold;
-    background: linear-gradient(90deg, #22FDAA 0%, #8C43FF 100%);
+    font-family: var(--font-secondary);
+    font-size: var(--logo-font-size);
+    font-weight: 600;
+    background: var(--gradient-logo);
     -webkit-background-clip: text;
     /* Funciona para WebKit */
     -webkit-text-fill-color: transparent;
@@ -31,216 +61,37 @@
     /* Asegura compatibilidad con otros navegadores */
 }
 
-.oculto {
-    display: none;
-    /* Ocultar el botón por defecto */
-}
-
-#burger {
+.menu-button {
+    display: flex;
     background: transparent;
     border: none;
     cursor: pointer;
     justify-content: center;
     align-items: center;
-    width: 32px;
-    /*1ero 24px*/
+    width: 28px;
+    aspect-ratio: 1 / 1;
+
+    z-index: 1001;
 }
 
-.nav-links {
-    display: flex;
-    justify-content: space-around;
-    list-style: none;
-    width: 100%;
-    margin: 0;
-    padding: 16px;
-}
-
-.nav-links li a {
-    text-decoration: none;
-    color: black;
-    transition: color 0.3s;
-    font-size: 20px;
-    font-weight: 500;
-    padding: 16px 12px;
-    transition: background 0.3s;
-}
-
-.nav-links li a:hover {
-    color: #00b15b;
-}
-
-/* Call-to-action button */
-.btn-contact {
-    color: black;
-    font-size: 20px;
-    font-weight: 600;
-    text-decoration: none;
-    padding: 12px 24px;
-    border: none;
-    border-radius: 5px;
-    position: relative;
-    z-index: 1;
-    /* Por encima del pseudo-elemento */
-    overflow: hidden;
-    /* Evitar desbordes del pseudo-elemento */
-    background: #ffffff;
-    border-radius: 5px;
-    /* Fondo del botón */
-    transition: background 0.3s;
-}
-
-/* Efecto del borde animado */
-.btn-contact::before {
-    content: '';
-    position: absolute;
-    inset: 0;
-    /* Ajusta a los bordes del botón */
-    border-radius: 3px;
-    /* Mantiene los bordes redondeados */
-    padding: 2px;
-    background: linear-gradient(90deg, #e032ef 0%, #32ef96 100%);
-    /* Gradiente animado */
-
-    background-size: 200%;
-    /* Para crear movimiento */
-    z-index: -1;
-    /* Detrás del contenido */
-    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-    -webkit-mask-composite: xor;
-    mask-composite: exclude;
-    animation: borderMove 3s linear infinite;
-    /* Animación */
-}
-
-/* Animación del gradiente */
-@keyframes borderMove {
-    0% {
-        background-position: 0% 50%;
-        /* Inicia en el borde izquierdo */
-    }
-
-    25% {
-        background-position: 100% 50%;
-        /* Mueve al borde derecho */
-    }
-
-    50% {
-        background-position: 100% 100%;
-    }
-
-    75% {
-        background-position: 50% 100%;
-        /* Regresa al inicio */
-    }
-
-    100% {
-        background-position: 0% 50%;
-        /* Inicia en el borde izquierdo */
-    }
-}
-
-.btn-contact:hover {
-    color: #008b48;
-}
-
-.btn-contact:hover::before {
-    background-color: hsla(329, 98%, 66%, 1);
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1799 1799' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"), radial-gradient(circle at 94% 95%, hsla(60.00000000000003, 88%, 68%, 0.72) 3%, transparent 76%), radial-gradient(circle at 89% 34%, hsla(153, 96%, 51%, 1) 1%, transparent 86%), radial-gradient(circle at 86% 50%, hsla(208, 80%, 65%, 1) 7%, transparent 76%), radial-gradient(circle at 89% 79%, hsla(138, 76%, 53%, 1) 7%, transparent 87%), radial-gradient(circle at 15% 44%, hsla(254, 74%, 80%, 1) 15%, transparent 81%), radial-gradient(circle at 99% 20%, hsla(325, 88%, 92%, 1) 1%, transparent 68%);
-    background-blend-mode: overlay, normal, normal, normal, normal, normal, normal;
-    /* Gradiente para el relleno */
-    -webkit-mask: none;
-    /* Elimina el efecto de borde */
-    mask: none;
-}
-
-
-/*Ideada por mi para mantener el menu reduciendo el tamaño de la fuente*/
-/* Reducir tamaño a 20px para pantallas menores a 1152px */
-@media (max-width: 1152px) {
-
+@media (min-width: 768px) {
+    
     .navbar {
-        padding: 24px 32px;
-        /*ajustar bien*/
+        height: var(--navbar-height-md);
+        padding: var(--navbar-padding-md);
     }
 
-    .nav-links li a {
-        font-size: 14px;
-        padding: 8px 6px;
-    }
-
-    .btn-contact {
-        font-size: 14px;
-        padding: 8px 12px;
-    }
-
-}
-
-/* Media query para pantallas pequeñas */
-@media (max-width: 768px) {
-    .oculto {
-        display: flex;
-        /* Mostrar el botón */
-    }
-
-    .desactivar {
+    .menu-button {
         display: none;
     }
 
-    .logo a {
-        font-size: 32px;
+}
+
+@media (min-width: 1152px) {
+
+    .navbar {
+        height: var(--navbar-height-lg);
+        padding: var(--navbar-padding-lg);
     }
 
-    nav {
-        position: absolute;
-        top: 65px;
-        /* Justo debajo del navbar */
-        right: 32px;
-        background-color: rgb(255, 255, 255);
-        width: 185px;
-        height: 228px;
-    }
-
-    .nav-links {
-        flex-direction: column;
-        justify-content: flex-start;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        z-index: 100;
-        /*justify-content: none;*/
-        padding: 0;
-        align-items: center;
-        /* Centra el contenido verticalmente */
-    }
-
-    .nav-links li {
-        width: 100%;
-        height: 57px;
-        display: flex;
-        /* Habilita Flexbox dentro del `li` */
-        align-items: center;
-        /* Centra el contenido verticalmente */
-        justify-content: center;
-    }
-
-    .nav-links li:hover {
-        background-color: #B0FFDC;
-    }
-
-    nav  {
-        display: none;/*ver este cambio*/
-        /* Mostrar enlaces cuando estén activos */
-    }
-
-    .nav-links li a {
-        font-size: 20px;
-        padding: 16px 16px;
-        text-align: center;
-    }
-
-    .nav-links li a:hover {
-        color: inherit;
-        /* Opción: Mantén el color original del enlace */
-       /* pointer-events: none;*/
-        /* Opción adicional: Desactiva el hover */
-    }
 }
