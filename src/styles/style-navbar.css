@@ -1,0 +1,47 @@
+:root {
+
+    /* Medidas Navbar */
+    --navbar-padding-sm: 16px 24px;
+    --navbar-padding-md: 14px 40px ;
+    --navbar-padding-lg: 16px 56px;
+
+    /* Medidas comunes para elementos de navegación (links y CTA) */
+    --nav-element-width-base: 100%;
+    --nav-element-height-base: 57px;
+
+    --nav-element-width-md: 140px;
+    --nav-element-height-md: 40px;
+
+    --nav-element-width-lg: 160px;
+    --nav-element-height-lg: 46px;
+
+    /* Paddings comunes para elementos de navegación */
+    --nav-element-padding-base: 8px 16px;
+    --nav-element-padding-md: 10px 18px;
+    --nav-element-padding-lg: 11px 22px;
+
+    /* Tipografía - usada en links y logo */
+    --font-size-base: 1rem;
+    /* 16px */
+    --font-size-md: 1.125rem;
+    /* 18px */
+    --font-size-lg: 1.25rem;
+    /* 20px */
+    --logo-font-size: clamp(26px, calc(1.2vw + 1rem), 40px);
+    /* 26px to 40px */
+
+    /* Colores de Links y CTA */
+    --link-color-default: inherit;
+    --link-color-hover: rgb(0, 177, 91);
+    --link-color-active: rgb(0, 139, 72);
+
+    /* Colores para estados del navbar */
+    --nav-link-color: rgb(255, 255, 255);
+    --nav-link-inverse-color: rgb(0 0 0);
+
+    /* Transiciones */
+    --transition-fast: 0.2s ease;
+    --transition-default: 0.3s ease;
+
+    --transition-all-default: all 0.3s ease;
+}
