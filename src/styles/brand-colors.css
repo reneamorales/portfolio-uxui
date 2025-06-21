@@ -1,0 +1,6 @@
+:root {
+
+    /* Gradientes */
+    --gradient-cta: linear-gradient(90deg, #e032ef 0%, #32ef96 100%);
+    --gradient-logo: linear-gradient(90deg, #22FDAA 0%, #8C43FF 100%);
+}
