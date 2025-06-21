@@ -20,8 +20,8 @@
 
 /* Container principal del CTA */
 .cta {
-    width: 100%;
-    height: 57px;
+    width: var(--nav-element-width-base);
+    height: var(--nav-element-height-base);
 
     position: relative;
     z-index: 1;
@@ -38,7 +38,7 @@
     inset: 0;
     /* Ajusta a los bordes del botón */
     padding: 2px;
-    background: linear-gradient(90deg, #e032ef 0%, #32ef96 100%);
+    background: var(--gradient-cta);
     /* Gradiente animado */
 
     background-size: 200%;
@@ -91,11 +91,10 @@
     width: 100%;
     height: 100%;
     padding: 8px 16px;
-    gap: 4px;
+    gap: var(--gap-sm);
 
     font-family: var(--font-secondary);
     font-size: var(--font-size-base);
-    /* 16px */
     font-weight: 500;
     text-decoration: none;
 
@@ -128,19 +127,18 @@
         justify-content: center;
         align-items: center;
 
-        width: 140px;
-        height: 40px;
-        margin-left: 20px;
+        width: var(--nav-element-width-md);
+        height: var(--nav-element-height-md);
+        margin-left: var(--margin-left-md);
 
         flex-shrink: 0;
     }
 
     .cta__button {
         display: flex;
-        padding: 10px 16px;
-        gap: 6px;
+        padding: var(--nav-element-padding-md);
+        gap: var(--gap-md);
         font-size: 16px;
-        border-radius: 5px;
     }
 
     .cta__icon {
@@ -149,23 +147,22 @@
     }
 
     .cta::before {
-        border-radius: 5px;
+        border-radius: var(--radius-sm);
     }
 
 }
 
 @media (min-width: 1024px) {
     .cta {
-        width: 160px;
-        height: 46px;
+        width: var(--nav-element-width-lg);
+        height: var(--nav-element-height-lg);
 
-        margin-left: 32px;
+        margin-left: var(--margin-left-lg);
     }
 
     .cta__button {
-        padding: 12px 22px;
-        gap: 6px;
-        font-size: 18px;
+        padding: var(--nav-element-padding-lg);
+        font-size: var(--font-size-md);/*18px*/
     }
 
     .cta__icon {
@@ -174,6 +171,6 @@
     }
 
     .cta::before {
-        border-radius: 8px;
+        border-radius: var(--radius-md);
     }
 }
