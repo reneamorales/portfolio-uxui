@@ -26,21 +26,55 @@
 
     overflow: visible;
 
-    transition: background-color var(--transition-default), color var(--transition-default);
-}
-
-.navbar.transparent {
     background-color: var(--navbar-bg-transparent);
     color: var(--nav-link-color);
+
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+
+    transition: all var(--transition-default), opacity 0.3s;
+    opacity: 1;
+    pointer-events: auto;
 }
 
-.navbar:not(.transparent) {
+.navbar {
+    background-color: inherit;
+}
+
+/* Estado oculto */
+.navbar--hidden {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+}
+
+/* Estado inicial (top) */
+.navbar--top {
+    background-color: var(--navbar-bg-transparent);
+    color: var(--nav-link-color);
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+}
+
+/* Estado scrolled-up */
+.scrolled-up {
     background-color: var(--navbar-bg-glass);
     color: var(--nav-link-inverse-color);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
 }
 
-.navbar{
-    background-color: inherit;
+.scrolled-up .menu-button {
+    color: var(--nav-link-inverse-color); /* negro */
+}
+
+/* Asegurar que el menú móvil mantenga el texto en blanco */
+.nav.active {
+    background-color: var(--navbar-bg-glass);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    color: var(--nav-link-color);
+    /* mantener texto blanco en menú móvil */
 }
 
 .nav-links li a,
@@ -48,6 +82,7 @@
     color: inherit;
     transition: all var(--transition-default);
 }
+
 .logo a {
     font-family: var(--font-secondary);
     font-size: var(--logo-font-size);
@@ -71,11 +106,13 @@
     width: 28px;
     aspect-ratio: 1 / 1;
 
+    color: var(--nav-link-color);
+
     z-index: 1001;
 }
 
 @media (min-width: 768px) {
-    
+
     .navbar {
         height: var(--navbar-height-md);
         padding: var(--navbar-padding-md);
