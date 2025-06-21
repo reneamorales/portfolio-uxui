@@ -138,7 +138,7 @@
         display: flex;
         padding: var(--nav-element-padding-md);
         gap: var(--gap-md);
-        font-size: 16px;
+        font-size: var(--font-size-md);
     }
 
     .cta__icon {
@@ -162,7 +162,7 @@
 
     .cta__button {
         padding: var(--nav-element-padding-lg);
-        font-size: var(--font-size-md);/*18px*/
+        font-size: var(--font-size-lg);
     }
 
     .cta__icon {
