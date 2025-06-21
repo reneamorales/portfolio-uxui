@@ -4,47 +4,74 @@ import Menu from "./Menu";
 import "./Navbar.css";
 
 export const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false); // Control del menú móvil
-  const [isTransparent, setIsTransparent] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [navbarState, setNavbarState] = useState("top"); // "top", "hidden", "scrolled-up"
   const [lastScroll, setLastScroll] = useState(0);
-  // Alternar estado del menú
-  const toggleMenu = () => {
-    setIsMenuOpen(!isMenuOpen);
-  };
 
-  // Función para cerrar el menú al hacer clic en un enlace
-  const closeMenu = () => {
-    setIsMenuOpen(false);
-  };
+  // Alternar estado del menú
+  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
+  const closeMenu = () => setIsMenuOpen(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      const currentScroll = window.scrollY;
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const currentScroll = window.scrollY;
+          const vh = window.innerHeight;
 
-      if (currentScroll === 0) {
-        // Si estamos en el top de la página
-        setIsTransparent(true);
-      } else if (currentScroll < lastScroll) {
-        // Si estamos scrolleando hacia arriba
-        setIsTransparent(false); // Aplicamos el fondo con transparencia
-      } else {
-        // Si estamos scrolleando hacia abajo
-        setIsTransparent(true); // Mantenemos transparente
+          if (currentScroll === 0) {
+            setNavbarState("top");
+          } else if (
+            currentScroll > vh &&
+            currentScroll > lastScroll
+          ) {
+            // Bajando y pasó 100vh
+            setNavbarState("hidden");
+          } else if (
+            currentScroll > vh &&
+            currentScroll < lastScroll
+          ) {
+            // Subiendo y está después de 100vh
+            setNavbarState("scrolled-up");
+          } else if (currentScroll <= vh) {
+            // Dentro del primer 100vh
+            setNavbarState("top");
+          }
+          setLastScroll(currentScroll);
+          ticking = false;
+        });
+        ticking = true;
       }
-
-      setLastScroll(currentScroll);
     };
 
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, [lastScroll]);
+
+  // Cierra el menú móvil si el ancho es mayor a 768px
+  useEffect(() => {
+    const handleResize = () => {
+      if (window.innerWidth >= 768 && isMenuOpen) {
+        setIsMenuOpen(false);
+      }
+    };
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [isMenuOpen]);
+
   return (
-    <header className={`navbar ${isTransparent ? "transparent" : ""}`}>
+    <header
+      className={`navbar
+        ${navbarState === "top" ? "navbar--top" : ""}
+        ${navbarState === "scrolled-up" ? "scrolled-up" : ""}
+        ${navbarState === "hidden" ? "navbar--hidden" : ""}
+      `}
+    >
       <div className="logo">
         <a href="#">rene.ux</a>
       </div>
       <nav className={`nav ${isMenuOpen ? "active" : ""}`}>
-        {/* Pasamos la función closeMenu como prop */}
         <NavLinks isActive={isMenuOpen} closeMenu={closeMenu} />
       </nav>
       <button
