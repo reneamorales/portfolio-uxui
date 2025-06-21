@@ -3,38 +3,7 @@
     /* Borde */
     --border-item-nav: 1px solid #e0e0e0;
 }
-
-/*LLEVARLO AL NAVBAR JUNTO A LAS DEC DE LOS BREAKS*/
-.nav {
-    display: none;
-    position: absolute;
-    top: var(--navbar-height-sm);
-    right: 24px;
-
-    width: 185px;
-    flex-direction: column;
-    align-items: flex-start;
-
-    background-color: var(--bg-color-default);
-
-    opacity: 0;
-    transition: opacity var(--transition-default);
-
-    /* ...existing code... */
-    background-color: transparent;
-    backdrop-filter: none;
-    transition: all 0.3s ease;
-}
-
-.nav.active {
-    display: flex;
-    opacity: 1;
-
-    background-color: var(--navbar-bg-glass);
-    backdrop-filter: blur(8px);
-    -webkit-backdrop-filter: blur(8px);
-}
-
+/* Navbar Links Styles */
 .nav-links {
     display: flex;
     flex-direction: column;
@@ -79,14 +48,6 @@
     transition: color var(--transition-default);
 }
 
-/* Ajustar el color del texto en el menú móvil */
-.nav.active .nav-links li a,
-.nav.active .cta__button {
-    color: var(--nav-link-inverse-color);
-    /* negro para mejor legibilidad en móvil */
-}
-
-
 .nav-links li a:hover,
 .cta__button:hover {
     color: var(--link-color-hover);
@@ -97,17 +58,6 @@
 }
 
 @media (min-width: 768px) {
-
-    .nav {
-        display: flex;
-        align-items: flex-start;
-
-        min-width: 504px;
-        height: auto;
-
-        position: static;
-        opacity: 1;
-    }
 
     .nav-links {
         display: flex;
@@ -133,32 +83,10 @@
         width: var(--nav-element-width-md);
     }
 
-    /*agregado despues*/
-    .nav {
-        background-color: transparent;
-        backdrop-filter: none;
-    }
-
-    .nav.active {
-        background-color: transparent;
-        backdrop-filter: none;
-    }
-
-    .nav.active .nav-links li a,
-    .nav.active .cta__button {
-        color: inherit;
-        /* heredar el color del navbar en desktop */
-    }
-
 }
 
 
 @media (min-width: 1024px) {
-
-    .nav {
-        min-width: 629px;
-        max-width: 680px;
-    }
 
     .nav-links li a,
     .cta__button {
