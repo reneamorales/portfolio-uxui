@@ -12,8 +12,6 @@
     --fs-xxxl: clamp(11.09rem, 25.7vi + 5.34rem, 29.63rem);*/
 }
 
-
-
 html {
     /*font-size: 62.5%;*/
     /* 1rem = 10px */
@@ -22,13 +20,13 @@ html {
 
 /* SUB-CONTAINER HERO */
 .hero-section {
-    height: calc(100vh - var(--navbar-height-mobile));
+    height:100dvh;
     width: 100%;
     max-width: 1152px;
     margin: 0 auto;
     /* Centrado */
     background: #DBE6F6;
-    background-image: url('/src/img/parizad-shojaei-zdAPoZtQeSE-unsplash.jpg');
+    background-image: url('https://images.unsplash.com/photo-1749838065282-32db54bed154?q=80&w=929&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
     background-size: cover;
     background-position: center;
     /* Ajusta el enfoque de la imagen */
@@ -175,57 +173,6 @@ html {
     border: 0;
 }
 
-/*button-principal, tiene estilado que le comparte al btn del navbar*/
-
-.btn {
-    transition: box-shadow 600ms ease-out;
-    /* Transición para el efecto de sombra */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    /* Sombra inicial suave */
-}
-
-.btn:hover {
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
-    /* Sombra más pronunciada */
-    transform: translateY(-2px);
-    /* Efecto de elevación */
-}
-
-/* Opcional: Estilo cuando se presiona */
-.btn:active {
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
-    /* Sombra menos intensa */
-    transform: translateY(0);
-    /* Vuelve a su posición original */
-}
-
-.btn-cv {
-    background-color: var(--color-button-primary-default);;
-    border: none;
-    color: black;
-    
-    padding: clamp(0.25rem, 2vh, 0.8rem) clamp(1rem, 3vh, 1.2rem);
-
-    font-family: var(--font-primary);
-    font-size: var(--fs-base);
-    font-weight: 500;
-    /*no esta aplicando el peso no está disp.*/
-    line-height: 25.9px;
-    border-radius: 3px;
-    display: flex;
-    align-items: center;
-    /* Alinea el texto verticalmente */
-    justify-content: center;
-    /* Opcional, centra el texto horizontalmente */
-    box-sizing: border-box;
-    cursor: pointer;
-    /* Cambio de cursor a mano */
-    transition: background-color 0.3s ease-in-out;
-}
-
-.btn-cv:hover {
-    background-color: var(--color-button-primary-hover);
-}
 
 /* Media query para pantallas pequeñas */
 @media (min-width: 768px) {
@@ -242,11 +189,6 @@ html {
 
 
 @media (min-width: 1400px) {
-    .hero-section {
-        max-width: none;
-        height: calc(100vh - var(--navbar-height-desktop));
-    }
-
     .animated-card {
         border-radius: 20px 20px 20px 0;
     }
