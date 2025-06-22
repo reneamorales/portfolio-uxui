@@ -1,4 +1,5 @@
 import React from 'react';
+import './download-cv.css';
 
 export const DownloadCv= () => {
 
