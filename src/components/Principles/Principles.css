@@ -22,8 +22,6 @@
     --shadow-capsule-hover: 0 8px 16px rgba(0, 0, 0, 0.15);
 
     /* Layout */
-    --principles-max-width: clamp(736px, 100%, 2000px);
-    --container-max-width: clamp(576px, 85vw, 1200px);
     --capsules-min-width: 268px;
 }
 
@@ -38,7 +36,7 @@
 
     /* Box model */
     box-sizing: border-box;
-    max-width: var(--principles-max-width);
+    max-width: var(--container-max-width-home-wrapper);
     width: 100%;
     padding: var(--padding-item-block) 0;
 }
@@ -52,7 +50,7 @@
     flex-direction: column;
 
     /* Box model */
-    max-width: var(--container-max-width);
+    max-width: var(--container-max-width-home-content);
     width: 100%;
     height: auto;
     padding: var(--padding-item-block) var(--padding-item-inline);
