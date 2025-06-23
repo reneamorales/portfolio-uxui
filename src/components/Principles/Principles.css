@@ -38,7 +38,7 @@
     box-sizing: border-box;
     max-width: var(--container-max-width-home-wrapper);
     width: 100%;
-    padding: var(--padding-item-block) 0;
+    padding: var(--padding-block-home-item) 0;
 }
 
 /* ───────────────────────────────
@@ -53,7 +53,7 @@
     max-width: var(--container-max-width-home-content);
     width: 100%;
     height: auto;
-    padding: var(--padding-item-block) var(--padding-item-inline);
+    padding: var(--padding-block-home-item) var(--padding-inline-home-item);
     margin: 0 auto;
 }
 
@@ -134,7 +134,7 @@
 
 @media (min-width: 768px) {
     .principles-container {
-        padding-inline: var(--padding-item-inline);
+        padding-inline: var(--padding-inline-home-item);
     }
 
     .capsules-container {
