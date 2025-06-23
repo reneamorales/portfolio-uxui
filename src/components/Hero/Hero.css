@@ -1,68 +1,82 @@
 :root {
-    --animated-card-margin: clamp(1rem, 2vw, 2rem);
-
-    --color-font-typing: #00FFCC;
-
-    --fs-sm: clamp(0.62rem, 0.29vi + 0.55rem, 0.83rem);
-    --fs-base: clamp(1rem, 0.69vi + 0.84rem, 1.5rem);
-    --fs-md: clamp(1.62rem, 1.53vi + 1.27rem, 2.72rem);
-    --fs-lg: clamp(2.62rem, 3.23vi + 1.9rem, 4.95rem);
-    /*--fs-xl: clamp(4.24rem, 6.58vi + 2.76rem, 8.98rem);
-    --fs-xxl: clamp(6.85rem, 13.12vi + 3.92rem, 16.31rem);
-    --fs-xxxl: clamp(11.09rem, 25.7vi + 5.34rem, 29.63rem);*/
-}
-
-html {
+    /* Variables globales y declarativas para Hero */
+    --margin-hero-animated-card: clamp(1rem, 2vw, 2rem);
+    --color-hero-typewriter: #00FFCC;
+    --bg-hero-section: #DBE6F6;
+    --max-width-hero-section: 1152px;
+    --gap-hero-animated-card: clamp(1rem, 2.5vh, 2rem);
+    --width-hero-animated-card: clamp(21rem, 90%, 44rem);
+    --max-width-hero-animated-card: 708px;
+    --height-hero-animated-card: clamp(18rem, 60vh, 30rem);
+    --aspect-hero-animated-card: 3 / 2;
+    --padding-hero-animated-card: clamp(1.4rem, 2vh, 2rem) clamp(1rem, 2vw, 1.8rem);
+    --bg-hero-animated-card: #0000005d;
+    --blur-hero-animated-card: blur(10px);
+    --shadow-hero-animated-card: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    --radius-hero-animated-card: 12px 12px 12px 0;
+    --font-size-hero-title: clamp(1.8rem, 3vw, 3.5rem);
+    --line-height-hero-title: clamp(2rem, 3.5vw, 4rem);
+    --font-size-hero-typewriter: clamp(1rem, 0.69vi + 0.84rem, 1.5rem);
+    --mb-hero-typewriter: clamp(0.5rem, 2.5vh, 1rem);
+    --mr-hero-typewriter-span: 12px;
+    --radius-hero-animated-card-md: 16px 16px 16px 0;
+    --radius-hero-animated-card-xl: 20px 20px 20px 0;
     /*font-size: 62.5%;*/
     /* 1rem = 10px */
     font-size: 16px;
 }
 
-/* SUB-CONTAINER HERO */
 .hero-section {
-    height:100dvh;
-    width: 100%;
-    max-width: 1152px;
-    margin: 0 auto;
-    /* Centrado */
-    background: #DBE6F6;
-    background-image: url('https://images.unsplash.com/photo-1749838065282-32db54bed154?q=80&w=929&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
-    background-size: cover;
-    background-position: center;
-    /* Ajusta el enfoque de la imagen */
+    /* Layout principal */
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
     flex-shrink: 0;
     overflow: visible;
-    /* Asegúrate de que el contenido no se corte */
+
+    /* Dimensiones */
+    height: 100dvh;
+    width: 100%;
+    max-width: var(--max-width-hero-section);
+    margin: 0 auto;
+
+    /* Fondo */
+    background: var(--bg-hero-section);
+    background-image: url('https://images.unsplash.com/photo-1749838065282-32db54bed154?q=80&w=929&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');
+    background-size: cover;
+    background-position: center;
+    /* Ajusta el enfoque de la imagen */
 }
 
 .animated-card {
+    /* Posicionamiento */
     position: absolute;
-    left: var(--animated-card-margin);
-    bottom: var(--animated-card-margin);
+    left: var(--margin-hero-animated-card);
+    bottom: var(--margin-hero-animated-card);
 
+    /* Layout */
     display: flex;
     flex-direction: column;
-    gap: clamp(1rem, 2.5vh, 2rem); /* espacio fluido entre h1 y el bloque de párrafo+botón */
     justify-content: center;
+    gap: var(--gap-hero-animated-card);
 
-    width: clamp(21rem, 90%, 44rem); /* valor mínimo = móvil, medio = 90% viewport (fluido), máx = desktop */
-    max-width: 708px;
-    height: clamp(18rem, 60vh, 30rem);/*antes tenia la medida ideal en 50vh*/
-    aspect-ratio: 3 / 2;
-
-    padding: clamp(1.4rem, 2vh, 2rem)  clamp(1rem, 2vw, 1.8rem); /*16px*/
+    /* Dimensiones */
+    width: var(--width-hero-animated-card);
+    max-width: var(--max-width-hero-animated-card);
+    height: var(--height-hero-animated-card);
+    aspect-ratio: var(--aspect-hero-animated-card);
+    padding: var(--padding-hero-animated-card);
     box-sizing: border-box;
 
-    background-color: #0000005d;
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
-    border-radius: 12px 12px 12px 0;
+    /* Fondo y efectos visuales */
+    background-color: var(--bg-hero-animated-card);
+    backdrop-filter: var(--blur-hero-animated-card);
+    -webkit-backdrop-filter: var(--blur-hero-animated-card);
+    box-shadow: var(--shadow-hero-animated-card);
+    border-radius: var(--radius-hero-animated-card);
 
+    /* Animación */
     transform-origin: bottom left;
     transform: scale(0);
     animation: grow 1s ease-in-out forwards;
@@ -79,19 +93,22 @@ html {
 
 /* Texto principal */
 .hero-title {
-    font-size: clamp(1.8rem, 3vw, 3.5rem);
-    line-height: clamp(2rem, 3.5vw, 4rem);
+    /* Tipografía */
+    font-size: var(--font-size-hero-title);
+    line-height: var(--line-height-hero-title);
     word-spacing: normal;
     display: inline-block;
-    /* inline-block Asegura que el texto respete su distribución natural */
+    overflow-wrap: break-word;
+
+    /* Fondo y efectos visuales */
     background: url("data:image/svg+xml,%3Csvg viewBox='0 0 1799 1799' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"), radial-gradient(circle at 94% 95%, hsla(170, 88%, 68%, 1) 3%, transparent 76%), radial-gradient(circle at 89% 34%, hsla(263, 96%, 51%, 1) 1%, transparent 86%), radial-gradient(circle at 86% 50%, hsla(318, 80%, 65%, 1) 7%, transparent 76%), radial-gradient(circle at 89% 79%, hsla(248, 76%, 53%, 1) 7%, transparent 87%), radial-gradient(circle at 15% 44%, hsla(4, 74%, 80%, 1) 15%, transparent 81%), radial-gradient(circle at 99% 20%, hsla(75, 88%, 92%, 1) 1%, transparent 68%);
     background-blend-mode: overlay, normal, normal, normal, normal, normal, normal;
-    /*background: linear-gradient(90deg, rgba(136, 131, 188, 1) 0%, rgba(186, 125, 183, 1) 25%, rgba(120, 208, 227, 1) 50%, rgba(120, 171, 247, 1) 75%, rgba(80, 96, 242, 1) 100%);*/
     -webkit-background-clip: text;
-    /*Indica que no tiene compatibilidad*/
+    background-clip: text;
     -webkit-text-fill-color: transparent;
+
+    /* Animación */
     opacity: 0;
-    overflow-wrap: break-word;
     animation: fade-in-title 1s ease-in-out 0.5s forwards;
 }
 
@@ -104,15 +121,17 @@ html {
 
 /* Texto secundario con efecto máquina de escribir */
 .typewriter-effect {
-    font-size: var(--fs-base);/**/
-    font-size: clamp(1rem, 0.69vi + 0.84rem, 1.5rem);
-    color: var(--color-font-typing);
+    /* Tipografía */
+    font-size: var(--font-size-hero-typewriter);
+    color: var(--color-hero-typewriter);
     display: inline-block;
     white-space: normal;
+    margin-bottom: var(--mb-hero-typewriter);
+
+    /* Animación */
     overflow: hidden;
     opacity: 0;
     animation: global-fade-in 1s ease-out 1.5s forwards;
-    margin-bottom: clamp(0.5rem, 2.5vh, 1rem);
 }
 
 @keyframes global-fade-in {
@@ -129,6 +148,8 @@ html {
 
 /* Animación individual por palabra */
 .typewriter-effect span {
+    /* Espaciado y animación */
+    margin-right: var(--mr-hero-typewriter-span);
     display: inline-block;
     white-space: nowrap;
     overflow: hidden;
@@ -155,11 +176,6 @@ html {
     }
 }
 
-/* Espaciado entre palabras */
-.typewriter-effect span {
-    margin-right: 12px;
-}
-
 /* Oculta texto para accesibilidad desde teclado*/
 .sr-only {
     position: absolute;
@@ -177,7 +193,7 @@ html {
 /* Media query para pantallas pequeñas */
 @media (min-width: 768px) {
     .animated-card {
-        border-radius: 16px 16px 16px 0;
+        border-radius: var(--radius-hero-animated-card-md);
     }
 }
 
@@ -190,6 +206,6 @@ html {
 
 @media (min-width: 1400px) {
     .animated-card {
-        border-radius: 20px 20px 20px 0;
+        border-radius: var(--radius-hero-animated-card-xl);
     }
 }
