@@ -1,6 +1,6 @@
 :root {
     /* Colores */
-    --color-bg-grid-design: #f8f8f8;
+    --color-bg-grid-design: #f3f0fa;
     --color-txt-tool-name-design: #333333;
     --color-txt-tool-category-design: #666666;
 
@@ -9,10 +9,16 @@
     --border-radius-logo-lg: 16px;
 
     --grid-pattern-design: radial-gradient(circle, rgba(69, 33, 128, 0.3) 10%, transparent 10%) 0 0 / 18px 18px;
+
+    /* Colors */
+    --color-border-items-grid: #d4d4d4;
+    --shadow-tool-default: 0 2px 8px 0 rgba(0 0 0 0.04);
+    --shadow-tool-hover: 0 6px 24px 0 rgba(0 0 0 0.15);
 }
 
 .items-grid-design {
     background-color: var(--color-bg-grid-design);
+    border: 1.5px solid var(--color-border-items-grid);
 }
 
 .items-grid-design::before {
@@ -26,6 +32,11 @@
 .design-tool-container img {
     aspect-ratio: 1 / 1;
     border-radius: var(--border-radius-logo-sm);
+    box-shadow: var(--shadow-tool-default);
+}
+
+.design-tool-container img:hover {
+    box-shadow: var(--shadow-tool-hover);
 }
 
 .design-tool-container .tool-name {
@@ -39,17 +50,17 @@
 
 
 @media (min-width: 768px) {
-    
+
     .design-tool-container img {
-    border-radius: var(--border-radius-logo-md);
-}
+        border-radius: var(--border-radius-logo-md);
+    }
 
 }
 
 @media (min-width: 1152px) {
 
     .design-tool-container img {
-    border-radius: var(--border-radius-logo-lg);
-}
+        border-radius: var(--border-radius-logo-lg);
+    }
 
 }
