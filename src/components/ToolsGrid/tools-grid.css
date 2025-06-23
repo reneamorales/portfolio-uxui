@@ -29,8 +29,6 @@
     --gap-tool-container-md: 8px;
     --gap-tool-container-lg: 12px;
 
-    --container-max-width: clamp(736px, 100%, 2000px);
-    --content-max-width: clamp(576px, 85vw, 1200px);
 }
 
 .tools-section {
@@ -42,7 +40,7 @@
 
     /* Box model */
     width: 100%;
-    max-width: var(--container-max-width);
+    max-width: var(--container-max-width-home-wrapper);
     height: auto;
     padding: var(--padding-grid-block) 0;
     box-sizing: border-box;
@@ -51,7 +49,7 @@
 .tools-container {
     /* Box model */
     width: 100%;
-    max-width: var(--content-max-width);
+    max-width: var(--container-max-width-home-content);
     margin: 0 auto;
     padding: var(--padding-item-block) var(--padding-item-inline);
 }
