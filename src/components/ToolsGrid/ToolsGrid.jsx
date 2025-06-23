@@ -3,13 +3,14 @@ import "./tools-grid.css";
 
 export const ToolsGrid = ({
   containerClassName,
-   title,
+  title,
   items,
   gridClassName,
-  renderItem
+  renderItem,
+  sectionId // nuevo prop para id de sección
 }) => {
   return (
-    <section className={`tools-section ${containerClassName}`}>
+    <section id={sectionId} className={`tools-section ${containerClassName}`}>
       <div className="tools-container">
         <h2 className="section-title">{title}</h2>
         <div className={`items-grid ${gridClassName}`}>

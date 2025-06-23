@@ -21,6 +21,7 @@ export const DesignTools = () => {
       items={designTools}
       gridClassName="items-grid-design"
       renderItem={renderDesignTool}
+      sectionId="skills" // id para scroll desde el navbar
     />
   );
 };
