@@ -115,7 +115,7 @@
 }
 
 .logo a {
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-size: var(--logo-font-size);
     font-weight: 600;
     background: var(--gradient-logo);
