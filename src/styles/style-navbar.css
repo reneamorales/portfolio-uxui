@@ -1,8 +1,7 @@
 :root {
-
     /* Medidas Navbar */
     --navbar-padding-sm: 16px 24px;
-    --navbar-padding-md: 14px 40px ;
+    --navbar-padding-md: 14px 40px;
     --navbar-padding-lg: 16px 56px;
 
     /* Medidas comunes para elementos de navegación (links y CTA) */
@@ -39,9 +38,16 @@
     --nav-link-color: rgb(255, 255, 255);
     --nav-link-inverse-color: rgb(0 0 0);
 
+    /* Colores del CTA */
+    --color-accent: #00FF85;
+    --color-accent-hover: #00FF7F;
+
+    /* Alias para botón primario */
+    --color-button-primary-default: var(--color-accent);
+    --color-button-primary-hover: var(--color-accent-hover);
+
     /* Transiciones */
     --transition-fast: 0.2s ease;
     --transition-default: 0.3s ease;
-
     --transition-all-default: all 0.3s ease;
 }
