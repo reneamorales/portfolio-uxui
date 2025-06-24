@@ -1,7 +1,5 @@
 :root{
     /* Colores */
-  --color-button-primary-default: #00FF85;
-  --color-button-primary-hover: #00FF7F;
   --color-button-primary-text: var(--color-primary);
 
 }
@@ -31,7 +29,7 @@
 }
 
 .btn-cv {
-    background-color: var(--color-button-primary-default);;
+    background-color: var(--color-button-primary-default);
     border: none;
     color: black;
     
