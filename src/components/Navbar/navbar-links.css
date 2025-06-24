@@ -37,7 +37,7 @@
     padding: var(--nav-element-padding-base);
     border-bottom: var(--border-item-nav);
 
-    font-family: var(--font-secondary);
+    font-family: var(--font-primary);
     font-size: var(--font-size-base);
     font-style: normal;
     font-weight: 500;
