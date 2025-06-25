@@ -7,17 +7,33 @@ body {
     padding: 0;
     height: 100%;
     min-height: 100%;
+    box-sizing: border-box;
 }
 
 .cover {
     position: relative;
     width: 100%;
-    min-height: calc(100vh - var(--navbar-height-mobile));
-    height: calc(100vh - var(--navbar-height-mobile));
+    height: 100vh;
+    height: 100dvh;
     background: #000000;
     padding: 16px;
     display: flex;
     align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+@supports (height: 100dvh) {
+    .cover {
+        height: 100dvh;
+    }
+}
+
+/* Soporte para dispositivos iOS antiguos que no reconocen 100dvh */
+@supports not (height: 100dvh) {
+    .cover {
+        height: 100vh;
+    }
 }
 
 .cover::before {
@@ -33,8 +49,8 @@ body {
 }
 
 .cover__inner {
-    top: var(--navbar-height-mobile);
     position: sticky;
+    top: var(--navbar-height-sm);
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -71,6 +87,7 @@ body {
     }
 
     .cover__inner {
+        top: var(--navbar-height-md);
         gap: 8px;
     }
 
@@ -88,15 +105,11 @@ body {
 
 @media (min-width: 1024px) {
     .cover {
-        min-height: calc(100vh - var(--navbar-height-desktop));
-        height: calc(100vh - var(--navbar-height-desktop));
         padding: 32px;
-        max-height: 417px;
     }
 
     .cover__inner {
-        top: var(--navbar-height-desktop);
-        height: 146px;
+        top: var(--navbar-height-lg);
         gap: 16px;
     }
 
