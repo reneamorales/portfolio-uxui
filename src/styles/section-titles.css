@@ -1,0 +1,28 @@
+:root {
+    --title-font-size: clamp(1.5rem, 1.2vw + 1rem, 3rem);
+    /* 24px → ~25.2px → ~32.4px → 48px */
+    --title-line-height: clamp(2rem, 1.5vw + 1.5rem, 4rem);
+    /* 32px ~35.5px → ~44.5px → 64px */
+    --title-padding: clamp(12px, 1.5vw, 20px) clamp(16px, 2vw, 32px);
+    --title-font-weight: 700;
+    --title-text-align: center;
+    --title-color: var(--color-primary);
+    --title-max-width: var(--container-max-width-home-content);
+    --title-margin-bottom: var(--margin-bottom-h2-sm);
+    --font-family-primary: var(--font-primary);
+}
+
+/* Estilos unificados para títulos de sección */
+.section-title,
+.section__title {
+    font-family: var(--font-family-primary);
+    width: 100%;
+    max-width: var(--title-max-width);
+    padding: var(--title-padding);
+    text-align: var(--title-text-align);
+    color: var(--title-color);
+    margin-bottom: var(--title-margin-bottom);
+    font-size: var(--title-font-size);
+    line-height: var(--title-line-height);
+    font-weight: var(--title-font-weight);
+}
