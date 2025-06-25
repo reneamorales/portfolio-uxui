@@ -1,6 +1,8 @@
 @import url('./styles/style-navbar.css');
 @import url('./styles/brand-colors.css');
+@import url('./styles/section-titles.css');
 @import url('./styles/gradients-animation.css');
+
 /* Reset Global */
 * {
   margin: 0;
@@ -12,16 +14,17 @@
 :root {
   /* Colors */
   --color-primary: #09092D;
+  --color-secondary: #08080e;
   --color-light: #d1d1d1;
   --bg-color-primary: #f1f1f1;
   --scrollbar-width: clamp(8px, 0.75vw, 10px);
 
-  --bg-test-inner:#cfdcff;
+  --bg-test-inner: #cfdcff;
 
   /* Fonts */
-  --font-primary: 'Orbitron', 'Arial Black', Gadget, sans-serif;
-  --font-secondary: 'Bricolage Grotesque', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  --font-tertiary: 'Poppins', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+  --font-primary-brand: 'Orbitron', 'Arial Black', Gadget, sans-serif;
+  --font-primary: 'Bricolage Grotesque', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-secondary: 'Geist', 'Poppins', 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
 
   /* Layout */
   --navbar-height-sm: 64px;
@@ -33,23 +36,16 @@
   --container-max-width-home-content: clamp(576px, 85vw, 1200px);
 
   /*
-  --container-max-width-about-wrapper
-  --container-max-width-about-content
-  */
-
-  --margin-bottom-h2-sm: 1rem; /* 16px */
-  --margin-bottom-h2-md: 1.5rem; /* 24px */
-  --margin-bottom-h2-lg: 2rem; /* 32px */
+  --container-max-width-about-wrapper*/
+  --container-max-width-about-content: clamp(576px, 70vw, 1100px);
 
 
-  /*a probar si se puede usar padding en h2*/
-  --padding-block-h2-sm: 0.5rem; /* 8px */
-  --padding-block-h2-md: 0.75rem;/*12px */
-  --padding-block-h2-lg: 1rem;/*14px */
+  --padding-block-home-item: clamp(16px, 4vw, 48px);
+  --padding-inline-home-item: clamp(16px, 5vw, 64px);
 
-  --padding-inline-h2-sm: 1rem; /* 16px */
-  --padding-inline-h2-md: 1.5rem; /* 24px */
-  --padding-inline-h2-lg: 2rem; /* 32px */
+  --padding-block-about-item: clamp(24px, 2.5vw + 1rem, 48px);
+  --padding-inline-about-item: clamp(16px, 2vw + 0.5rem, 64px);
+
 
 }
 
@@ -62,6 +58,7 @@ body {
   scrollbar-color: var(--color-primary) var(--color-light);
   scrollbar-width: thin;
   background-color: rgb(248, 248, 248);
+  cursor: url('../src/img/cursor.png') 16 16, auto;
 }
 
 /* Scrollbar Styles */
@@ -89,21 +86,11 @@ body {
 .App {
   width: 100%;
   min-width: 390px;
-  font-family: var(--font-secondary);
+  font-family: var(--font-primary);
   color: var(--color-primary);
   display: flex;
   flex-direction: column;
   align-items: center;
-  /*overflow-x: hidden;*//*afecta al apilamiento de las card de proyectos*/
-}
-  
-
-.section-title {
-  font-family: var(--font-secondary);
-  width: 100%;
-  max-width: var(--container-max-width-home-content);
-  padding: var(--padding-block-h2-sm) var(--padding-inline-h2-sm);
-  text-align: center;
-  color: var(--color-primary);
-  margin-bottom: var(--margin-bottom-h2-sm);
+  /*overflow-x: hidden;*/
+  /*afecta al apilamiento de las card de proyectos*/
 }
