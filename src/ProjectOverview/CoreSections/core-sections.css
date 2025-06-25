@@ -1,8 +1,4 @@
 :root {
-    --fs-title: clamp(1.5rem, 1.2vw + 1rem, 3rem);
-    /* 24px → ~25.2px → ~32.4px → 48px*/
-    --line-height-title: clamp(2rem, 1.5vw + 1.5rem, 4rem);
-    /*32px ~35.5px → ~44.5px → 64px*/
 
     --fs-subtitle: clamp(1.375rem, 1.3vw + 0.5rem, 2rem);
     /* 22px → 26px → 32px */
@@ -14,6 +10,27 @@
     --line-height-description: clamp(1.25rem, 1.5vw + 0.5rem, 1.8rem);
 
     --padding-txt: clamp(12px, 1.5vw, 20px) clamp(16px, 2vw, 32px);
+
+    /* Colores */
+    --color-txt-subtitle-list: #00C853;
+    --border-default: 1px solid #ccc;
+
+    --color-bg-zoom: #e5e5f7;
+    --color-bg-zoom-gradient: linear-gradient(#c9cbe5 1px, transparent 1px), linear-gradient(to right, #c9cbe5 1px, #e5e5f7 1px);
+    --border-hover-zoom: #007bff;
+    --controls-btn-bg: #323232;
+    --controls-btn-color: #f8f8f8;
+    --controls-bottom: 16px;
+    --controls-right: 16px;
+    --controls-gap: 8px;
+    --section-content-gap: 24px;
+    --controls-btn-radius: 8px;
+    --controls-btn-width: 40px;
+    --controls-btn-height: 40px;
+    --controls-btn-padding: 12px;
+    --controls-btn-font-size: 16px;
+    --controls-btn-line-height: 16px;
+    --zoom-container-height: 537px;
 }
 
 /*Reset*/
@@ -43,14 +60,12 @@ html {
 
 /* Core sections */
 .section {
-    /* background-color: #ece2c6;*/
     width: 100%;
-    min-height: calc(100vh - var(--navbar-height-mobile));
+    min-height: calc(100vh - var(--navbar-height-sm));
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
     position: relative;
-    /* Added */
 }
 
 .section:first-of-type {
@@ -59,17 +74,16 @@ html {
 
 .section__content {
     position: sticky;
-    top: var(--navbar-height-mobile);
+    top: var(--navbar-height-sm);
     height: auto;
     width: 100%;
-    max-width: clamp(576px, 70vw, 1100px);
-    /*controla el  crec. , 80 de pref. queda muy amplio en desktop*/
+    max-width: var(--container-max-width-about-content);
     margin-inline: auto;
-    padding: clamp(24px, 2.5vw + 1rem, 48px) clamp(16px, 2vw + 0.5rem, 64px);
+    padding: var(--padding-block-about-item) var(--padding-inline-about-item);
     box-sizing: border-box;
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: var(--section-content-gap);
     align-items: flex-start;
 }
 
@@ -82,16 +96,7 @@ html {
 .section:nth-child(4),
 .section:nth-child(5) {
     height: auto;
-    min-height: calc(100vh - var(--navbar-height-mobile));
-}
-
-.section__title {
-    font-size: var(--fs-title);
-    line-height: var(--line-height-title);
-    font-weight: 900;
-    /*antes 600*/
-    text-align: center;
-    padding: var(--padding-txt)
+    min-height: calc(100vh - var(--navbar-height-sm));
 }
 
 .section__title span {
@@ -114,7 +119,7 @@ html {
 
 .section__description strong {
     font-weight: bold;
-    color: var(--color-txt-subtititle-list);
+    color: var(--color-txt-subtitle-list);
 }
 
 u {
@@ -125,9 +130,9 @@ u {
 .zoom-container {
     position: relative;
     width: 100%;
-    height: 537px;
+    height: var(--zoom-container-height);
     overflow: hidden;
-    border: 1px solid #ccc;
+    border: var(--border-default);
 }
 
 /* Add this new class if you need to overlay a PNG on top */
@@ -139,16 +144,16 @@ u {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #e5e5f7;
+    background-color: var(--color-bg-zoom);
     opacity: 0.2;
-    background-image: linear-gradient(#c9cbe5 1px, transparent 1px), linear-gradient(to right, #c9cbe5 1px, #e5e5f7 1px);
+    background-image: var(--color-bg-zoom-gradient);
     background-size: 20px 20px;
     z-index: -1;
 
 }
 
 .zoom-container:hover {
-    border-color: #007bff;
+    border-color: var(--border-hover-zoom);
 }
 
 /* Para el cursor cuando se está desplazando */
@@ -182,22 +187,22 @@ u {
 
 .controls {
     position: absolute;
-    bottom: 16px;
-    right: 16px;
+    bottom: var(--controls-bottom);
+    right: var(--controls-right);
     display: flex;
-    gap: 8px;
+    gap: var(--controls-gap);
 }
 
 .controls button {
-    width: 40px;
-    height: 40px;
-    padding: 12px;
-    background: #323232;
+    width: var(--controls-btn-width);
+    height: var(--controls-btn-height);
+    padding: var(--controls-btn-padding);
+    background: var(--controls-btn-bg);
     border: none;
-    color: #f8f8f8;
-    border-radius: 8px;
-    font-size: 16px;
-    line-height: 16px;
+    color: var(--controls-btn-color);
+    border-radius: var(--controls-btn-radius);
+    font-size: var(--controls-btn-font-size);
+    line-height: var(--controls-btn-line-height);
     cursor: pointer;
 }
 
@@ -205,16 +210,20 @@ u {
     .section:first-child {
         margin-top: 24px;
     }
+
+    .section {
+        min-height: calc(100vh - var(--navbar-height-md));
+    }
 }
 
 @media (min-width: 1024px) {
     .section {
-        min-height: calc(100vh - var(--navbar-height-desktop));
+        min-height: calc(100vh - var(--navbar-height-lg));
         padding: 32px;
     }
 
     .section__content {
-        top: var(--navbar-height-desktop);
+        top: var(--navbar-height-lg);
     }
 
     .section:first-child {
