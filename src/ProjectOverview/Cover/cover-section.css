@@ -1,4 +1,30 @@
-@import url('https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --cover-bg: #000000;
+    --cover-padding-sm: 16px;
+    --cover-padding-md: 24px;
+    --cover-padding-lg: 32px;
+    --cover-gap-sm: 4px;
+    --cover-gap-md: 8px;
+    --cover-gap-lg: 16px;
+    --cover-title-color: #fff;
+    --cover-title-font: Inter;
+    --cover-title-size-sm: 36px;
+    --cover-title-size-md: 40px;
+    --cover-title-size-lg: 48px;
+    --cover-title-line-sm: 58.2px;
+    --cover-title-line-md: 64.7px;
+    --cover-title-line-lg: 77.7px;
+    --cover-title-weight: 800;
+    --cover-text-color: #f5f5f5;
+    --cover-text-size-sm: 24px;
+    --cover-text-size-md: 28px;
+    --cover-text-size-lg: 32px;
+    --cover-text-line-sm: 38.8px;
+    --cover-text-line-md: 45.3px;
+    --cover-text-line-lg: 51.8px;
+    --cover-symbol-color: #FF7A00;
+}
 
 /* Reset defaults for html and body */
 html,
@@ -15,8 +41,8 @@ body {
     width: 100%;
     height: 100vh;
     height: 100dvh;
-    background: #000000;
-    padding: 16px;
+    background: var(--cover-bg);
+    padding: var(--cover-padding-sm);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -56,70 +82,62 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    color: white;
-    gap: 4px;
+    color: var(--cover-title-color);
+    gap: var(--cover-gap-sm);
     z-index: 1;
 }
 
 .cover__title {
     text-align: center;
-    /* Centra el texto dentro de su propio contenedor */
-    font-size: 36px;
-    line-height: 58.2px;
-    font-family: Inter;
-    font-weight: 800;
+    font-size: var(--cover-title-size-sm);
+    line-height: var(--cover-title-line-sm);
+    font-family: var(--cover-title-font);
+    font-weight: var(--cover-title-weight);
 }
 
 .symbol {
-    color: #FF7A00;
+    color: var(--cover-symbol-color);
 }
 
 .cover__text {
     text-align: center;
-    font-size: 24px;
-    line-height: 38.8px;
-    color: #f5f5f5;
+    font-size: var(--cover-text-size-sm);
+    line-height: var(--cover-text-line-sm);
+    color: var(--cover-text-color);
 }
 
 @media (min-width: 769px) and (max-width: 1023px) {
     .cover {
-        padding: 24px;
+        padding: var(--cover-padding-md);
     }
-
     .cover__inner {
         top: var(--navbar-height-md);
-        gap: 8px;
+        gap: var(--cover-gap-md);
     }
-
     .cover__title {
-        font-size: 40px;
-        line-height: 64.7px;
+        font-size: var(--cover-title-size-md);
+        line-height: var(--cover-title-line-md);
     }
-
     .cover__text {
-        font-size: 28px;
-        line-height: 45.3px;
+        font-size: var(--cover-text-size-md);
+        line-height: var(--cover-text-line-md);
     }
-
 }
 
 @media (min-width: 1024px) {
     .cover {
-        padding: 32px;
+        padding: var(--cover-padding-lg);
     }
-
     .cover__inner {
         top: var(--navbar-height-lg);
-        gap: 16px;
+        gap: var(--cover-gap-lg);
     }
-
     .cover__title {
-        font-size: 48px;
-        line-height: 77.7px;
+        font-size: var(--cover-title-size-lg);
+        line-height: var(--cover-title-line-lg);
     }
-
     .cover__text {
-        font-size: 32px;
-        line-height: 51.8px;
+        font-size: var(--cover-text-size-lg);
+        line-height: var(--cover-text-line-lg);
     }
 }
