@@ -93,7 +93,8 @@ export const Footer = () => {
           <hr className="footer__divider" />
         </div>
         <p className="footer__copy">
-          {"\u00A9"} rene.ux 2024 | Todos los derechos reservados
+          {"\u00A9"} rene.ux {new Date().getFullYear()} | Todos los derechos
+          reservados
         </p>
       </div>
     </footer>
