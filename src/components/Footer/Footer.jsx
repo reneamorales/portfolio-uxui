@@ -26,7 +26,7 @@ export const Footer = () => {
             </p>
 
             <a
-              href="https://wa.me/5492805014610?text=Hola%2C+estoy+interesado+en+conocer+m%C3%A1s+sobre+tu+servicio"
+              href="https://wa.me/5492805014610?text=Hola+René%2C+estoy+interesado+en+conocer+m%C3%A1s+sobre+tu+servicio"
               target="_blank"
               rel="noopener noreferrer"
               className="footer__cta-button"
@@ -91,11 +91,10 @@ export const Footer = () => {
           </div>
           {/* Línea divisoria */}
           <hr className="footer__divider" />
-
-          <p className="footer__copy">
-            {"\u00A9"} rene.ux 2024 | Todos los derechos reservados
-          </p>
         </div>
+        <p className="footer__copy">
+          {"\u00A9"} rene.ux 2024 | Todos los derechos reservados
+        </p>
       </div>
     </footer>
   );
