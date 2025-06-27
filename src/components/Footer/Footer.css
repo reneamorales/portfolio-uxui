@@ -2,9 +2,12 @@
     /* Footer - Typography */
     --footer-font-size-goals-sm: clamp(1.125rem, 0.8rem + 1.5vw, 1.5rem);
     --footer-line-height-goals-sm: clamp(1.64rem, 1.1rem + 2vw, 2.43rem);
-    --footer-font-size-goals-md: clamp(1.125rem, 0.7rem + 1.2vw, 1.25rem); /* 1.25rem = 20px */
-    --footer-line-height-goals-md: clamp(1.5rem, 1rem + 1.5vw, 1.75rem);   /* 1.75rem = 28px */
-    --footer-font-size-goals-lg: clamp(1.125rem, 0.5rem + 2vw, 1.5rem);    /* 1.5rem = 24px */
+    --footer-font-size-goals-md: clamp(1.125rem, 0.7rem + 1.2vw, 1.25rem);
+    /* 1.25rem = 20px */
+    --footer-line-height-goals-md: clamp(1.5rem, 1rem + 1.5vw, 1.75rem);
+    /* 1.75rem = 28px */
+    --footer-font-size-goals-lg: clamp(1.125rem, 0.5rem + 2vw, 1.5rem);
+    /* 1.5rem = 24px */
     --footer-line-height-goals-lg: clamp(1.82rem, 0.5rem + 2.7vw, 2rem);
 
     /* Footer - Colors */
@@ -16,16 +19,58 @@
     --footer-color-cta-border: var(--color-button-primary-default);
     --footer-color-cta-hover: var(--color-button-primary-hover);
     --footer-color-logo-gradient: var(--gradient-logo);
-    --footer-color-copy-font:  var(--font-secondary);
+    --footer-color-copy-font: var(--font-secondary);
+    --footer-color-bg-gradient: linear-gradient(180deg, #09092D, #000000);
 
+    /* Footer - Measures */
+    --footer-padding-sm: 32px 16px;
+    --footer-padding-md: 32px 64px;
+    --footer-padding-lg: 24px 98px;
+
+    --footer-gap-sm: 32px;
+    --footer-gap-md: 36px;
+    --footer-gap-lg: 64px;
+
+    --footer-container-gap-lg: 40px;
+
+    --footer-logo-size-sm: 80px;
+    --footer-logo-size-md: 86px;
+    --footer-logo-size-lg: 96px;
+    
+    --footer-description-gap-sm: 20px;
+    --footer-description-gap-md: 24px;
+
+    --footer-purpose-size-sm: 48px;
+    --footer-purpose-line-sm: 77.7px;
+    --footer-purpose-size-md: 54px;
+    --footer-purpose-line-md: 87.4px;
+    --footer-purpose-size-lg: 76px;
+    --footer-purpose-line-lg: 98px;
+
+    --footer-goals-minwidth-md: 360px;
+
+    --footer-goals-mb-sm: 20px;
+    --footer-goals-mb-md: 24px;
+    --footer-goals-mb-lg: 28px;
+
+    --footer-cta-padding-md: 12px 24px;
+    --footer-cta-padding-lg: 16px 32px;
+
+    --footer-social-height-sm: 130px;
+    --footer-social-height-md: 145px;
+    --footer-social-height-lg: 160px;
+
+    --footer-copy-size-sm: 11px;
+    --footer-copy-size-md: 12.5px;
+    --footer-copy-size-lg: 14px;
 }
 
 /* Estilos base (mobile-first) */
 .footer {
     display: flex;
     flex-direction: column;
-    padding: 32px 16px;
-    background: linear-gradient(180deg, #09092D, #000000);
+    padding: var(--footer-padding-sm);
+    background: var(--footer-color-bg-gradient);
     width: 100%;
     justify-content: center;
     align-items: center;
@@ -37,7 +82,7 @@
     width: 100%;
     max-width: 660px;
     align-items: center;
-    gap: 32px;
+    gap: var(--footer-gap-sm);
 }
 
 .footer__logo {
@@ -47,10 +92,11 @@
 }
 
 .footer__logo a {
-    font-size: 80px;
+    font-size: var(--footer-logo-size-sm);
     font-weight: bold;
     background: var(--footer-color-logo-gradient);
     -webkit-background-clip: text;
+    background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
     display: inline-block;
@@ -59,15 +105,15 @@
 .footer__description {
     display: flex;
     flex-direction: column;
-    gap: 32px;
+    gap: var(--footer-description-gap-sm);
     min-width: 358px;
     max-width: 660px;
 }
 
 .footer__description-purpose {
     width: 100%;
-    font-size: 48px;
-    line-height: 77.7px;
+    font-size: var(--footer-purpose-size-sm);
+    line-height: var(--footer-purpose-line-sm);
     font-weight: 700;
     color: var(--footer-color-purpose);
 }
@@ -84,7 +130,7 @@
     font-family: var(--font-secondary);
     font-weight: 400;
     color: var(--footer-color-goals);
-    margin-bottom: 20px;
+    margin-bottom: var(--footer-goals-mb-sm)
 }
 
 .description .highlight {
@@ -151,7 +197,7 @@
     display: flex;
     width: 100%;
     justify-content: center;
-    height: 130px;
+    height: var(--footer-social-height-sm);
     align-items: end;
 }
 
@@ -187,7 +233,7 @@
 .footer__copy {
     font-family: var(--footer-color-copy-font);
     color: var(--footer-color-copy);
-    font-size: 11px;
+    font-size: var(--footer-copy-size-sm);
     line-height: 19.4px;
     display: flex;
     justify-content: center;
@@ -205,51 +251,51 @@
 /* Tablets (>= 768px) */
 @media (min-width: 768px) {
     .footer {
-        padding: 32px 64px;
+        padding: var(--footer-padding-md);
     }
 
     .footer__container {
         max-width: none;
-        gap: 36px;
+        gap: var(--footer-gap-md);
     }
 
     .footer__logo a {
-        font-size: 86px;
+        font-size: var(--footer-logo-size-md);
     }
 
     .footer__description {
-        gap: 24px;
+        gap: var(--footer-description-gap-md);
     }
 
     .footer__description-purpose {
         display: flex;
         align-items: center;
-        font-size: 54px;
-        line-height: 87.4px;
+        font-size: var(--footer-purpose-size-md);
+        line-height: var(--footer-purpose-line-md);
     }
 
     .footer__description-goals {
-        min-width: 360px;
+        min-width: var(--footer-goals-minwidth-md);
     }
 
     .footer__description-goals p {
         font-size: var(--footer-font-size-goals-md);
         line-height: var(--footer-line-height-goals-md);
-        margin-bottom: 24px;
+        margin-bottom: var(--footer-goals-mb-md);
     }
 
     .footer__cta-button {
-        padding: 12px 24px;
+        padding: var(--footer-cta-padding-md);
         font-size: var(--footer-font-size-goals-md);
         line-height: var(--footer-line-height-goals-md);
     }
 
     .footer__social-media {
-        height: 145px;
+        height: var(--footer-social-height-md);
     }
 
     .footer__copy {
-        font-size: 12.5px;
+        font-size: var(--footer-copy-size-md);
     }
 }
 
@@ -271,40 +317,40 @@
 /* Escritorio (>= 1152px) */
 @media (min-width: 1152px) {
     .footer {
-        padding: 24px 98px;
-        gap: 64px;
+        padding: var(--footer-padding-lg);
+        gap: var(--footer-gap-lg);
     }
 
     .footer__container {
-        gap: 40px;
+        gap: var(--footer-container-gap-lg);
     }
 
     .footer__logo a {
-        font-size: 96px;
+        font-size: var(--footer-logo-size-lg);
     }
 
     .footer__description-purpose {
-        font-size: 76px;
-        line-height: 98px;
+        font-size: var(--footer-purpose-size-lg);
+        line-height: var(--footer-purpose-line-lg);
     }
 
     .footer__description-goals p {
         font-size: var(--footer-font-size-goals-lg);
         line-height: var(--footer-line-height-goals-lg);
-        margin-bottom: 28px;
+        margin-bottom: var(--footer-goals-mb-lg);
     }
 
     .footer__cta-button {
         font-size: var(--footer-font-size-goals-lg);
         line-height: var(--footer-line-height-goals-lg);
-        padding: 16px 32px;
+        padding: var(--footer-cta-padding-lg);
     }
 
     .footer__social-media {
-        height: 160px;
+        height: var(--footer-social-height-lg);
     }
 
     .footer__copy {
-        font-size: 14px;
+        font-size: var(--footer-copy-size-lg);
     }
 }
