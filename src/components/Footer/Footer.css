@@ -1,9 +1,30 @@
+:root {
+    /* Footer - Typography */
+    --footer-font-size-goals-sm: clamp(1.125rem, 0.8rem + 1.5vw, 1.5rem);
+    --footer-line-height-goals-sm: clamp(1.64rem, 1.1rem + 2vw, 2.43rem);
+    --footer-font-size-goals-md: clamp(1.125rem, 0.7rem + 1.2vw, 1.25rem); /* 1.25rem = 20px */
+    --footer-line-height-goals-md: clamp(1.5rem, 1rem + 1.5vw, 1.75rem);   /* 1.75rem = 28px */
+    --footer-font-size-goals-lg: clamp(1.125rem, 0.5rem + 2vw, 1.5rem);    /* 1.5rem = 24px */
+    --footer-line-height-goals-lg: clamp(1.82rem, 0.5rem + 2.7vw, 2rem);
+
+    /* Footer - Colors */
+    --footer-color-purpose: var(--color-accent);
+    --footer-color-divider: #9c9a9a;
+    --footer-color-copy: #9c9a9a;
+    --footer-color-goals: #e4e9e4;
+    --footer-color-cta-bg: rgb(0 0 0);
+    --footer-color-cta-border: var(--color-button-primary-default);
+    --footer-color-cta-hover: var(--color-button-primary-hover);
+    --footer-color-logo-gradient: var(--gradient-logo);
+    --footer-color-copy-font:  var(--font-secondary);
+
+}
+
 /* Estilos base (mobile-first) */
 .footer {
     display: flex;
     flex-direction: column;
     padding: 32px 16px;
-    gap: 32px;
     background: linear-gradient(180deg, #09092D, #000000);
     width: 100%;
     justify-content: center;
@@ -28,7 +49,7 @@
 .footer__logo a {
     font-size: 80px;
     font-weight: bold;
-    background: var(--gradient-logo);
+    background: var(--footer-color-logo-gradient);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     color: transparent;
@@ -48,21 +69,21 @@
     font-size: 48px;
     line-height: 77.7px;
     font-weight: 700;
-    color: var(--color-txt-purpose);
+    color: var(--footer-color-purpose);
 }
 
 .footer__description-goals {
     display: flex;
     flex-direction: column;
     width: 100%;
-    font-size: var(--font-size-fluid-sm);
-    line-height: var(--line-height-fluid-sm);
+    font-size: var(--footer-font-size-goals-sm);
+    line-height: var(--footer-line-height-goals-sm);
 }
 
 .footer__description-goals p {
     font-family: var(--font-secondary);
     font-weight: 400;
-    color: #e4e9e4;
+    color: var(--footer-color-goals);
     margin-bottom: 20px;
 }
 
@@ -77,11 +98,11 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: rgb(0 0 0);
-    color: var(--color-button-primary-default);
+    background-color: var(--footer-color-cta-bg);
+    color: var(--footer-color-cta-border);
     font-family: var(--font-primary);
     padding: 8px 20px;
-    border: 2.5px solid var(--color-button-primary-default);
+    border: 2.5px solid var(--footer-color-cta-border);
     border-radius: 50px;
     min-width: 358px;
     max-width: 400px;
@@ -109,9 +130,9 @@
 }
 
 .footer__cta-button:hover {
-    color: var(--color-button-primary-hover);
-    box-shadow: 0 0 10px var(--color-button-primary-hover);
-    border-color: var(--color-button-primary-hover);
+    color: var(--footer-color-cta-hover);
+    box-shadow: 0 0 10px var(--footer-color-cta-hover);
+    border-color: var(--footer-color-cta-hover);
 }
 
 .footer__cta-button svg {
@@ -158,14 +179,14 @@
 }
 
 .footer__divider {
-    color: #f5f5f5;
+    color: var(--footer-color-divider);
     display: block;
     width: 100%;
 }
 
 .footer__copy {
-    font-family: 'Poppins';
-    color: #f2f2f2;
+    font-family: var(--footer-color-copy-font);
+    color: var(--footer-color-copy);
     font-size: 11px;
     line-height: 19.4px;
     display: flex;
@@ -212,15 +233,15 @@
     }
 
     .footer__description-goals p {
-        font-size: var(--font-size-fluid-md);
-        line-height: var(--line-height-fluid-md);
+        font-size: var(--footer-font-size-goals-md);
+        line-height: var(--footer-line-height-goals-md);
         margin-bottom: 24px;
     }
 
     .footer__cta-button {
         padding: 12px 24px;
-        font-size: var(--font-size-fluid-md);
-        line-height: var(--line-height-fluid-md);
+        font-size: var(--footer-font-size-goals-md);
+        line-height: var(--footer-line-height-goals-md);
     }
 
     .footer__social-media {
@@ -237,6 +258,7 @@
         flex-direction: row;
         max-width: none;
     }
+
     .footer__description-purpose {
         width: 55%;
     }
@@ -267,14 +289,14 @@
     }
 
     .footer__description-goals p {
-        font-size: var(--font-size-fluid-lg);
-        line-height: var(--line-height-fluid-lg);
+        font-size: var(--footer-font-size-goals-lg);
+        line-height: var(--footer-line-height-goals-lg);
         margin-bottom: 28px;
     }
 
     .footer__cta-button {
-        font-size: var(--font-size-fluid-lg);
-        line-height: var(--line-height-fluid-lg);
+        font-size: var(--footer-font-size-goals-lg);
+        line-height: var(--footer-line-height-goals-lg);
         padding: 16px 32px;
     }
 
