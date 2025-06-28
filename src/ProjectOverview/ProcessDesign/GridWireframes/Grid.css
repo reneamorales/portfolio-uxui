@@ -1,10 +1,25 @@
 :root {
-  /* Gap para el grid */
-  --gap-grid-sm: clamp(16px, 2vw, 24px);
-  --gap-grid-md: clamp(24px, 2.5vw, 32px);
-  --gap-grid-lg: clamp(32px, 3vw, 48px);
+  /* Gaps para el grid de ProcessDesign */
+  --gap-sm-processdesign-grid: clamp(16px, 2vw, 24px);
+  --gap-md-processdesign-grid: clamp(24px, 2.5vw, 32px);
+  --gap-lg-processdesign-grid: clamp(32px, 3vw, 48px);
 
-  --margin-bottom-subtitle: clamp(4px, 1vh, 12px);
+  /* Margen inferior para subtítulos de ProcessDesign */
+  --margin-bottom-subtitle-processdesign-grid: clamp(4px, 1vh, 12px);
+
+  /* Máximo ancho del wrapper de ProcessDesign */
+  --max-width-wrapper-processdesign-grid: var(--container-max-width-about-wrapper);
+
+  /* Máximo ancho del contenido de ProcessDesign */
+  --max-width-content-processdesign-grid: var(--container-max-width-about-content);
+
+  /* Padding para los items de ProcessDesign */
+  --padding-block-item-processdesign-grid: var(--padding-block-about-item);
+  --padding-inline-item-processdesign-grid: var(--padding-inline-about-item);
+
+  /* Color de fondo para el grid de ProcessDesign */
+  --background-color-processdesign-grid: #f3f5f5;
+
 }
 
 /*Reset*/
@@ -25,17 +40,18 @@ html {
 .grid-container {
   width: 100vw;
   /*background-color: bisque;*/
-  max-width: var(--container-max-width-about-wrapper);
+  max-width: var(--max-width-wrapper-processdesign-grid);
   margin: 0 auto;
   /* Centra el contenedor */
   display: flex;
   align-items: center;
   justify-content: center;
 }
+
 .design__process-title {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1);
+  transition: opacity 0.6s cubic-bezier(.4, 0, .2, 1), transform 0.6s cubic-bezier(.4, 0, .2, 1);
 }
 
 .design__process-title.active {
@@ -48,18 +64,18 @@ strong {
 }
 
 .grid-item {
-  max-width: var(--container-max-width-about-content);
-  padding: var(--padding-block-about-item) 0;
+  max-width: var(--max-width-content-processdesign-grid);
+  padding: var(--padding-block-item-processdesign-grid) 0;
 }
 
 /* Estilo para el grid */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: var(--gap-grid-sm);
-  padding: var(--padding-block-about-item) var(--padding-inline-about-item);
+  gap: var(--gap-sm-processdesign-grid);
+  padding: var(--padding-block-item-processdesign-grid) var(--padding-inline-item-processdesign-grid);
   /*inicialmente tenía 46px 16px;*/
-  background-color: #f3f5f5;
+  background-color: var(--background-color-processdesign-grid);
   border-radius: 16px;
   background-size: cover;
   margin: 0 auto;
@@ -98,13 +114,13 @@ img {
 
 @media (min-width: 769px) {
   .grid-item {
-    padding-inline: var(--padding-inline-about-item);
+    padding-inline: var(--padding-inline-item-processdesign-grid);
   }
 
   .grid {
     grid-template-columns: repeat(2, 1fr);
     /*padding: 64px 32px;*/
-    gap: var(--gap-grid-md);
+    gap: var(--gap-md-processdesign-grid);
   }
 
 }
@@ -112,7 +128,7 @@ img {
 @media (min-width: 1024px) {
   .grid {
     /*padding: 72px 64px;*/
-    gap: var(--gap-grid-lg);
+    gap: var(--gap-lg-processdesign-grid);
   }
 
 }
