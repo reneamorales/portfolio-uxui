@@ -25,19 +25,22 @@ html {
 .grid-container {
   width: 100vw;
   /*background-color: bisque;*/
-  max-width: clamp(736px, 100%, 2000px);
+  max-width: var(--container-max-width-about-wrapper);
   margin: 0 auto;
   /* Centra el contenedor */
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.design__process-title {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(.4,0,.2,1), transform 0.6s cubic-bezier(.4,0,.2,1);
+}
 
-.design__process.active {
+.design__process-title.active {
   opacity: 1;
-  /* Se vuelve visible */
   transform: translateY(0);
-  /* Vuelve a su posición original */
 }
 
 strong {
@@ -45,8 +48,8 @@ strong {
 }
 
 .grid-item {
-  max-width: clamp(576px, 70vw, 1100px);
-  padding: var(--padding-item-block) 0;
+  max-width: var(--container-max-width-about-content);
+  padding: var(--padding-block-about-item) 0;
 }
 
 /* Estilo para el grid */
@@ -54,7 +57,7 @@ strong {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: var(--gap-grid-sm);
-  padding: var(--padding-grid-block) var(--padding-grid-inline);
+  padding: var(--padding-block-about-item) var(--padding-inline-about-item);
   /*inicialmente tenía 46px 16px;*/
   background-color: #f3f5f5;
   border-radius: 16px;
@@ -95,7 +98,7 @@ img {
 
 @media (min-width: 769px) {
   .grid-item {
-    padding-inline: var(--padding-item-inline);
+    padding-inline: var(--padding-inline-about-item);
   }
 
   .grid {
