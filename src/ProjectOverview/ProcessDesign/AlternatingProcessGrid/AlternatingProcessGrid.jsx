@@ -4,13 +4,14 @@ import PropTypes from "prop-types";
 import "./alternating-process-grid.css";
 import VideoPreview from "../../../components/VideoPreview/VideoPreview";
 import ImageSliderAuto from "./ImageSliderAuto.jsx";
+import { AnimatedSectionTitle } from "../../../components/AnimatedSectionTitle/AnimatedSectionTitle";
 
 export const AlternatingProcessGrid = memo(({ content }) => {
   if (!content) return null;
 
   return (
     <div className="second__grid-container">
-      <p className="design__process-title">{content?.title}</p>
+      <AnimatedSectionTitle className="section__subtitle">{content?.title}</AnimatedSectionTitle>
       <Suspense fallback={<div>Loading...</div>}>
         {content?.item?.map((item, indexItem) => (
           <div
