@@ -1,35 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./Grid.css";
 import { Item } from "./Item";
 import VideoPreview from "../../../components/VideoPreview/VideoPreview";
+import { AnimatedSectionTitle } from "../../../components/AnimatedSectionTitle/AnimatedSectionTitle";
 
 export const Grid = ({ content }) => {
   const isVideoOnly =
     content.item?.length === 1 && content.item[0].type === "video";
-
-  useEffect(() => {
-    const titles = document.querySelectorAll(".design__process-title");
-
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) =>
-          entry.target.classList.toggle("active", entry.isIntersecting)
-        );
-      },
-      {
-        root: null,
-        rootMargin: "0px",
-        threshold: [0, 0.5, 1],
-      }
-    );
-
-    titles.forEach((title) => observer.observe(title));
-
-    return () => {
-      titles.forEach((title) => observer.unobserve(title));
-      observer.disconnect();
-    };
-  }, []);
 
   const renderContentItem = (item, index) => {
     if (item.type === "video") {
@@ -57,19 +34,25 @@ export const Grid = ({ content }) => {
   return (
     <div className="grid-container">
       <div className="grid-item">
-        <h2 className="design__process-title">{content.title}</h2>
+        <AnimatedSectionTitle className="section__subtitle">
+          {content.title}
+        </AnimatedSectionTitle>
 
-        { content.descriptionTop && <div className="design__process-description">
-          {content.descriptionTop}
-        </div>}
+        {content.descriptionTop && (
+          <div className="design__process-description">
+            {content.descriptionTop}
+          </div>
+        )}
 
         <div className={`grid ${isVideoOnly ? "full-width-video" : ""}`}>
           {content.item?.map((item, index) => renderContentItem(item, index))}
         </div>
 
-        { content.descriptionBottom && <div className="design__process-description">
-          {content.descriptionBottom}
-        </div>}
+        {content.descriptionBottom && (
+          <div className="design__process-description">
+            {content.descriptionBottom}
+          </div>
+        )}
       </div>
     </div>
   );

@@ -4,9 +4,6 @@
   --gap-md-processdesign-grid: clamp(24px, 2.5vw, 32px);
   --gap-lg-processdesign-grid: clamp(32px, 3vw, 48px);
 
-  /* Margen inferior para subtítulos de ProcessDesign */
-  --margin-bottom-subtitle-processdesign-grid: clamp(4px, 1vh, 12px);
-
   /* Máximo ancho del wrapper de ProcessDesign */
   --max-width-wrapper-processdesign-grid: var(--container-max-width-about-wrapper);
 
@@ -46,17 +43,6 @@ html {
   display: flex;
   align-items: center;
   justify-content: center;
-}
-
-.design__process-title {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.6s cubic-bezier(.4, 0, .2, 1), transform 0.6s cubic-bezier(.4, 0, .2, 1);
-}
-
-.design__process-title.active {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 strong {
