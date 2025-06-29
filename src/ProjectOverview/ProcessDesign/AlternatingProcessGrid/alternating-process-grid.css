@@ -1,8 +1,9 @@
 .second__grid-container {
     width: 100%;
-    max-width: clamp(576px, 70vw, 1100px);
+    max-width: var(--max-width-content-processdesign-grid);
     margin: 0 auto;
-    padding: var(--padding-grid-block) 0;
+    padding: var(--padding-block-item-processdesign-grid) 0;
+
 }
 
 .second__grid-inner {
@@ -10,7 +11,7 @@
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    padding: var(--padding-item-block) var(--padding-item-inline);
+    padding: var(--padding-block-item-processdesign-grid) var(--padding-inline-item-processdesign-grid);
     margin: 0 auto;
     flex-wrap: nowrap;
     /* Se apilan verticalmente, así que no se necesita wrap */
@@ -43,7 +44,7 @@ img {
 
 @media (min-width: 769px) {
     .second__grid-container {
-        padding-inline: var(--padding-item-inline);
+        padding-inline: var(--padding-inline-item-processdesign-grid);
     }
 
     .second__grid-inner {
