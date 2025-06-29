@@ -3,6 +3,7 @@ import "./core-sections.css";
 import gsap from 'gsap';
 import SitemapSection  from "./SiteMapSection";
 import NormalImage from "./NormalImage";
+import { AnimatedSectionTitle } from "../../components/AnimatedSectionTitle/AnimatedSectionTitle";
 
 export const CoreSections = ({
   className,
@@ -109,9 +110,7 @@ export const CoreSections = ({
         <div className="section__text-content">
           {title && <h2 className="section__title">{title}</h2>}
           {subtitle && (
-            <h3 className="design__process-title section__subtitle">
-              {subtitle}
-            </h3>
+            <AnimatedSectionTitle className="section__subtitle">{subtitle}</AnimatedSectionTitle>
           )}
           {description && (
             <p className="section__description">{description}</p>
