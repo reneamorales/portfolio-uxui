@@ -1,0 +1,45 @@
+:root {
+    /* Font sizes */
+    --font-size-description-sm-design-process: 14px;
+    --font-size-description-md-design-process: 16px;
+    --font-size-description-lg-design-process: 18px;
+
+    /* Line heights */
+    --line-height-description-sm-design-process: 22.7px;
+    --line-height-description-md-design-process: 25.888px;
+    --line-height-description-lg-design-process: 32.36px;
+
+    /* Padding vertical */
+    --padding-block-description-sm-design-process: 12px;
+    --padding-block-description-md-design-process: 14px;
+    --padding-block-description-lg-design-process: 16px;
+
+    /* Padding horizontal con clamp para alineación con títulos */
+    --padding-inline-description-design-process: clamp(16px, 2vw, 32px);
+
+    /*--padding-inline-description-md-design-process: clamp(14px, 1.5vw, 20px);
+      --padding-inline-description-lg-design-process: clamp(16px, 1.5vw, 22px);*/
+}
+
+.design-process-description--md {
+    font-size: var(--font-size-description-sm-design-process);
+    line-height: var(--line-height-description-sm-design-process);
+    padding-block: var(--padding-block-description-sm-design-process);
+    padding-inline: var(--padding-inline-description-design-process);
+}
+
+@media (min-width: 768px) {
+    .design-process-description--md {
+        font-size: var(--font-size-description-md-design-process);
+        line-height: var(--line-height-description-md-design-process);
+        padding-block: var(--padding-block-description-md-design-process);
+    }
+}
+
+@media (min-width: 1024px) {
+    .design-process-description--md {
+        font-size: var(--font-size-description-lg-design-process);
+        line-height: var(--line-height-description-lg-design-process);
+        padding-block: var(--padding-block-description-lg-design-process);
+    }
+}
