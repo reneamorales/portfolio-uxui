@@ -2,15 +2,18 @@ import React from "react";
 import "./ColorPalette.css";
 import PropTypes from "prop-types";
 import { ItemContent, ItemParagraph } from "./ItemContent";
+
 import { Color } from "./Color";
+import { AnimatedSectionTitle } from "../../../components/AnimatedSectionTitle/AnimatedSectionTitle";
+import DesignProcessDescription from "../../DesignProcessDescription/DesignProcessDescription";
 
 export const ColorPalette = () => {
   return (
     <div className="design__process-container">
-      <p className="design__process-title">{ItemParagraph.title}</p>
-      <div className="design__process-description">
-        {ItemParagraph.description}
-      </div>
+      <AnimatedSectionTitle className="section__subtitle">
+        {ItemParagraph.title}
+      </AnimatedSectionTitle>
+      <DesignProcessDescription />
       <div className="color__palette-inner">
         {ItemContent.map((item, index) => (
           <div key={index} className="color__palette-item-group">
