@@ -81,7 +81,7 @@ export const initialSection = {
   process: {
     title: "Proceso de Diseño",
     subtitle: "Investigación de Usuarios",
-    description: (
+    descriptionMd: (
       <>
         <p>
           Para el desarrollo de la nueva web, las encuestas cualitativas
@@ -149,7 +149,7 @@ export const designSolutionsContent = {
   title: "Soluciones de Diseño",
   subtitle: "Flujo de Usuario",
   imageSrc: userflowImageDefault,
-  description: (
+  descriptionMd: (
       <>
           <p>
               Este flujo representa la navegación web enfocada en la acción principal del usuario: la adquisición de un curso. A través de este flujo, se ilustran las opciones disponibles en cada paso, desde la exploración y selección del curso hasta la confirmación de la compra. Cada decisión lleva al usuario a distintas secciones clave, optimizando la experiencia de navegación y facilitando el acceso a la información y al proceso de pago.
