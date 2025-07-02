@@ -3,7 +3,7 @@ import "./Grid.css";
 import { Item } from "./Item";
 import VideoPreview from "../../../components/VideoPreview/VideoPreview";
 import { AnimatedSectionTitle } from "../../../components/AnimatedSectionTitle/AnimatedSectionTitle";
-
+import DesignProcessDescription from "../../DesignProcessDescription/DesignProcessDescription";
 export const Grid = ({ content }) => {
   const isVideoOnly =
     content.item?.length === 1 && content.item[0].type === "video";
@@ -39,9 +39,9 @@ export const Grid = ({ content }) => {
         </AnimatedSectionTitle>
 
         {content.descriptionTop && (
-          <div className="design__process-description">
+          <DesignProcessDescription>
             {content.descriptionTop}
-          </div>
+          </DesignProcessDescription>
         )}
 
         <div className={`grid ${isVideoOnly ? "full-width-video" : ""}`}>
@@ -49,9 +49,9 @@ export const Grid = ({ content }) => {
         </div>
 
         {content.descriptionBottom && (
-          <div className="design__process-description">
+          <DesignProcessDescription>
             {content.descriptionBottom}
-          </div>
+          </DesignProcessDescription>
         )}
       </div>
     </div>
