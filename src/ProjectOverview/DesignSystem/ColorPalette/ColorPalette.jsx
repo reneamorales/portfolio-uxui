@@ -13,7 +13,9 @@ export const ColorPalette = () => {
       <AnimatedSectionTitle className="section__subtitle">
         {ItemParagraph.title}
       </AnimatedSectionTitle>
-      <DesignProcessDescription />
+      <DesignProcessDescription>
+        {ItemParagraph.descriptionMd}
+      </DesignProcessDescription>
       <div className="color__palette-inner">
         {ItemContent.map((item, index) => (
           <div key={index} className="color__palette-item-group">
