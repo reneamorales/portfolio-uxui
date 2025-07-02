@@ -117,7 +117,7 @@ html {
     padding: var(--padding-txt);
 }
 
-.section__description strong {
+.design-process-description--md strong {
     font-weight: bold;
     color: var(--color-txt-subtitle-list);
 }
