@@ -1,27 +1,27 @@
 import React, { useState, useRef, useEffect } from "react";
 import "./core-sections.css";
-import gsap from 'gsap';
-import SitemapSection  from "./SiteMapSection";
+import gsap from "gsap";
+import SitemapSection from "./SiteMapSection";
 import NormalImage from "./NormalImage";
 import { AnimatedSectionTitle } from "../../components/AnimatedSectionTitle/AnimatedSectionTitle";
-
+import DesignProcessDescription from "../DesignProcessDescription/DesignProcessDescription";
 export const CoreSections = ({
   className,
   title,
   subtitle,
   description,
+  descriptionMd,
   isSitemap,
-  imageSrc
+  imageSrc,
 }) => {
-
   useEffect(() => {
     const sections = document.querySelectorAll(".section__content");
     if (!sections.length) return; // Guard clause
 
     const observerOptions = {
       root: null,
-      rootMargin: '-50% 0px -50% 0px',
-      threshold: 0
+      rootMargin: "-50% 0px -50% 0px",
+      threshold: 0,
     };
 
     // Initialize sections with opacity 0
@@ -36,16 +36,16 @@ export const CoreSections = ({
       gsap.to(element, {
         opacity: 1,
         duration: 1,
-        ease: "power2.out"
+        ease: "power2.out",
       });
 
       // Animate text
       const titleElement = element.querySelector(".section__title");
       if (titleElement) {
         const words = titleElement.textContent.split(" ");
-        titleElement.innerHTML = '';
+        titleElement.innerHTML = "";
 
-        words.forEach(word => {
+        words.forEach((word) => {
           if (!word.trim()) return;
           const span = document.createElement("span");
           span.textContent = word + " ";
@@ -66,11 +66,12 @@ export const CoreSections = ({
 
       const paragraphs = element.querySelectorAll(".section__description");
       if (paragraphs.length) {
-        gsap.fromTo(paragraphs, 
+        gsap.fromTo(
+          paragraphs,
           {
             opacity: 0,
             y: 30,
-            scale: 0.95
+            scale: 0.95,
           },
           {
             duration: 1.2,
@@ -80,7 +81,7 @@ export const CoreSections = ({
             stagger: 0.15,
             ease: "back.out(1.2)",
             delay: 0.5,
-            overwrite: "auto"
+            overwrite: "auto",
           }
         );
       }
@@ -89,20 +90,17 @@ export const CoreSections = ({
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
           animateSection(entry.target, observer);
         }
       });
     }, observerOptions);
 
-    sections.forEach(section => observer.observe(section));
+    sections.forEach((section) => observer.observe(section));
 
     return () => observer.disconnect();
-}, []);
-
-
-
+  }, []);
 
   return (
     <section className={`section ${className || ""}`}>
@@ -110,23 +108,25 @@ export const CoreSections = ({
         <div className="section__text-content">
           {title && <h2 className="section__title">{title}</h2>}
           {subtitle && (
-            <AnimatedSectionTitle className="section__subtitle">{subtitle}</AnimatedSectionTitle>
+            <AnimatedSectionTitle className="section__subtitle">
+              {subtitle}
+            </AnimatedSectionTitle>
           )}
-          {description && (
-            <p className="section__description">{description}</p>
+          {description && <p className="section__description">{description}</p>}
+          {descriptionMd && (
+            <DesignProcessDescription>{descriptionMd}</DesignProcessDescription>
           )}
         </div>
-  
-       {/* Renderiza según el tipo de imagen */}
-       {isSitemap ? (
-  <SitemapSection imageSrc={imageSrc} title={title} />
-) : 
-  imageSrc && <NormalImage imageSrc={imageSrc} title={title} />
-}
 
+        {/* Renderiza según el tipo de imagen */}
+        {isSitemap ? (
+          <SitemapSection imageSrc={imageSrc} title={title} />
+        ) : (
+          imageSrc && <NormalImage imageSrc={imageSrc} title={title} />
+        )}
       </div>
     </section>
   );
-}
+};
 
 export default CoreSections;
