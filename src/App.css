@@ -12,12 +12,27 @@
 
 /* Variables Globales */
 :root {
-  /* Colors */
-  --color-primary: #09092D;
-  --color-secondary: #08080e;
-  --color-light: #d1d1d1;
-  --bg-color-primary: #f1f1f1;
-  --scrollbar-width: clamp(8px, 0.75vw, 10px);
+  /* 🎨 Tokens base: definición de la paleta general */
+  --color-base-dark: #09092D;
+  --color-base-medium: #4e4e52;
+  --color-base-light: #d1d1d1;
+
+  /* 🧩 Tokens semánticos: definidos según el rol que cumplen */
+  --color-heading: var(--color-base-dark);
+  --color-body: var(--color-base-medium);
+  --color-light: var(--color-base-light);
+
+  --color-scroll-thumb: var(--color-base-dark);
+  --color-scroll-track: var(--color-base-light);
+
+  /* Tokens base claros por página */
+  --bg-home-light: #ffffff;
+  --bg-about-light: #f1f1f1;
+
+  /* Token semántico general */
+  --bg-page: var(--bg-home-light);
+
+  --scrollbar-width: clamp(10px, 0.75vw, 12px);
 
   --bg-test-inner: #cfdcff;
 
