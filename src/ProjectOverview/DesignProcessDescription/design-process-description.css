@@ -25,6 +25,7 @@
     font-family: var(--font-secondary);
     font-size: var(--font-size-description-sm-design-process);
     line-height: var(--line-height-description-sm-design-process);
+    color: var(--color-body);
     padding-block: var(--padding-block-description-sm-design-process);
     padding-inline: var(--padding-inline-description-design-process);
 }
