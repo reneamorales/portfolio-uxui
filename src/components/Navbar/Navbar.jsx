@@ -94,6 +94,9 @@ export const Navbar = () => {
         name="menu-button"
         className="oculto menu-button"
         type="button"
+        aria-label="Abrir menú de navegación"
+        aria-expanded={isMenuOpen}
+        aria-controls="nav"
         onClick={toggleMenu}
       >
         <Menu />
