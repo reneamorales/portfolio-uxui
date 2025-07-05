@@ -6,13 +6,14 @@ import "./Navbar.css";
 export const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [navbarState, setNavbarState] = useState("top"); // "top", "hidden", "scrolled-up"
-  const [lastScroll, setLastScroll] = useState(0);
+
 
   // Alternar estado del menú
-  const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
-  const closeMenu = () => setIsMenuOpen(false);
+  const toggleMenu = useCallback(() => setIsMenuOpen((prev) => !prev), []);
+  const closeMenu = useCallback(() => setIsMenuOpen(false), []);
 
   useEffect(() => {
+    let lastScrollY = window.scrollY;
     let ticking = false;
     const handleScroll = () => {
       if (!ticking) {
@@ -22,56 +23,70 @@ export const Navbar = () => {
 
           if (currentScroll === 0) {
             setNavbarState("top");
-          } else if (
-            currentScroll > vh &&
-            currentScroll > lastScroll
-          ) {
-            // Bajando y pasó 100vh
+          } else if (currentScroll > vh && currentScroll > lastScrollY) {
             setNavbarState("hidden");
-          } else if (
-            currentScroll > vh &&
-            currentScroll < lastScroll
-          ) {
-            // Subiendo y está después de 100vh
+          } else if (currentScroll > vh && currentScroll < lastScrollY) {
             setNavbarState("scrolled-up");
           } else if (currentScroll <= vh) {
-            // Dentro del primer 100vh
             setNavbarState("top");
           }
-          setLastScroll(currentScroll);
+          lastScrollY = currentScroll;
           ticking = false;
         });
         ticking = true;
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
-  }, [lastScroll]);
+  }, []);
 
   // Cierra el menú móvil si el ancho es mayor a 768px
   useEffect(() => {
     const handleResize = () => {
-      if (window.innerWidth >= 768 && isMenuOpen) {
+      if (window.innerWidth >= 768) {
         setIsMenuOpen(false);
       }
     };
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);
-  }, [isMenuOpen]);
+  }, []);
+
+  // Composición de clases más limpia
+  const headerClass = [
+    "navbar",
+    navbarState === "top" && "navbar--top",
+    navbarState === "scrolled-up" && "scrolled-up",
+    navbarState === "hidden" && "navbar--hidden"
+  ]
+    .filter(Boolean)
+    .join(" ");
+
+  // React Router hooks para navegación y ubicación
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  // Handler para el brand
+  const handleBrandClick = useCallback(() => {
+    if (location.pathname === "/" || location.pathname === "") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    } else {
+      navigate("/");
+    }
+  }, [location, navigate]);
 
   return (
-    <header
-      className={`navbar
-        ${navbarState === "top" ? "navbar--top" : ""}
-        ${navbarState === "scrolled-up" ? "scrolled-up" : ""}
-        ${navbarState === "hidden" ? "navbar--hidden" : ""}
-      `}
-    >
+    <header className={headerClass}>
       <div className="logo">
-        <a href="#">rene.ux</a>
+        <button
+          type="button"
+          className="brand-btn"
+          aria-label="Ir a la página principal"
+          onClick={handleBrandClick}
+        >
+          rene.ux
+        </button>
       </div>
-      <nav className={`nav ${isMenuOpen ? "active" : ""}`}>
+      <nav className={`nav${isMenuOpen ? " active" : ""}`}>
         <NavLinks isActive={isMenuOpen} closeMenu={closeMenu} />
       </nav>
       <button
