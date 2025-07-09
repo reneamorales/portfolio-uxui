@@ -1,0 +1,78 @@
+:root {
+
+}
+
+
+.card--image-only {
+    object-fit: contain;
+    cursor: pointer;
+    transition: transform .3s ease-in-out;
+    box-shadow: 2px 8px 0 rgba(0 0 0 0.04);
+}
+
+.card--image-only:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 24px 0 rgba(16, 24, 16, 0.15);
+}
+
+.image-light {
+    position: fixed;
+    background: var(--mgw-lightbox-bg);
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transform: translate(100%);
+    transition: transform .3s ease-in-out;
+    z-index: 999;
+    box-shadow: var(--mgw-shadow);
+}
+
+.show {
+    transform: translate(0);
+}
+
+.add-imagen {
+    object-fit: cover;
+    width: 100%;
+    /*border-radius: 16px;*/
+    transform: scale(0);
+    transition: transform .3s .2s ease-in-out;
+}
+
+.showImage {
+    transform: scale(1);
+}
+
+.close {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 24px;
+    right: 140px;
+    width: 54px;
+    color: var(--mgw-lightbox-icon);
+    cursor: pointer;
+    z-index: 1001;
+    background: var(--mgw-lightbox-icon-bg);
+    border-radius: 50%;
+    padding: 4px;
+
+    transition: all 0.2s, color 0.2s;
+}
+
+.close:hover {
+    background: var(--mgw-lightbox-icon-hover-bg);
+    color: var(--mgw-lightbox-icon-hover);
+}
+
+@media (min-width: 1124px) {
+    .add-imagen {
+        width: 60%;
+
+    }
+}
