@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Item } from "../GridWireframes/Item"; 
-import Lightbox from "";
+import Lightbox from "./Lightbox/Lightbox";
 
 import { AnimatedSectionTitle } from "../../../components/AnimatedSectionTitle/AnimatedSectionTitle";
 
