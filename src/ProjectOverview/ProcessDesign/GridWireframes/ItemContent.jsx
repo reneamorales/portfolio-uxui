@@ -25,37 +25,43 @@ export const wireframes = {
   title: "Wireframes",
   item: [
     {
-      imageSrc: lofiPrototype1, // Cambiado de 'image' a 'imageSrc'
+      type: "img", // ¡Añadido!
+      imageSrc: lofiPrototype1,
       subtitle: "Presentación de Miembros del Equipo (Desktop y Mobile)",
       description:
         "En la pantalla de presentación del equipo, los miembros se muestran en una cuadrícula de 3x2 en la versión de escritorio, permitiendo una visualización simultánea de varios perfiles. En la versión móvil, la cuadrícula se adapta a un formato 2x3, optimizando el espacio en pantallas pequeñas sin perder claridad.",
     },
     {
-      imageSrc: lofiPrototype2, // Cambiado de 'image' a 'imageSrc'
+      type: "img", // ¡Añadido!
+      imageSrc: lofiPrototype2,
       subtitle: "Pantalla de sección Nosotros - Versión Móvil:",
       description:
         "La sección Nosotros comienza con un hero visual destacado, seguido por una introducción de Cranbelo y una presentación del equipo.",
     },
     {
-      imageSrc: lofiPrototype3, // Cambiado de 'image' a 'imageSrc'
+      type: "img", // ¡Añadido!
+      imageSrc: lofiPrototype3,
       subtitle: "Formulario de Contacto: (Desktop y Mobile)",
       description:
         "La pantalla de contacto está organizada en secciones claras: en escritorio, los campos se disponen en dos columnas para facilitar la navegación, mientras que en móvil se alinean en una sola columna para una experiencia fluida.",
     },
     {
-      imageSrc: lofiPrototype4, // Cambiado de 'image' a 'imageSrc'
+      type: "img", // ¡Añadido!
+      imageSrc: lofiPrototype4,
       subtitle: "Vista Detallada del Curso y Lista de Módulos (Mobile)",
       description:
         "Incluye imagen destacada, descripción y botón de acción. La lista de módulos en cuadrícula facilita una navegación rápida.La lista de módulos en cuadrícula de 3x3 para escritorio y en 2x2 para móvil",
     },
     {
-      imageSrc: lofiPrototype5, // Cambiado de 'image' a 'imageSrc'
+      type: "img", // ¡Añadido!
+      imageSrc: lofiPrototype5,
       subtitle: "Footer: Adaptada para escritorio y móvil",
       description:
         "El footer está pensado para incluir enlaces, información de contacto y redes sociales; en móvil se organiza en una sola columna para facilitar la navegación, mientras que en escritorio se muestra en formato horizontal para una mejor distribución en pantallas amplias.",
     },
     {
-      imageSrc: lofiPrototype6, // Cambiado de 'image' a 'imageSrc'
+      type: "img", // ¡Añadido!
+      imageSrc: lofiPrototype6,
       subtitle: "Carrusel de Testimonios (Desktop y Mobile)",
       description:
         "En escritorio, se muestran tres testimonios en una fila. En móvil, se presenta uno a la vez con navegación horizontal para facilitar la lectura.",
@@ -93,10 +99,7 @@ export const assetsUi = {
       </p>
     </>
   ),
-  item: [
-    { type: "video", videoSrc: "/resources/video/video-loop.mp4" },
-    
-  ],
+  item: [{ type: "video", videoSrc: "/resources/video/video-loop.mp4" }],
 };
 
 export const keyDisplay = {
