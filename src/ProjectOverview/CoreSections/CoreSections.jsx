@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 import "./core-sections.css";
 import gsap from "gsap";
 import SitemapSection from "./SiteMapSection";
@@ -14,9 +14,13 @@ export const CoreSections = ({
   isSitemap,
   imageSrc,
 }) => {
+
   useEffect(() => {
+    // Asegúrate de que gsap esté disponible y que el código solo se ejecute en el cliente
+    if (typeof window === "undefined" || !gsap) return;
+
     const sections = document.querySelectorAll(".section__content");
-    if (!sections.length) return; // Guard clause
+    if (!sections.length) return;
 
     const observerOptions = {
       root: null,
@@ -24,27 +28,21 @@ export const CoreSections = ({
       threshold: 0,
     };
 
-    // Initialize sections with opacity 0
     gsap.set(sections, { opacity: 0 });
 
     const animateSection = (element, observer) => {
       if (!element || element.classList.contains("animated")) return;
-
-      element.classList.add("animated"); // Marcar la sección como animada
-
-      // Animate section content
+      element.classList.add("animated");
       gsap.to(element, {
         opacity: 1,
         duration: 1,
         ease: "power2.out",
       });
 
-      // Animate text
       const titleElement = element.querySelector(".section__title");
       if (titleElement) {
         const words = titleElement.textContent.split(" ");
         titleElement.innerHTML = "";
-
         words.forEach((word) => {
           if (!word.trim()) return;
           const span = document.createElement("span");
@@ -52,7 +50,6 @@ export const CoreSections = ({
           span.style.display = "inline-block";
           titleElement.appendChild(span);
         });
-
         gsap.from(titleElement.querySelectorAll("span"), {
           duration: 1,
           opacity: 0,
@@ -85,11 +82,10 @@ export const CoreSections = ({
           }
         );
       }
-
-      observer.unobserve(element); // Dejar de observar esta sección
+      observer.unobserve(element);
     };
 
-    const observer = new IntersectionObserver((entries, observer) => {
+    const observer = new window.IntersectionObserver((entries, observer) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           animateSection(entry.target, observer);
