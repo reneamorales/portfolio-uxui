@@ -15,6 +15,7 @@
     --footer-color-divider: #9c9a9a;
     --footer-color-copy: #9c9a9a;
     --footer-color-goals: #e4e9e4;
+    --footer-color-social-link-hover: #cdcdcd;
     --footer-color-cta-bg: rgb(0 0 0);
     --footer-color-cta-border: var(--color-button-primary-default);
     --footer-color-cta-hover: var(--color-button-primary-hover);
@@ -214,11 +215,13 @@
 
 .footer__social-link {
     display: inline-block;
-    transition: transform 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
 }
 
 .footer__social-link:hover {
     transform: translateY(-15px);
+    filter: brightness(1.2);
+    color: var(--footer-color-social-link-hover);
 }
 
 .footer__contact {
