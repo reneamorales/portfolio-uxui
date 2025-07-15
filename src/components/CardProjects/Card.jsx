@@ -1,25 +1,29 @@
 import React, { forwardRef } from "react";
+import { Link } from "react-router-dom";
 import "./Card.css";
 import VideoPreview from "../VideoPreview/VideoPreview";
 
 const Card = forwardRef(
-  ({ title, description, videoSrc, projectLink, webLink, isActive }, ref) => {
+  (
+    { title, description, videoSrc, projectLink, webLink, isActive, onProjectClick },
+    ref
+  ) => {
     return (
       <article className={`project-card ${isActive ? "active" : ""}`} ref={ref}>
         <div className="project-content">
           <h3>{title}</h3>
           <p>{description}</p>
           <div className="btn-project">
-            <a href={webLink} id="see-on-the-web" className="btn project-link">
+            <a href={webLink} id="see-on-the-web" className="btn project-link" target="_blank" rel="noopener noreferrer">
               Ver en la web
             </a>
-            <a
-              href={projectLink}
+            <Link
+              to={`/projects/${typeof isActive === 'number' ? isActive : ''}`}
               id="prototype-link"
               className="btn project-link"
             >
               Ver proyecto
-            </a>
+            </Link>
           </div>
         </div>
         <VideoPreview videoSrc={videoSrc} caption="Vista previa del proyecto" />
