@@ -3,7 +3,7 @@ import Card from "../CardProjects/Card";
 import { projectData } from "./projectData";
 import "./Projects.css";
 
-export const Projects = () => {
+export const Projects = ({ onProjectClick }) => {
   const [activeIndices, setActiveIndices] = useState(new Set());
   const cardRefs = useRef([]);
 
@@ -52,7 +52,8 @@ export const Projects = () => {
               projectLink={project.projectLink}
               caption={project.caption}
               ref={(el) => (cardRefs.current[index] = el)}
-              isActive={activeIndices.has(index)}
+              isActive={index}
+              onProjectClick={onProjectClick ? () => onProjectClick(index) : undefined}
             />
           ))}
         </div>
