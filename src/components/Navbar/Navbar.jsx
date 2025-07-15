@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { NavLinks } from "./NavLinks";
 import Menu from "./Menu";
 import "./Navbar.css";
@@ -86,7 +87,7 @@ export const Navbar = () => {
           rene.ux
         </button>
       </div>
-      <nav className={`nav${isMenuOpen ? " active" : ""}`}>
+      <nav role="navigation" className={`nav${isMenuOpen ? " active" : ""}`}>
         <NavLinks isActive={isMenuOpen} closeMenu={closeMenu} />
       </nav>
       <button
