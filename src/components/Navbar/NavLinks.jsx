@@ -1,4 +1,5 @@
-import React from "react";
+import React from 'react';
+import { Link } from "react-router-dom";
 import './navbar-links.css';
 import Cta from "./Cta";
 
@@ -6,9 +7,9 @@ export const NavLinks = ({ isActive, closeMenu }) => {
   return (
     <ul className={`nav-links ${isActive ? "active" : ""}`}>
       <li>
-        <a className="link" href="#about" onClick={closeMenu}>
+        <Link className="link" to="/about" onClick={closeMenu}>
           Sobre mí
-        </a>
+        </Link>
       </li>
       <li>
         <a className="link" href="#projects" onClick={closeMenu}>
