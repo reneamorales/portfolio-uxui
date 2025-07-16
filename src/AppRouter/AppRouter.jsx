@@ -1,7 +1,6 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import Home from "../pages/Home";
 import About from "../pages/About";
-import ProjectsPage from "../pages/ProjectsPage";
 import ProjectDetail from "../pages/ProjectDetail";
 import Pagina404 from "../pages/Pagina404";
 import { Navbar } from "../components/Navbar/Navbar";
@@ -15,7 +14,6 @@ export const AppRouter = ({ children }) => {
         <Route path="/" element={<Navigate to="/home" replace />} />
         <Route path="/home" element={<Home />} />
         <Route path="/about" element={<About />} />
-        <Route path="/projects" element={<ProjectsPage />} />
         <Route path="/projects/:id" element={<ProjectDetail />} />
         <Route path="*" element={<Navigate to="/404" />} />
         <Route path="/404" element={<Pagina404 />} />
