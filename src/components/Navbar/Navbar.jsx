@@ -78,14 +78,14 @@ export const Navbar = () => {
   return (
     <header className={headerClass}>
       <div className="logo">
-        <button
-          type="button"
+        <a
+          href="/"
           className="brand-btn"
           aria-label="Ir a la página principal"
           onClick={handleBrandClick}
         >
           rene.ux
-        </button>
+        </a>
       </div>
       <nav role="navigation" className={`nav${isMenuOpen ? " active" : ""}`}>
         <NavLinks isActive={isMenuOpen} closeMenu={closeMenu} />
