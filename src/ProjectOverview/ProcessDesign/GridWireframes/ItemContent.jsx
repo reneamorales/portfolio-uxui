@@ -9,12 +9,6 @@ import lofiPrototype3 from "../../../img/cranbelo/wireframe-low-fidelity/form-co
 import lofiPrototype4 from "../../../img/cranbelo/wireframe-low-fidelity/home-hero.png";
 import lofiPrototype5 from "../../../img/cranbelo/wireframe-low-fidelity/footer.png";
 import lofiPrototype6 from "../../../img/cranbelo/wireframe-low-fidelity/testimonials.png";
-/**--- */
-
-import imageUi1 from "../../../img/design-shots-section-cards.png";
-import imageUi2 from "../../../img/design-shots-section-cards.png";
-import imageUi3 from "../../../img/design-shots-section-cards.png";
-import imageUi4 from "../../../img/design-shots-section-cards.png";
 
 import keyDisplay1 from "../../../img/cranbelo/keyScreens/screen-1.png";
 import keyDisplay2 from "../../../img/cranbelo/keyScreens/screen-2.png";
