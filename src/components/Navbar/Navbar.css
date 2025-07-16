@@ -16,8 +16,6 @@
     height: var(--navbar-height-sm);
     padding: var(--navbar-padding-sm);
 
-    color: var(--nav-link-color);
-
     /* Position */
     position: fixed;
     top: 0;
