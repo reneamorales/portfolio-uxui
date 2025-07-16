@@ -44,7 +44,8 @@ export const Projects = ({ onProjectClick }) => {
         <div className="projects-list">
           {projectData.map((project, index) => (
             <Card
-              key={index}
+              key={project.id}
+              projectId={project.id}
               title={project.title}
               description={project.description}
               videoSrc={project.videoSrc}
@@ -53,7 +54,9 @@ export const Projects = ({ onProjectClick }) => {
               caption={project.caption}
               ref={(el) => (cardRefs.current[index] = el)}
               isActive={index}
-              onProjectClick={onProjectClick ? () => onProjectClick(index) : undefined}
+              onProjectClick={
+                onProjectClick ? () => onProjectClick(index) : undefined
+              }
             />
           ))}
         </div>
