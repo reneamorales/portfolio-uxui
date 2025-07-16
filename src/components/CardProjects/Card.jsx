@@ -5,7 +5,15 @@ import VideoPreview from "../VideoPreview/VideoPreview";
 
 const Card = forwardRef(
   (
-    { title, description, videoSrc, projectLink, webLink, isActive, onProjectClick },
+    {
+      title,
+      description,
+      videoSrc,
+      projectId,
+      webLink,
+      isActive,
+      onProjectClick,
+    },
     ref
   ) => {
     return (
@@ -14,11 +22,17 @@ const Card = forwardRef(
           <h3>{title}</h3>
           <p>{description}</p>
           <div className="btn-project">
-            <a href={webLink} id="see-on-the-web" className="btn project-link" target="_blank" rel="noopener noreferrer">
+            <a
+              href={webLink}
+              id="see-on-the-web"
+              className="btn project-link"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               Ver en la web
             </a>
             <Link
-              to={`/projects/${typeof isActive === 'number' ? isActive : ''}`}
+              to={`/projects/${projectId}`}
               id="prototype-link"
               className="btn project-link"
             >
