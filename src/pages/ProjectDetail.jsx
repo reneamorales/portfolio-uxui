@@ -1,6 +1,6 @@
 import React from "react";
 import { Navigate } from "react-router-dom";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { projectData } from "../components/Projects/projectData";
 import { Cover } from "../ProjectOverview/Cover/CoverSection";
 import { CoreDetails } from "../ProjectOverview/CoreSections/CoreDetails";
@@ -30,12 +30,6 @@ const ProjectDetail = () => {
   const { id } = useParams();
 
   const projectIndex = parseInt(id, 10);
-
-  // Verificamos si el ID es un número válido y si el proyecto existe
-  const isValidIndex =
-    !isNaN(projectIndex) &&
-    projectIndex >= 0 &&
-    projectIndex < projectData.length;
 
   const selectedProject = projectData.find((p) => p.id === id);
 
