@@ -29,7 +29,7 @@ export const AlternatingProcessGrid = memo(({ content }) => {
             ) : (
               <ImageSliderAuto images={item.images} />
             )}
-            <div className="design__process-description second__grid-descriptions">
+            <div className="design-process-description--md second__grid-descriptions">
               {item.description}
             </div>
           </div>
