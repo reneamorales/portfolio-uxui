@@ -52,6 +52,7 @@ html {
 .project-details {
     width: 100vw;
     max-width: clamp(736px, 100%, 2000px);
+    margin: 0 auto;
     position: relative;
     display: flex;
     flex-direction: column;
