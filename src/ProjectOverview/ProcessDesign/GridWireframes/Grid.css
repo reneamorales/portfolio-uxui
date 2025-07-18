@@ -71,6 +71,9 @@ strong {
   grid-template-columns: 1fr;
   /* solo una columna */
 }
+.grid.full-width-video figure {
+  width: 100%;
+}
 
 img {
   view-timeline-name: --image;
