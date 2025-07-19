@@ -1,4 +1,5 @@
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
+import ScrollToTop from "../ScrollToTop/ScrollToTop";
 import Home from "../pages/Home";
 import About from "../pages/About";
 import ProjectDetail from "../pages/ProjectDetail";
@@ -9,6 +10,7 @@ import { Footer } from "../components/Footer/Footer";
 export const AppRouter = ({ children }) => {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Navbar />
       <Routes>
         <Route path="/" element={<Navigate to="/home" replace />} />
